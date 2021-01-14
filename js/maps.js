@@ -4,11 +4,14 @@ const labels = "ABC";
 let labelIndex = 0;
 let map, infoWindow;
 let pos;
+let marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
 // Create a route to that marker 
 
 function initMap() {
+ let directionsService = new google.maps.DirectionsService;
+ let directionsDisplay = new google.maps.DirectionsRenderer;
   map = new google.maps.Map(document.getElementById("map"), {
     center: Ireland,
     zoom: 7,
@@ -199,6 +202,15 @@ function initMap() {
         }
     ]    
   });
+
+  directionsDisplay.setMap(map);
+
+    let onChangeHandler = function() {
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+    };
+    document.getElementById('origin').addEventListener('change', onChangeHandler);
+    document.getElementById('destination').addEventListener('change', onChangeHandler);
+
   // Geocoding into specific location 
   const geocoder = new google.maps.Geocoder();
   document.getElementById("submit").addEventListener("click", () => {
@@ -209,6 +221,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   // Go to user Location with button
+  // Set it as the origin location
   const locationButton = document.createElement("button");
   locationButton.textContent = "Current Location";
   locationButton.classList.add("custom-map-control-button");
@@ -222,7 +235,7 @@ function initMap() {
             lng: position.coords.longitude,
           }
           infoWindow.setPosition(pos);
-          infoWindow.setContent(`<bold>This is where you are 😎</bold>`);
+          infoWindow.setContent("You're here 😎 ");
           infoWindow.open(map);
           map.setCenter(pos);
         },
@@ -249,21 +262,21 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-// Locating the address of where the user wants to go
-function geocodeDestination(geocoder, resultsMap) {
-    const address = document.getElementById("destination").value;
-    geocoder.geocode({ address: address }, (results, status) => {
-      if (status === "OK") {
-        resultsMap.setCenter(results[0].geometry.location);
-        // Providing location with Marker
-         new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location,
-        });
+// CodeFLix code:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
+// Display the route between origin and destination
+  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+    directionsService.route({
+      origin: document.getElementById('origin').value,
+      destination: document.getElementById('destination').value,
+      travelMode: 'DRIVING'
+    }, function(response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+        window.alert('Directions request failed due to ' + status);
       }
     });
   }
 
+// use Current location for origin - locationButton using conditional
 // Reset Map and preferences 

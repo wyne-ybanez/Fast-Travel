@@ -15,12 +15,21 @@ body {
   margin: 0;
 }
 
+button,
+input,
+optgroup,
+select,
+textarea {
+  margin: 1rem;
+}
+
 /* Set the size of the div element that contains the map */
 #map {
   height: 500px;
   width: 800px;
-  right: 0;
+  right: 100px;
   transform: translateX(40%);
+  bottom: 5px;
 }
 
 .custom-map-control-button {
@@ -37,12 +46,23 @@ body {
   user-select: none;
   direction: ltr;
   overflow: hidden;
+  font-size: 17px;
   text-align: center;
   height: 40px;
   vertical-align: middle;
   color: rgb(86, 86, 86);
-  font-family: Roboto, Arial, sans-serif;
-  font-size: 18px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
   min-width: 66px;
+}
+
+/* CodeFlix styling for input panels: https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0*/
+#input-panel {
+  position: absolute;
+  z-index: 5;
+  margin: 1rem;
+  text-align: center;
+  font-family: 'Ubuntu', 'sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+  left: 100px;
 }
