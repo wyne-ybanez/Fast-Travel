@@ -205,6 +205,8 @@ I have added the testing onto a separate .md file as its content has increased e
     - Used for media queries
 11. [Ami Responsive](http://ami.responsivedesign.is/#)
     - Used to test for website responsiveness and media query establishment
+12. [Snazzy Maps](https://snazzymaps.com/style/132/light-gray)
+    - Used to style the map and give it the light grey futuristic look
 
 ## Deployment
 
@@ -305,8 +307,7 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 ## Acknowledgements
 
-- One page style website, About me section design, Project Section styling and Footer design inspired by WebCifar (Shaif Arfan).
-- I received Inspiration for the social icons within the Banner section from Code Institute Student David O' Shea, his MS1 [Project](https://www.grahamsweeney.ie/)
+- I received Inspiration for the Maps section of the project from Ben Hasselgren's Holiday Planner [Project](https://benhasselgren.github.io/ifd-milestone-project-pages/#)
 - Timeline Section inspired by [Code Institute](https://codeinstitute.net/)
 - My Mentor Dick Vlaanderen for his continuous feedback
 - Tutors at Code Institute for their on-going support
