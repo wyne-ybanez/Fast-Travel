@@ -13,9 +13,19 @@
 
 (iv) The directions will automatically render the route without the user pressing the submit button, submit button is inactive:
 
-Bug Fixed via solution: 
+Bug Fixed via 
+
+- Solution: 
 
 `  document.getElementById('submit').addEventListener('click', () => {`
         `DisplayRoute(directionsService, directionsDisplay);`
     `});`
+
+(v) Bug where the API data for geocode was not displaying. 
+
+Bug Fixed: 
+
+- Solution: Went go Google Developer Console and attached the appropriate required IP address as a referral for the API key
+
+
 
