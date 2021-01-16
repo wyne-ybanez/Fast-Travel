@@ -12,11 +12,11 @@ For the purpose of the project. The options of destination will be kept local.
 
 ### Strategy 
 
-My goal for the website was to allow the users to order a self driving taxi. It will focus primarily on functionality and ease of use. The website should process the user's input and acknowledge their specifications. It will give them an estimated time of arrival and track their current location within the taxi. Providing them an immersive experience.
+My goal for the website was to allow the users to order a self driving taxi. It will focus primarily on functionality and ease of use. The website should process the user's input and acknowledge their specifications. It will give them the route the taxi will take and outline their specification options prior to the trip. Providing them an immersive experience.
 
 ### Scope 
 
-The website will allow the user to decide the starting point and the destination(s) of his journey where their route is shown on the map. It will then provide the user with more options via a form so that the customer can personally customize their experience. An automated email should be sent notifying the customer with a summary of their preferences.
+The website will allow the user to decide the starting point and the destination(s) of his journey where their route is shown on the map. It will then provide the user with more options via a form so that the customer can personally customize their experience. A summary of the user's order should be provided to them. 
 
 ### Structure 
 
@@ -186,7 +186,7 @@ I have added the testing onto a separate .md file as its content has increased e
     - This JS library was used for the animations on scroll.
 2. [HVR:](https://github.com/IanLunn/Hover/blob/master/css/hover.css)
     - This library was used for the hover effects of the navbar items.
-3. [Bootstrapv4.5.3:](https://getbootstrap.com/) 
+3. [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 
     - Bootstrap was used for the overall components documentation and responsiveness of the website.
 4. [W3Schools](https://www.w3schools.com/)
     - Documentation for Media Queries and CSS when I encountered bugs.
@@ -207,6 +207,8 @@ I have added the testing onto a separate .md file as its content has increased e
     - Used to test for website responsiveness and media query establishment
 12. [Snazzy Maps](https://snazzymaps.com/style/132/light-gray)
     - Used to style the map and give it the light grey futuristic look
+13. [Axios](https://github.com/axios/axios)
+    - To get Data and display it on page from Google's Geocode API
 
 ## Deployment
 
@@ -251,18 +253,12 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 - Transparent Navbar with scroll effect when scrolling [solution](https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll)
 - Solution for full page background Image. This is the [website](https://css-tricks.com/perfect-full-page-background-image/)
 - Solution to darken the background image from [stackoverflow](https://stackoverflow.com/questions/23208200/how-to-darken-a-background-using-css/36390220)
-- About Me second border behind the main image [border](https://github.com/WebCifar/one-page-website-html-css-project-for-practice)
-- Work History Timeline [guide](https://www.w3schools.com/howto/howto_css_timeline.asp)
-- Documentation for Bootstrap Carousel for [Testimonials](https://getbootstrap.com/docs/4.5/components/carousel/)
 - Documentation for Bootstrap [Contact Form](https://getbootstrap.com/docs/4.0/components/forms/) 
 - Adam Sky's code solution to center icons for the footer - here is his github [repo](https://github.com/Adamsky94/milestone1/blob/master/index.html)
 - Underlining the Heading with adjustable border - this is the [solution](https://www.steckinsights.com/shorten-length-border-bottom-pure-css/)
-- Debug solution for unconnected underline after icon. [Click Here to see bug](assets/tests/social-link-error.png). This link will lead you to the [solution](https://stackoverflow.com/questions/33835756/after-including-bootstrap-icons-get-weird-underline)
-- WebCifar's code used for the Projects Section [design](https://codepen.io/Web_Cifar/pen/dyXNVep)
-- Form validation debug solution (by user 'ralphm') found in this [forum](https://www.sitepoint.com/community/t/turn-form-button-into-hyperlink/16244)
-- MDBootstrap.com - Footer [guide](https://mdbootstrap.com/docs/jquery/navigation/footer/)
 - Icon Hover [Effects](https://codepen.io/nxworld/pen/ZYNOBZ?fbclid=IwAR1C0Fp-oCTJS1KfeV7TDmL_3KJNneOL146xKX0Y1Bl6UbP6X6TSF_SKV-k)
 - Website [favicon](https://favicon.io/favicon-generator/)
+- CodeFlix's solution for route between two [points](https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0)
 
 ### Git Bash Code
 

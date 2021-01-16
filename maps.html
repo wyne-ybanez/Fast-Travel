@@ -10,33 +10,58 @@
     <title>Map</title>
   </head>
   <body>
-    <h1>Maps</h1>
+    <!-- Code by Ben Hasselgren - used and modified: https://benhasselgren.github.io/ifd-milestone-project-pages/ -->
+    <section class="container-fluid map-section">
+      <h1 class="page-heading">Maps</h1>
+      <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h3 class="section-heading uppercase">Filter</h3>
+                  </div>
+              </div>
 
-    <div class="row">
-      <div class="col-xs-12 col-md-4 col-sm-4 filter-column">
-        <div class="row">
-          <div class="col-12">
-            <div id="input-panel">
-              <input id="origin" type="textbox" value="" />
-                <br>
-              <input id="destination" type="textbox" value="" />
-                <br>
-              <input id="submit" type="button" value="submit" />
-            </div>
+            <!--=========== Filter locations Section -->
+              <div class="row">
+                  <div id="findPickUp" class="col-md-12 find-header">
+                    Pick Up Location:
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">   
+                    <input class="input-panel form-control form-control-lg" id="origin" type="textbox" placeholder="Enter a pick-up address" autocomplete="off" value=""/>
+                </div>
+              </div>
+              <div class="row">
+                <div id="findDestination" class="col-md-12 find-header mt-3">
+                  Destination:
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">   
+                    <input class="input-panel form-control form-control-lg" id="destination" type="textbox" placeholder="Enter a destination" autocomplete="off" value=""/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center submit-btn mt-3">
+                    <input id="submit" type="button" value="submit" />
+                </div>
+              </div>
           </div>
-        </div>
       </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-md-8 filter-column">
-        <div id="map"></div>
-    </div>
-  </div>
-</div>
+      <!--=========== Maps Section -->
+        <div class="col-xs-12 col-md-8 filter-column">
+          <div class="row">
+            <div id="map"></div>
+          </div>
+        </div>
+
+  </section>
 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACRlDlzkN-6K9h0yiK8a9wA6pjw7IGQY&callback=initMap&libraries=&v=weekly"
       defer

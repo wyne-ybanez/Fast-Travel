@@ -1,13 +1,11 @@
 // Add marker on the map - Destinations
 // Only allowing max 3 destinations
-const labels = "ABC";
+const labels = "AB";
 let labelIndex = 0;
 let map, infoWindow;
 let pos;
-let marker;
+var marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
-
-// Create a route to that marker 
 
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
@@ -205,30 +203,24 @@ function initMap() {
 
   directionsDisplay.setMap(map);
 
-    let onChangeHandler = function() {
-        calculateAndDisplayRoute(directionsService, directionsDisplay);
-    };
-    document.getElementById('origin').addEventListener('change', onChangeHandler);
-    document.getElementById('destination').addEventListener('change', onChangeHandler);
+    // changes once submit button is clicked
+    document.getElementById('submit').addEventListener('click', () => {
+        DisplayRoute(directionsService, directionsDisplay);
+    });
 
-  // Geocoding into specific location 
-  const geocoder = new google.maps.Geocoder();
-  document.getElementById("submit").addEventListener("click", () => {
-    geocodeDestination(geocoder, map);
-  });
-
+    
   // Info Window with markers
   infoWindow = new google.maps.InfoWindow();
 
   // Go to user Location with button
   // Set it as the origin location
-  const locationButton = document.createElement("button");
-  locationButton.textContent = "Current Location";
-  locationButton.classList.add("custom-map-control-button");
+  const locationButton = document.createElement('button');
+  locationButton.textContent = 'Current Location';
+  locationButton.classList.add('custom-map-control-button');
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
-  locationButton.addEventListener("click", () => {
+  locationButton.addEventListener('click', () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+        navigator.geolocation.getCurrentPosition(
         (position) => {
           const pos = {
             lat: position.coords.latitude,
@@ -246,7 +238,7 @@ function initMap() {
     } else {
       // When Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
-      console.log("Browser does not support Geolocation")
+      console.log('Browser does not support Geolocation')
     }
   });
 }
@@ -262,21 +254,46 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
-// CodeFLix code:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
+// CodeFLix code used and editted:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
 // Display the route between origin and destination
-  function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    directionsService.route({
-      origin: document.getElementById('origin').value,
-      destination: document.getElementById('destination').value,
-      travelMode: 'DRIVING'
-    }, function(response, status) {
+function DisplayRoute(directionsService, directionsDisplay) {
+    let origin = document.getElementById('origin').value;
+    let destination = document.getElementById('destination').value;
+    let request = { 
+        origin: origin,
+        destination: destination,
+        travelMode: 'DRIVING',
+        };
+    directionsService.route(request, (response, status) => {
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
+      } else if (status === 'OK' && origin === '' || destination === '') {
+        window.alert('Missing Origin or Destination point');
       } else {
         window.alert('Directions request failed due to ' + status);
+        // window.alert('Directions request failed due to ' + status);
       }
     });
-  }
+}
 
-// use Current location for origin - locationButton using conditional
+geocodeData();
+// Get Geocode Data to display on web page using axios
+// Brad Traversy code used and eddited: https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia
+function geocodeData(){
+    let location ='91 Shandon St, Gurranabraher, Cork, T23 KD21';
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+            address: location,
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
+        }
+    })
+    .then(function(response){
+        console.log(response);
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
+// Text predictions  
+
 // Reset Map and preferences 

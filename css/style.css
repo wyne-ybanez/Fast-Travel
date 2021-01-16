@@ -15,20 +15,18 @@ body {
   margin: 0;
 }
 
-button,
-input,
-optgroup,
-select,
-textarea {
-  margin: 1rem;
+.page-heading {
+  transform: translateY(-50%);
+  justify-content: center;
+  text-align: center;
 }
 
 /* Set the size of the div element that contains the map */
 #map {
+  position: relative;
   height: 500px;
   width: 800px;
-  right: 100px;
-  transform: translateX(40%);
+  left: 350px;
   bottom: 5px;
 }
 
@@ -56,13 +54,15 @@ textarea {
 }
 
 /* CodeFlix styling for input panels: https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0*/
-#input-panel {
+/* .input-panels {
   position: absolute;
   z-index: 5;
   margin: 1rem;
   text-align: center;
   font-family: 'Ubuntu', 'sans-serif';
-  line-height: 30px;
-  padding-left: 10px;
-  left: 100px;
-}
+  width: 100%;
+  line-height: 50px;
+  font-size: 15px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+} */
