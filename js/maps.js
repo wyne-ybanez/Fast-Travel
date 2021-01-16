@@ -2,8 +2,13 @@ const labels = "AB";
 let labelIndex = 0;
 let map, infoWindow;
 let pos;
-var marker;
+let marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
+
+// Get location form and listen for a submission event
+let locationForm = document.getElementById('submit');
+locationForm.addEventListener('click', geocodeData);
+locationForm.addEventListener('click', orderDetails);
 
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
@@ -211,7 +216,6 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow();
 
   // Go to user Location with button
-  // Set it as the origin location
   const locationButton = document.createElement('button');
   locationButton.textContent = 'Current Location';
   locationButton.classList.add('custom-map-control-button');
@@ -223,31 +227,36 @@ function initMap() {
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
-          }
+          } 
+
+          // Place Marker at current position
+          let marker = new google.maps.Marker({
+            position: {lat:position.coords.latitude, lng: position.coords.longitude},
+            map: map,
+          })
+
+          // Info Window of user location
           infoWindow.setPosition(pos);
-          infoWindow.setContent("You're here 😎 ");
+          infoWindow.setContent(`You're here 😎 !`);
           infoWindow.open(map);
           map.setCenter(pos);
         },
         () => {
-          handleLocationError(true, infoWindow, map.getCenter());
-        }
-      );
+          handleLocationResponse(true, infoWindow, map.getCenter());
+        });
     } else {
       // When Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+      handleLocationResponse(false, infoWindow, map.getCenter());
       console.log('Browser does not support Geolocation')
     }
   });
 }
 
 // In case Geolocation fails for user current location
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
-    browserHasGeolocation
-      ? "Error: The Geolocation service failed."
-      : "Error: Your browser doesn't support geolocation."
+    browserHasGeolocation ? "Error: The Geolocation service failed." : "Error: Your browser doesn't support geolocation."
   );
   infoWindow.open(map);
 }
@@ -275,15 +284,19 @@ function DisplayRoute(directionsService, directionsDisplay) {
     });
 }
 
-geocodeData();
 // Get Geocode Data to display on web page using axios
 // Brad Traversy code used and eddited: https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia
-function geocodeData(){
-    let location = '8 Riverside Mews, Northmall, Co. Cork, T23 ND36';
+function geocodeData(e){
+    //prevent actual submit
+    e.preventDefault();
+
+    // Geocode for origin location
+    let originLocation = document.getElementById('origin').value
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
-            address: location,
-            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
+            address: originLocation,
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY',
+            region: 'IE'
         }
     })
     .then(function(response){
@@ -292,33 +305,56 @@ function geocodeData(){
         // Formatted Address
         let formattedAddress = response.data.results[0].formatted_address; 
         let formattedAddressOutput = `
+                <ul class="list-group">
+                    <div class="col-6">
+                        <h4>From:</h4>
+                    </div>
+                    <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
+                </ul>
+            `;
+
+        // Output to app 
+          document.getElementById('formatted-address-origins').innerHTML = formattedAddressOutput;
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+
+    // GeoCode For Destination
+    e.preventDefault();
+    let destinationLocation = document.getElementById('destination').value
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+            address: destinationLocation,
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY',
+            region: 'IE'
+        }
+    })
+    .then(function(response){
+        console.log(response);
+
+        let formattedAddress = response.data.results[0].formatted_address; 
+        let formattedAddressOutput = `
             <ul class="list-group">
+                <div class="col-6">
+                    <h4>To:</h4>
+                </div>
                 <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
             </ul>
             `;
 
-        // Address Components
-        // loop through it and add each component to the list 
-        let addressComponents = response.data.results[0].address_components;
-        let addressComponentsOutput = '<ul class="list-group">';
-            // loop and output current iteration
-        for (var i=0; i < addressComponents.length; i++){
-            addressComponentsOutput += `
-                <li class="list-group-item list list-group-item-dark">
-                    <strong>${addressComponents[i].types[0]}:</strong> ${addressComponents[i].long_name}
-                </li>
-            `
-        }
-        addressComponentsOutput += '</ul>';
-
-        // Output to app 
-          document.getElementById('formatted-address').innerHTML = formattedAddressOutput;
-          document.getElementById('address-components').innerHTML = addressComponentsOutput;
+          document.getElementById('formatted-address-destination').innerHTML = formattedAddressOutput;
     })
     .catch(function(error){
         console.log(error);
     })
 }
+
+// Get order summary to appear once submit has been pressed
+function orderDetails(){
+    document.querySelector('.order-details').style.visibility = "visible";
+}
+
 // Text predictions  
 
 // Reset Map and preferences 

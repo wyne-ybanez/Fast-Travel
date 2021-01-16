@@ -14,9 +14,17 @@ body {
   scroll-behavior: smooth;
 }
 
+h4 {
+  margin-top: 2rem;
+}
+
 .page-heading {
   justify-content: center;
   text-align: center;
+}
+
+.order-details {
+  visibility: hidden;
 }
 
 /* Set the size of the div element that contains the map */

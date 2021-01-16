@@ -12,7 +12,7 @@
   <body>
     <!-- Code by Ben Hasselgren - used and modified: https://benhasselgren.github.io/ifd-milestone-project-pages/ -->
     <section class="container-fluid map-section">
-      <h1 class="page-heading">Delivery Preferences</h1>
+      <h1 class="page-heading mb-3">Delivery Preferences</h1>
       <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
               <div class="row">
@@ -30,7 +30,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="origin" type="textbox" placeholder="Enter a pick-up address" autocomplete="off" value=""/>
+                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" value=""/>
                 </div>
               </div>
               <div class="row">
@@ -40,12 +40,12 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="destination" type="textbox" placeholder="Enter a destination" autocomplete="off" value=""/>
+                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" value=""/>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12 text-center submit-btn mt-3">
-                    <input id="submit" type="button" class="btn btn-dark" value="SUBMIT" />
+                    <button id="submit" type="button" class="btn btn-dark" value="submit">SUBMIT</button>
                 </div>
               </div>
             </form>
@@ -69,10 +69,18 @@
 
  <!-- Geocode results -->
   <section class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="page-heading mt-5 order-details">Order Details</h2>
+      </div>
+    </div>
       <div class="row">
-        <!-- <div class="col-12"> -->
-          <div id="formatted-address"></div>
-          <div id="address-components"></div>
+        <div class="col-xs-12 col-6">
+            <div id="formatted-address-origins"></div>
+        </div>
+        <div class="col-xs-12 col-6">
+          <div id="formatted-address-destination"></div>
+        </div>
       </div>
   </section>
 

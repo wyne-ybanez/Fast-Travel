@@ -13,7 +13,7 @@
 
 (iv) The directions will automatically render the route without the user pressing the submit button, submit button is inactive:
 
-Bug Fixed via 
+Bug Fixed
 
 - Solution: 
 
@@ -26,6 +26,18 @@ Bug Fixed via
 Bug Fixed: 
 
 - Solution: Went go Google Developer Console and attached the appropriate required IP address as a referral for the API key
+
+(vi) Geocode information for origin and destination after pressing submit is not appearing `Error Uncaught TypeError: Cannot read property 'addEventListener' of null at maps.js:280`
+
+Bug Fixed
+
+- Solution: Set the `locationForm` variable to listen for a click 'submit' event
+ 
+ `let locationForm = document.getElementById('submit');`
+`locationForm.addEventListener('click', geocodeData);` 
+
+(vi) Bug found where a route will display even when it's not on the same country 
+    [Screenshot of bug](assets/img/country-bug.png)
 
 
 
