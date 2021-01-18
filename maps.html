@@ -31,6 +31,8 @@
               <div class="row">
                 <div class="col-md-12">   
                     <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" value=""/>
+                    <input type="hidden" id="origin_lat" />
+                    <input type="hidden" id="origin_long" />
                 </div>
               </div>
               <div class="row">
@@ -41,6 +43,8 @@
               <div class="row">
                 <div class="col-md-12">   
                     <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" value=""/>
+                    <input type="hidden" id="destination_lat" />
+                    <input type="hidden" id="destination_long" />
                 </div>
               </div>
               <div class="row">
@@ -69,11 +73,7 @@
 
  <!-- Geocode results -->
   <section class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <h2 class="page-heading mt-5 order-details">Order Details</h2>
-      </div>
-    </div>
+    <div class="row" id="order-details"></div>
       <div class="row">
         <div class="col-xs-12 col-6">
             <div id="formatted-address-origins"></div>
@@ -87,7 +87,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACRlDlzkN-6K9h0yiK8a9wA6pjw7IGQY&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACRlDlzkN-6K9h0yiK8a9wA6pjw7IGQY&libraries=places&callback=initMap"
       defer
     ></script>
     <script src="js/maps.js"></script>

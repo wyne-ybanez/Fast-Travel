@@ -8,12 +8,11 @@ const Ireland = {lat: 53.2734, lng: -7.77832031};
 // Get location form and listen for a submission event
 let locationForm = document.getElementById('submit');
 locationForm.addEventListener('click', geocodeData);
-locationForm.addEventListener('click', orderDetails);
 
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
  let directionsDisplay = new google.maps.DirectionsRenderer;
-  map = new google.maps.Map(document.getElementById("map"), {
+ const map = new google.maps.Map(document.getElementById("map"), {
     center: Ireland,
     zoom: 7,
     // Map styling from: https://snazzymaps.com/style/132/light-gray
@@ -201,16 +200,47 @@ function initMap() {
                 }
             ]
         }
-    ]    
-  });
+    ]
+});
 
-  directionsDisplay.setMap(map);
+// Changes once submit button is clicked
+directionsDisplay.setMap(map);
+document.getElementById('submit').addEventListener('click', () => {
+    DisplayRoute(directionsService, directionsDisplay);
+});
 
-    // Changes once submit button is clicked
-    document.getElementById('submit').addEventListener('click', () => {
-        DisplayRoute(directionsService, directionsDisplay);
-    });
-
+// Auto Completion on input fields
+const inputOrigin = document.getElementById("origin");
+const inputDestination = document.getElementById("destination");
+const searchBox1 = new google.maps.places.SearchBox(inputOrigin);
+new google.maps.places.SearchBox(inputDestination);
+//  Bias the SearchBox results towards current map's viewport.
+ map.addListener("bounds_changed", () => {
+     searchBox1.setBounds(map.getBounds());
+     searchBox2.setBounds(map.getBounds());
+ });
+ // Listen for the event fired when the user selects a prediction and retrieve
+ // more details for that place.
+   searchBox1.addListener("places_changed", () => {
+     const places = searchBox1.getPlaces();
+     if (places.length == 0) {
+        return;
+     }
+     const bounds = new google.maps.LatLngBounds();
+     places.forEach((place) => {
+       if (!place.geometry) {
+           console.log("Returned place contains no geometry");
+         return;
+       }
+       if (place.geometry.viewport) {
+         // Only geocodes have viewport.
+         bounds.union(place.geometry.viewport);
+       } else {
+         bounds.extend(place.geometry.location);
+       }
+     });
+     map.fitBounds(bounds);
+ });
     
   // Info Window with markers
   infoWindow = new google.maps.InfoWindow();
@@ -269,16 +299,29 @@ function DisplayRoute(directionsService, directionsDisplay) {
     let request = { 
         origin: origin,
         destination: destination,
-        travelMode: 'DRIVING',
+        travelMode: 'DRIVING'
         };
     directionsService.route(request, (response, status) => {
       if (status === 'OK') {
         directionsDisplay.setDirections(response);
-      } else if (status === 'NOT_FOUND' && origin === '') {
+        // Make order details summary
+        let visible = `
+        <div class="col-md-12">
+            <h2 class="page-heading mt-5 active">Order Details</h2>
+        </div>
+        `;
+        document.getElementById('order-details').innerHTML = visible;
+      } 
+      // Make order details hidden
+        else if (status === 'NOT_FOUND' && origin === '') {
+        var hidden = '';
+        document.getElementById('order-details').innerHTMl = hidden;
         window.alert('Missing Pick-Up location');
       } else if (status === 'NOT_FOUND' && destination === '') {
+        document.getElementById('order-details').innerHTMl = hidden;
         window.alert('Missing Destination location');
       } else {
+        document.getElementById('order-details').innerHTMl = hidden;
         window.alert('Directions request failed due to ' + status);
       }
     });
@@ -295,11 +338,10 @@ function geocodeData(e){
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: originLocation,
-            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY',
-            region: 'IE'
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
         }
     })
-    .then(function(response){
+    .then((response) => {
         console.log(response);
 
         // Formatted Address
@@ -316,8 +358,8 @@ function geocodeData(e){
         // Output to app 
           document.getElementById('formatted-address-origins').innerHTML = formattedAddressOutput;
     })
-    .catch(function(error){
-        console.log(error);
+    .catch((error) => {
+        console.log(error.response);
     })
 
     // GeoCode For Destination
@@ -326,13 +368,10 @@ function geocodeData(e){
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: destinationLocation,
-            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY',
-            region: 'IE'
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
         }
     })
-    .then(function(response){
-        console.log(response);
-
+    .then((response) => {
         let formattedAddress = response.data.results[0].formatted_address; 
         let formattedAddressOutput = `
             <ul class="list-group">
@@ -345,16 +384,14 @@ function geocodeData(e){
 
           document.getElementById('formatted-address-destination').innerHTML = formattedAddressOutput;
     })
-    .catch(function(error){
-        console.log(error);
+    .catch((error) => {
+        console.log(error.response);
     })
 }
 
-// Get order summary to appear once submit has been pressed
-function orderDetails(){
-    document.querySelector('.order-details').style.visibility = "visible";
-}
 
-// Text predictions  
+
+
+
 
 // Reset Map and preferences 

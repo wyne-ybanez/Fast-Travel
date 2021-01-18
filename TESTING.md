@@ -36,7 +36,7 @@ Bug Fixed
  `let locationForm = document.getElementById('submit');`
 `locationForm.addEventListener('click', geocodeData);` 
 
-(vi) Bug found where a route will display even when it's not on the same country 
+(vi) Bug found where a route will display even when it's not on the same country - won't stick to the same region
     [Screenshot of bug](assets/img/country-bug.png)
 
 
