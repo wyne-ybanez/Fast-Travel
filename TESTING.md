@@ -1,4 +1,4 @@
-#Tests 
+# Tests 
 
 ## Bug encounters: 
 
@@ -7,6 +7,24 @@
 (i) After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen
 
 (ii) Trying to add a marker to user's current location. After panning to it, marker does not appear 
+
+  Bug Fixed
+
+    - Solution: 
+    - Describing the position of the user and containing it within a constant variable,    
+
+      `  (position) => {`
+        `  const pos = {`
+           ` lat: position.coords.latitude,`
+           ` lng: position.coords.longitude,`
+          ` } `
+    
+    - Adding a marker to the constant variable 
+
+           ` const marker = new google.maps.Marker({`
+           ` position: pos,`
+           ` map: map,`
+          `})`
 
 (iii) Server error response comes early before the user can set a orgin/destination point on the map stating error 
 `DIRECTIONS_ROUTE: NOT_FOUND: There was an issue performing a Directions request` 

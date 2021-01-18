@@ -203,35 +203,55 @@ function initMap() {
     ]
 });
 
-// Changes once submit button is clicked
+// Changes once submit button is clicked  
+// Clear old markers and set route marker positions
 directionsDisplay.setMap(map);
 document.getElementById('submit').addEventListener('click', () => {
     DisplayRoute(directionsService, directionsDisplay);
+    markers.forEach((marker) => {
+        marker.setMap(null);
+      });
+      markers = [];
 });
 
-// Auto Completion on input fields
+// Auto Completion on input used and editted: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
 const inputOrigin = document.getElementById("origin");
 const inputDestination = document.getElementById("destination");
 const searchBox1 = new google.maps.places.SearchBox(inputOrigin);
-new google.maps.places.SearchBox(inputDestination);
-//  Bias the SearchBox results towards current map's viewport.
+const searchBox2 = new google.maps.places.SearchBox(inputDestination);
+    // Bias the SearchBox results towards current map's viewport.
  map.addListener("bounds_changed", () => {
      searchBox1.setBounds(map.getBounds());
      searchBox2.setBounds(map.getBounds());
  });
- // Listen for the event fired when the user selects a prediction and retrieve
- // more details for that place.
+let markers = [];
+    // Listen for the event fired when the user selects a prediction and retrieve
+    // more details for that place.
    searchBox1.addListener("places_changed", () => {
      const places = searchBox1.getPlaces();
      if (places.length == 0) {
         return;
      }
-     const bounds = new google.maps.LatLngBounds();
-     places.forEach((place) => {
+     // Clear out the old markers.
+     markers.forEach((marker) => {
+        marker.setMap(null);
+      });
+      markers = [];
+
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
        if (!place.geometry) {
            console.log("Returned place contains no geometry");
          return;
        }
+       // Create a marker for origin place
+       markers.push(
+        new google.maps.Marker({
+          map,
+          title: place.name,
+          position: place.geometry.location,
+        })
+        );
        if (place.geometry.viewport) {
          // Only geocodes have viewport.
          bounds.union(place.geometry.viewport);
@@ -241,35 +261,74 @@ new google.maps.places.SearchBox(inputDestination);
      });
      map.fitBounds(bounds);
  });
-    
-  // Info Window with markers
-  infoWindow = new google.maps.InfoWindow();
 
-  // Go to user Location with button
+ searchBox2.addListener("places_changed", () => {
+    const places = searchBox2.getPlaces();
+      if (places.length == 0) {
+       return;
+    }
+    // Clear out the old markers.
+    markers.forEach((marker) => {
+       marker.setMap(null);
+     });
+     markers = [];
+
+    const bounds = new google.maps.LatLngBounds();
+    places.forEach((place) => {
+      if (!place.geometry) {
+          console.log("Returned place contains no geometry");
+        return;
+      }
+      markers.push(
+       new google.maps.Marker({
+         map,
+         title: place.name,
+         position: place.geometry.location,
+       })
+       );
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+});
+
+// Go to user Location with 'Current Location' button used and editted: https://developers.google.com/maps/documentation/javascript/geolocation
   const locationButton = document.createElement('button');
-  locationButton.textContent = 'Current Location';
+  locationButton.textContent = 'Current location';
   locationButton.classList.add('custom-map-control-button');
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener('click', () => {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
+      navigator.geolocation.getCurrentPosition(
         (position) => {
           const pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           } 
-
-          // Place Marker at current position
-          let marker = new google.maps.Marker({
-            position: {lat:position.coords.latitude, lng: position.coords.longitude},
+           // Info Window of user location
+           const infowindow = new google.maps.InfoWindow({
+            position: pos,
+            content: '<strong>Here you are!</strong>',
             map: map,
-          })
-
-          // Info Window of user location
-          infoWindow.setPosition(pos);
-          infoWindow.setContent(`You're here 😎 !`);
-          infoWindow.open(map);
-          map.setCenter(pos);
+            center: pos
+          });
+          // Place Marker at current position
+            const marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+          });
+         // Clear previous marker requests
+            markers.forEach((marker) => {
+            marker.setMap(null);
+          });
+          markers = [];
+          marker.addListener("click", () => {
+            infowindow.open(map, marker);
+          });
         },
         () => {
           handleLocationResponse(true, infoWindow, map.getCenter());
@@ -314,7 +373,7 @@ function DisplayRoute(directionsService, directionsDisplay) {
       } 
       // Make order details hidden
         else if (status === 'NOT_FOUND' && origin === '') {
-        var hidden = '';
+        let hidden = '';
         document.getElementById('order-details').innerHTMl = hidden;
         window.alert('Missing Pick-Up location');
       } else if (status === 'NOT_FOUND' && destination === '') {
@@ -332,7 +391,6 @@ function DisplayRoute(directionsService, directionsDisplay) {
 function geocodeData(e){
     //prevent actual submit
     e.preventDefault();
-
     // Geocode for origin location
     let originLocation = document.getElementById('origin').value
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
@@ -343,7 +401,6 @@ function geocodeData(e){
     })
     .then((response) => {
         console.log(response);
-
         // Formatted Address
         let formattedAddress = response.data.results[0].formatted_address; 
         let formattedAddressOutput = `
@@ -354,14 +411,12 @@ function geocodeData(e){
                     <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
                 </ul>
             `;
-
         // Output to app 
           document.getElementById('formatted-address-origins').innerHTML = formattedAddressOutput;
     })
     .catch((error) => {
         console.log(error.response);
     })
-
     // GeoCode For Destination
     e.preventDefault();
     let destinationLocation = document.getElementById('destination').value
@@ -381,7 +436,6 @@ function geocodeData(e){
                 <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
             </ul>
             `;
-
           document.getElementById('formatted-address-destination').innerHTML = formattedAddressOutput;
     })
     .catch((error) => {
