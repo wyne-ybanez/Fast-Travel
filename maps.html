@@ -21,31 +21,103 @@
                   </div>
               </div>
 
-            <!--=========== Filter locations Section -->
+            <!--=========== Filter Input Section -->
             <form action="location-form">
+              <!-- Origin Point -->
               <div class="row">
-                  <div id="findPickUp" class="col-md-12 find-header">
+                  <div class="col-md-12 input-header">
                     Pick Up Location:
                   </div>
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" value=""/>
+                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" required/>
                 </div>
               </div>
+              <!-- Destination -->
               <div class="row">
-                <div id="findDestination" class="col-md-12 find-header mt-3">
+                <div class="col-md-12 mt-3 input-header">
                   Destination:
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" value=""/>
+                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" required/>
+                </div>
+              </div>
+              <!-- Time Options -->
+              <div class="row">
+                <div class="col-md-12 mt-3 input-header">
+                  Time (Dublin Ireland GMT):
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-12 text-center submit-btn mt-3">
-                    <button id="submit" type="button" class="btn btn-dark" value="submit">SUBMIT</button>
+                <div class="col-xs-12 col-md-6">   
+                    <select class="input-panel form-select form-select-lg" id="timeInputHr">
+                      <option selected value="">hrs</option>
+                      <option value="00">00</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <select class="input-panel form-select form-select-lg" id="timeInputMin" placeholder="mins">
+                    <option selected value="">mins</option>
+                    <option value="00">00</option>
+                    <option value="05">05</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                    <option value="30">30</option>
+                    <option value="35">35</option>
+                    <option value="40">40</option>
+                    <option value="45">45</option>
+                    <option value="50">50</option>
+                    <option value="55">55</option>
+                  </select>
+                </div>
+              </div>
+                <!-- Date from: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+                <div class="row">
+                  <div class="col-md-12 mt-3 input-header">
+                    Date:
+                  </div>
+                </div>
+                <div class="row no-gutters">
+                  <div class="col-md-12">   
+                      <input class="input-panel form-control form-control-lg" id="dateInput" name="trip-date" type="date" min="2021/01/01" max="2041/01/01" required/>
+                  </div>
+                </div>
+                <!-- Reset -->
+              <div class="row">
+                <div class="cols-xs-12 col-md-6 text-center submit-btn mt-3">
+                    <button id="reset" type="button" class="btn btn-danger" value="RESET">RESET</button>
+                </div>
+                <!-- Submit -->
+                <div class="col-xs-12 col-md-6 text-center submit-btn mt-3">
+                    <button id="submit" type="button" class="btn btn-dark" value="SUBMIT">SUBMIT</button>
                 </div>
               </div>
             </form>
@@ -67,15 +139,25 @@
     </div>
   </section>
 
- <!-- Geocode results -->
+ <!--=========== Summary Section -->
   <section class="container-fluid">
     <div class="row" id="order-details"></div>
+    <!-- Address details -->
       <div class="row">
         <div class="col-xs-12 col-6">
             <div id="formatted-address-origins"></div>
         </div>
         <div class="col-xs-12 col-6">
           <div id="formatted-address-destination"></div>
+        </div>
+      </div>
+    <!-- Date and time -->
+      <div class="row">
+        <div class="col-xs-12 col-6">
+          <div id="date"></div>
+        </div>
+        <div class="col-xs-12 col-6">
+          <div id="time"></div>
         </div>
       </div>
   </section>

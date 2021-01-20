@@ -5,9 +5,12 @@ let pos;
 let marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
-// Get location form and listen for a submission event
-let locationForm = document.getElementById('submit');
-locationForm.addEventListener('click', geocodeData);
+// Get form and listen for a submission event
+let orderForm = document.getElementById('submit');
+let resetInputs = document.getElementById('reset');
+orderForm.addEventListener('click', geocodeData);
+orderForm.addEventListener('click', timeDate);
+resetInputs.addEventListener('click', resetForm);
 
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
@@ -371,16 +374,14 @@ function DisplayRoute(directionsService, directionsDisplay) {
         `;
         document.getElementById('order-details').innerHTML = visible;
       } 
-      // Make order details hidden
-        else if (status === 'NOT_FOUND' && origin === '') {
-        let hidden = '';
-        document.getElementById('order-details').innerHTMl = hidden;
+        else if (status === 'NOT_FOUND' || origin === '') {
+        document.getElementById('order-details').innerHTMl = null;
         window.alert('Missing Pick-Up location');
-      } else if (status === 'NOT_FOUND' && destination === '') {
-        document.getElementById('order-details').innerHTMl = hidden;
+      } else if (status === 'NOT_FOUND' || destination === '') {
+        document.getElementById('order-details').innerHTMl = null;
         window.alert('Missing Destination location');
       } else {
-        document.getElementById('order-details').innerHTMl = hidden;
+        document.getElementById('order-details').innerHTMl = null;
         window.alert('Directions request failed due to ' + status);
       }
     });
@@ -392,7 +393,7 @@ function geocodeData(e){
     //prevent actual submit
     e.preventDefault();
     // Geocode for origin location
-    let originLocation = document.getElementById('origin').value
+    const originLocation = document.getElementById('origin').value
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: originLocation,
@@ -401,17 +402,16 @@ function geocodeData(e){
     })
     .then((response) => {
         console.log(response);
-        // Formatted Address
-        let formattedAddress = response.data.results[0].formatted_address; 
+        // Formatted Address and date
+        const formattedAddress = response.data.results[0].formatted_address; 
         let formattedAddressOutput = `
                 <ul class="list-group">
                     <div class="col-6">
-                        <h4>From:</h4>
+                        <h4>Origin:</h4>
                     </div>
-                    <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
+                    <li class="list-group-item list-group-item-dark text-center">${formattedAddress}</li>
                 </ul>
             `;
-        // Output to app 
           document.getElementById('formatted-address-origins').innerHTML = formattedAddressOutput;
     })
     .catch((error) => {
@@ -419,7 +419,7 @@ function geocodeData(e){
     })
     // GeoCode For Destination
     e.preventDefault();
-    let destinationLocation = document.getElementById('destination').value
+    const destinationLocation = document.getElementById('destination').value
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: destinationLocation,
@@ -427,13 +427,13 @@ function geocodeData(e){
         }
     })
     .then((response) => {
-        let formattedAddress = response.data.results[0].formatted_address; 
+        const formattedAddress = response.data.results[0].formatted_address; 
         let formattedAddressOutput = `
             <ul class="list-group">
                 <div class="col-6">
-                    <h4>To:</h4>
+                    <h4>Destination:</h4>
                 </div>
-                <li class="list-group-item list-group-item-dark">${formattedAddress}</li>
+                <li class="list-group-item list-group-item-dark text-center">${formattedAddress}</li>
             </ul>
             `;
           document.getElementById('formatted-address-destination').innerHTML = formattedAddressOutput;
@@ -443,9 +443,50 @@ function geocodeData(e){
     })
 }
 
-
-
-
-
+// Display Time and Date preferences on the HTML page
+function timeDate(){
+    let dateInput = document.getElementById('dateInput').value;
+    let timeHr = document.getElementById('timeInputHr').value;
+    let timeMin = document.getElementById('timeInputMin').value;
+    // Date
+    if (document.querySelector('#dateInput').value === ''){
+        date =  null;
+        window.alert('Date of journey unspecified. Please choose a date');
+        console.log('User must choose a date');
+    } else { 
+        date = `
+        <ul class="list-group">
+            <div class="col-6">
+                <h4>Date of departure:</h4>
+            </div>
+            <li class="list-group-item list-group-item-dark text-center">${dateInput}</li>
+        </ul>
+        `;
+    }   
+    // Time
+    if (document.querySelector('#timeInputHr').value === ''){
+        time =  null;
+        window.alert('Please choose an hourly time of departure');
+        console.log('User must choose an hourly time');
+    } else if (document.getElementById('timeInputMin').value === ''){ 
+        time = null;
+        window.alert('Time of departure is incomplete');
+        console.log('User must choose at what minute they would like to depart at');
+    } else {
+        time = `  
+        <ul class="list-group">
+            <div class="col-6">
+                <h4>Time of collection (Dublin Ireland GMT):</h4>
+            </div>
+            <li class="list-group-item list-group-item-dark text-center">${timeHr} : ${timeMin}</li>
+        </ul>
+        `;
+    }   
+    document.querySelector('#time').innerHTML = time;
+    document.querySelector('#date').innerHTML = date;
+}
 
 // Reset Map and preferences 
+function resetForm(){
+    const reset = document.getElementById('reset');
+}

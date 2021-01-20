@@ -2,8 +2,6 @@
 
 ## Bug encounters: 
 
-### Pan and Zoom marker effect
-
 (i) After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen
 
 (ii) Trying to add a marker to user's current location. After panning to it, marker does not appear 
@@ -11,7 +9,7 @@
   Bug Fixed
 
     - Solution: 
-    - Describing the position of the user and containing it within a constant variable,    
+  - Describing the position of the user and containing it within a constant variable,    
 
       `  (position) => {`
         `  const pos = {`
@@ -56,6 +54,30 @@ Bug Fixed
 
 (vi) Bug found where a route will display even when it's not on the same country - won't stick to the same region
     [Screenshot of bug](assets/img/country-bug.png)
+
+
+(vii) The on click event to display results for the date and time input is not outputting on the the HTML page: 
+    [Screenshot of Date Bug](assets/img/date-bug.png)
+
+  Bug: 
+  `function timeDate(){`
+   ` let dateInput = document.getElementById('dateInput').value;`
+    `if (dateInput === document.getElementById('dateInput').value) {`
+        `let date = `
+           ` <div class="col-6">`
+               ` <h4>Date:</h4>`
+            `</div>`
+           ` <li class="list-group-item list-group-item-dark">${dateInput}</li>`
+        `document.getElementById('dateInput').innerHTMl = date;`
+   ` }`
+  ` console.log(dateInput);`
+`}`
+
+  Fix: 
+
+changed the query selector specified Id to the correct Id within the html page
+
+` document.querySelector('#date').innerHTML = date;`
 
 
 
