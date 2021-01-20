@@ -375,13 +375,10 @@ function DisplayRoute(directionsService, directionsDisplay) {
         document.getElementById('order-details').innerHTML = visible;
       } 
         else if (status === 'NOT_FOUND' || origin === '') {
-        document.getElementById('order-details').innerHTMl = null;
         window.alert('Missing Pick-Up location');
       } else if (status === 'NOT_FOUND' || destination === '') {
-        document.getElementById('order-details').innerHTMl = null;
         window.alert('Missing Destination location');
       } else {
-        document.getElementById('order-details').innerHTMl = null;
         window.alert('Directions request failed due to ' + status);
       }
     });
@@ -403,16 +400,16 @@ function geocodeData(e){
     .then((response) => {
         console.log(response);
         // Formatted Address and date
-        const formattedAddress = response.data.results[0].formatted_address; 
-        let formattedAddressOutput = `
+        const formattedOrigin = response.data.results[0].formatted_address; 
+        let formattedOrgOutput = `
                 <ul class="list-group">
                     <div class="col-6">
                         <h4>Origin:</h4>
                     </div>
-                    <li class="list-group-item list-group-item-dark text-center">${formattedAddress}</li>
+                    <li class="list-group-item list-group-item-dark text-center">${formattedOrigin}</li>
                 </ul>
             `;
-          document.getElementById('formatted-address-origins').innerHTML = formattedAddressOutput;
+          document.getElementById('formatted-address-origins').innerHTML = formattedOrgOutput;
     })
     .catch((error) => {
         console.log(error.response);
@@ -427,16 +424,16 @@ function geocodeData(e){
         }
     })
     .then((response) => {
-        const formattedAddress = response.data.results[0].formatted_address; 
-        let formattedAddressOutput = `
+        const formattedDestination = response.data.results[0].formatted_address; 
+        let formattedDestOutput = `
             <ul class="list-group">
                 <div class="col-6">
                     <h4>Destination:</h4>
                 </div>
-                <li class="list-group-item list-group-item-dark text-center">${formattedAddress}</li>
+                <li class="list-group-item list-group-item-dark text-center">${formattedDestination}</li>
             </ul>
             `;
-          document.getElementById('formatted-address-destination').innerHTML = formattedAddressOutput;
+          document.getElementById('formatted-address-destination').innerHTML = formattedDestOutput;
     })
     .catch((error) => {
         console.log(error.response);
@@ -486,7 +483,22 @@ function timeDate(){
     document.querySelector('#date').innerHTML = date;
 }
 
-// Reset Map and preferences 
+// Reset Map and delivery preferences 
 function resetForm(){
-    const reset = document.getElementById('reset');
+    // Empty all inputs
+    document.getElementById('origin').value = '';
+    document.getElementById('destination').value = '';
+    document.getElementById('timeInputHr').value = '';
+    document.getElementById('timeInputMin').value = '';
+    document.getElementById('dateInput').value = '';
+    // Remove all preferences
+    document.querySelector('#time').innerHTML = null;
+    document.querySelector('#date').innerHTML = null;
+    document.getElementById('formatted-address-origins').innerHTML = null;
+    document.getElementById('formatted-address-destination').innerHTML = null;
+    let visible = '';
+    document.getElementById('order-details').innerHTML = visible;
+    // Reinitialize Map
+    initMap();
+    console.log('Form has been reset');
 }
