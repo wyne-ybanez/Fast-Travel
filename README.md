@@ -1,8 +1,10 @@
 # Self-driving Car Taxi Service Web Project - Front End
 
+(PROJECT IS STILL INCOMPLETE)
+
 ## Project Goal
 
-This project aims to create an interactive front end layout for a self-driving car taxi service.
+This project aims to create an interactive front end layout for a self-driving car taxi service called 'Fast-Travel'.
 
 The target audience for this project are its customers/users. It will allow them to order a self driving cab which they can customise via a specification form. They can also choose where their starting point and destination is via the Google Maps API feature on the project. 
 
@@ -265,17 +267,12 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 - I had initially started the project with a local IDE and a local username. I forgot to configure and log the right username and email for the author. Hence, my initial contributions were not counted by Github. The solution as to how to change the author/committer email and user name is found [here](https://stackoverflow.com/questions/750172/how-to-change-the-author-and-committer-name-and-e-mail-of-multiple-commits-in-gi)
   
 ### Content
-- Index.html content was created originally
-- Using [Hubspot's blog](https://blog.hubspot.com/marketing/best-website-designs-list) website's content for projects section
-- ReadMe content for how to clone a repo in depth. This is the [link](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
+- Etoro's article about self-driving cars used within [index.html](https://www.etoro.com/news-and-analysis/market-insights/self-driving-cars-the-biggest-development-in-transportation-since-the-automobile/?gclid=CjwKCAiAxp-ABhALEiwAXm6IyVNlUeSKc-wQishBJWyBlx6SzvMlAnk9Cw8rV1YNpAZerLKV-LfI2hoCmYsQAvD_BwE)
 
 ### Media 
 
-- Image for Banner Section obtained from [Unsplash](https://unsplash.com/photos/3l3RwQdHRHg)
-- Image for About Me Section is original
-- Images for projects section obtained from [Hubspot's Blog](https://blog.hubspot.com/marketing/best-website-designs-list)
-- Timeline Ending image obtained from [Daily tuition](https://github.com/akashyap2013/PortFolio_Website)
-
+- Tesla Cybertruck used for [landing page](https://www.youtube.com/watch?v=J2U9Hmmpqhc&ab_channel=Tesla)
+- 
 ## Known Bugs
 
 - There is a bug with the carousel indicator `.carousel-indicators li` by which the indicators move up and down when the testimonial section is viewed on mobile device (iPhone 6, 7, 8).
