@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-/* Brad Traversy Code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx */
+/* Brad Traversy Code for header used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx */
 header {
   position: absolute;
   top: 0;
@@ -25,12 +25,15 @@ header .logo {
   cursor: pointer;
 }
 
+header .row {
+  flex-wrap: nowrap;
+}
+
 html,
 body {
   font-family: 'Ubuntu', sans-serif;
   display: flex;
   flex-direction: column;
-  margin: 1rem;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -64,11 +67,24 @@ li {
   text-align: center;
 }
 
+/* Geolocation button styling from: https://developers.google.com/maps/documentation/javascript/geolocation */
+.custom-map-control-button {
+  appearance: button;
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin: 10px;
+  padding: 0 0.5em;
+  height: 40px;
+  font: 400 17px Ubuntu, sans-serif;
+  overflow: hidden;
+}
 /* Brad Traversy styling code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx  */
 .toggle {
   position: relative;
-  width: 60px;
-  height: 60px;
+  left: 85em;
   background: url(https://i.ibb.co/HrfVRcx/menu.png);
   background-repeat: no-repeat;
   background-size: 30px;
@@ -184,7 +200,7 @@ li {
 
 .social li a {
   display: inline-block;
-  margin: 0 20px 0 20px;
+  margin: 0 10px 0 10px;
   filter: invert(1);
   transform: scale(0.5);
   transition: 0.5s;
@@ -223,17 +239,56 @@ li {
   color: #03a9f4;
 }
 
-@media (max-width: 991px) {
-  .showcase,
+.list-group {
+}
+
+@media (max-width: 400px) {
+  html,
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  p {
+    visibility: hidden;
+  }
+
+  .logo h2 {
+    visibility: visible;
+  }
+
+  .showcase {
+    overflow-x: hidden;
+    top: -15px;
+    padding: 40px;
+    overflow-y: hidden;
+    height: 103vh;
+  }
+
   .showcase header {
+    top: -15px;
     padding: 40px;
   }
 
+  .toggle {
+    left: 10px;
+  }
+
   .text h2 {
-    font-size: 3em;
+    font-size: 1em;
   }
 
   .text h3 {
     font-size: 2em;
+  }
+
+  .text h2,
+  .text h3 {
+    position: relative;
+    bottom: 3rem;
   }
 }

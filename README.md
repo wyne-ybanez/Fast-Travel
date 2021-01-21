@@ -271,7 +271,7 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 ### Media 
 
-- Tesla Cybertruck used for [landing page](https://www.youtube.com/watch?v=J2U9Hmmpqhc&ab_channel=Tesla)
+- AVTR youtube [video](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
 - 
 ## Known Bugs
 

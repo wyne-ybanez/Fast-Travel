@@ -27,6 +27,14 @@
 (iii) Server error response comes early before the user can set a orgin/destination point on the map stating error 
 `DIRECTIONS_ROUTE: NOT_FOUND: There was an issue performing a Directions request` 
 
+Bug Fixed 
+- Solution: 
+- Added a click event to initialize the function once submit button is clicked 
+
+   ` document.getElementById('submit').addEventListener('click', () => {`
+   ` DisplayRoute(directionsService, directionsDisplay);`
+   `}`
+
 (iv) The directions will automatically render the route without the user pressing the submit button, submit button is inactive:
 
 Bug Fixed
@@ -37,11 +45,17 @@ Bug Fixed
         `DisplayRoute(directionsService, directionsDisplay);`
     `});`
 
-(v) Bug where the API data for geocode was not displaying. 
+(v) Bug where the Geocode data was not displaying. 
 
 Bug Fixed: 
 
 - Solution: Went go Google Developer Console and attached the appropriate required IP address as a referral for the API key
+- [Stack Overflow Solution](https://stackoverflow.com/questions/48189532/get-request-with-axios-returning-undefined)
+- New error handling message: 
+      ` if (response.data.status === 'REQUEST_DENIED'){`
+           ` window.alert('You do not have permission to use this API key - Booking location details will not be shown');`
+            `console.log(response.data.status);`
+       ` }`
 
 (vi) Geocode information for origin and destination after pressing submit is not appearing `Error Uncaught TypeError: Cannot read property 'addEventListener' of null at maps.js:280`
 

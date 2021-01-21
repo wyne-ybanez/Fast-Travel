@@ -5,13 +5,14 @@ let pos;
 let marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
-// Get form and listen for a submission event
+//========== Event Listeners for submission event
 let orderForm = document.getElementById('submit');
 let resetInputs = document.getElementById('reset');
 orderForm.addEventListener('click', geocodeData);
 orderForm.addEventListener('click', timeDate);
 resetInputs.addEventListener('click', resetForm);
 
+//========== Init Map
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
  let directionsDisplay = new google.maps.DirectionsRenderer;
@@ -217,7 +218,8 @@ document.getElementById('submit').addEventListener('click', () => {
       markers = [];
 });
 
-// Auto Completion on input used and editted: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
+//========== Auto Completion on input 
+// Google Maps documentation used and editted: https://developers.google.com/maps/documentation/javascript/examples/places-searchbox
 const inputOrigin = document.getElementById("origin");
 const inputDestination = document.getElementById("destination");
 const searchBox1 = new google.maps.places.SearchBox(inputOrigin);
@@ -299,12 +301,16 @@ let markers = [];
     map.fitBounds(bounds);
 });
 
-// Go to user Location with 'Current Location' button used and editted: https://developers.google.com/maps/documentation/javascript/geolocation
+//========== Go to user Location with 'Current Location' button 
+// Code from Google Docs used and editted: https://developers.google.com/maps/documentation/javascript/geolocation
   const locationButton = document.createElement('button');
   locationButton.textContent = 'Current location';
   locationButton.classList.add('custom-map-control-button');
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
   locationButton.addEventListener('click', () => {
+    // Loading message 
+    window.alert('This will just take a moment to load 😊');
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -315,7 +321,7 @@ let markers = [];
            // Info Window of user location
            const infowindow = new google.maps.InfoWindow({
             position: pos,
-            content: '<strong>Here you are!</strong>',
+            content: '<strong>Here you are😎!</strong>', 
             map: map,
             center: pos
           });
@@ -323,15 +329,18 @@ let markers = [];
             const marker = new google.maps.Marker({
             position: pos,
             map: map,
+            zoom: 10
           });
          // Clear previous marker requests
             markers.forEach((marker) => {
             marker.setMap(null);
           });
-          markers = [];
-          marker.addListener("click", () => {
-            infowindow.open(map, marker);
-          });
+            markers = [];
+            marker.addListener("click", () => {
+              infowindow.open(map, marker);
+              map.setZoom(13);
+             map.setCenter(marker.getPosition());
+            });
         },
         () => {
           handleLocationResponse(true, infoWindow, map.getCenter());
@@ -344,7 +353,7 @@ let markers = [];
   });
 }
 
-// In case Geolocation fails for user current location
+//========== In case Geolocation fails for user current location
 function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
@@ -353,8 +362,8 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
   infoWindow.open(map);
 }
 
+//========== Display the route between origin and destination
 // CodeFLix code used and editted:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
-// Display the route between origin and destination
 function DisplayRoute(directionsService, directionsDisplay) {
     let origin = document.getElementById('origin').value;
     let destination = document.getElementById('destination').value;
@@ -369,7 +378,7 @@ function DisplayRoute(directionsService, directionsDisplay) {
         // Make order details summary
         let visible = `
         <div class="col-md-12">
-            <h2 class="page-heading mt-5 active">Order Details</h2>
+            <h2 class="page-heading mt-5 active">Booking Details</h2>
         </div>
         `;
         document.getElementById('order-details').innerHTML = visible;
@@ -384,22 +393,31 @@ function DisplayRoute(directionsService, directionsDisplay) {
     });
 }
 
-// Get Geocode Data to display on web page using axios
+//========== Get Geocode Data to display on web page
 // Brad Traversy code used and eddited: https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia
 function geocodeData(e){
     //prevent actual submit
     e.preventDefault();
     // Geocode for origin location
     const originLocation = document.getElementById('origin').value
+    const destinationLocation = document.getElementById('destination').value
+
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: originLocation,
+            address: destinationLocation,
             key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
         }
     })
     .then((response) => {
         console.log(response);
-        // Formatted Address and date
+
+        // Request Denied due to restrictions
+        if (response.data.status === 'REQUEST_DENIED'){
+            window.alert('You do not have permission to use this API key - Booking location details will not be shown');
+            console.log(response.data.status);
+        }
+        // Formatted Origin address
         const formattedOrigin = response.data.results[0].formatted_address; 
         let formattedOrgOutput = `
                 <ul class="list-group">
@@ -410,29 +428,16 @@ function geocodeData(e){
                 </ul>
             `;
           document.getElementById('formatted-address-origins').innerHTML = formattedOrgOutput;
-    })
-    .catch((error) => {
-        console.log(error.response);
-    })
-    // GeoCode For Destination
-    e.preventDefault();
-    const destinationLocation = document.getElementById('destination').value
-    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
-        params: {
-            address: destinationLocation,
-            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
-        }
-    })
-    .then((response) => {
+        // Formatted Destination address
         const formattedDestination = response.data.results[0].formatted_address; 
         let formattedDestOutput = `
-            <ul class="list-group">
-                <div class="col-6">
-                    <h4>Destination:</h4>
-                </div>
-                <li class="list-group-item list-group-item-dark text-center">${formattedDestination}</li>
-            </ul>
-            `;
+                <ul class="list-group">
+                    <div class="col-6">
+                        <h4>Destination:</h4>
+                    </div>
+                    <li class="list-group-item list-group-item-dark text-center">${formattedDestination}</li>
+                </ul>
+                `;
           document.getElementById('formatted-address-destination').innerHTML = formattedDestOutput;
     })
     .catch((error) => {
@@ -440,7 +445,7 @@ function geocodeData(e){
     })
 }
 
-// Display Time and Date preferences on the HTML page
+//========== Display Time and Date preferences on the HTML page
 function timeDate(){
     let dateInput = document.getElementById('dateInput').value;
     let timeHr = document.getElementById('timeInputHr').value;
@@ -452,9 +457,9 @@ function timeDate(){
         console.log('User must choose a date');
     } else { 
         date = `
-        <ul class="list-group">
+        <ul class="list-group mb-5">
             <div class="col-6">
-                <h4>Date of departure:</h4>
+                <h4>Date:</h4>
             </div>
             <li class="list-group-item list-group-item-dark text-center">${dateInput}</li>
         </ul>
@@ -471,9 +476,9 @@ function timeDate(){
         console.log('User must choose at what minute they would like to depart at');
     } else {
         time = `  
-        <ul class="list-group">
+        <ul class="list-group mb-5">
             <div class="col-6">
-                <h4>Time of collection (Dublin Ireland GMT):</h4>
+                <h4>Time:</h4>
             </div>
             <li class="list-group-item list-group-item-dark text-center">${timeHr} : ${timeMin}</li>
         </ul>
@@ -483,21 +488,31 @@ function timeDate(){
     document.querySelector('#date').innerHTML = date;
 }
 
-// Reset Map and delivery preferences 
+//========== Reset Map and delivery preferences 
 function resetForm(){
-    // Empty all inputs
-    document.getElementById('origin').value = '';
-    document.getElementById('destination').value = '';
-    document.getElementById('timeInputHr').value = '';
-    document.getElementById('timeInputMin').value = '';
-    document.getElementById('dateInput').value = '';
-    // Remove all preferences
-    document.querySelector('#time').innerHTML = null;
-    document.querySelector('#date').innerHTML = null;
-    document.getElementById('formatted-address-origins').innerHTML = null;
-    document.getElementById('formatted-address-destination').innerHTML = null;
+    let resetInputVal = [
+        document.getElementById('origin'),
+        document.getElementById('destination'),
+        document.getElementById('timeInputHr'),
+        document.getElementById('timeInputMin'),
+        document.getElementById('dateInput'),
+    ];
+    let resetHtmlVal = [
+        document.querySelector('#time'),
+        document.querySelector('#date'),
+        document.getElementById('formatted-address-origins'),
+        document.getElementById('formatted-address-destination')
+    ]
+    // Empty all inputs fields
+    for (i=0; i<resetInputVal.length; i++){
+        resetInputVal[i].value = '';
+    };
+    // Remove all preferences details
+    for (i=0; i<resetHtmlVal.length; i++){
+        resetHtmlVal[i].innerHTML = null;
+    };
     let visible = '';
-    document.getElementById('order-details').innerHTML = visible;
+        document.getElementById('order-details').innerHTML = visible;
     // Reinitialize Map
     initMap();
     console.log('Form has been reset');
