@@ -70,10 +70,10 @@ Bug Fixed
     [Screenshot of bug](assets/img/country-bug.png)
 
 
-(vii) The on click event to display results for the date and time input is not outputting on the the HTML page: 
+(vii) Bug: The on click event to display results for the date and time input is not outputting on the the HTML page: 
     [Screenshot of Date Bug](assets/img/date-bug.png)
 
-  Bug: 
+
   `function timeDate(){`
    ` let dateInput = document.getElementById('dateInput').value;`
     `if (dateInput === document.getElementById('dateInput').value) {`
@@ -93,5 +93,5 @@ changed the query selector specified Id to the correct Id within the html page
 
 ` document.querySelector('#date').innerHTML = date;`
 
-
-
+(viii) Bug (Fixed): Geolocation feature for current location no longer functioning after styling the header for the navigation menu. Displays a success message however, shows no results
+      Solution: Developer's own device was not registering chrome as enabled for location services. Security system automatically disabled every unrecognised user location request. Went to security & privacy settings, allowed Google Chrome to obtain device location.

@@ -8,6 +8,7 @@
 
 /* Brad Traversy Code for header used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx */
 header {
+  background-color: #000;
   position: absolute;
   top: 0;
   left: 0;
@@ -50,21 +51,18 @@ li {
   position: relative;
   height: 700px;
   width: 100%;
-  left: 0px;
   bottom: 5px;
 }
 
-.hidden {
-  visibility: hidden;
-}
-
-.active {
-  visibility: visible;
-}
-
 .page-heading {
+  margin-top: 2em;
   justify-content: center;
   text-align: center;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
 }
 
 /* Geolocation button styling from: https://developers.google.com/maps/documentation/javascript/geolocation */
@@ -113,8 +111,24 @@ li {
   background: #111;
   transition: 0.5s;
   z-index: 2;
+  overflow: hidden;
 }
 
+.map-section {
+  top: 0;
+  right: 0;
+  width: 100%;
+  position: absolute;
+  transition: 0.5s;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.map-section header {
+  padding: 0 100px;
+}
+
+.map-section.active,
 .showcase.active {
   right: 300px;
 }
@@ -186,7 +200,7 @@ li {
 .social {
   position: absolute;
   z-index: 10;
-  bottom: -15px;
+  bottom: -25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +209,7 @@ li {
 
 .social li {
   list-style: none;
-  font-size: 45px;
+  font-size: 50px;
 }
 
 .social li a {
@@ -210,7 +224,8 @@ li {
   transform: scale(0.5) translateY(-15px);
 }
 
-.menu {
+.menu-maps,
+.menu-index {
   position: absolute;
   top: 0;
   right: 0;
@@ -221,28 +236,122 @@ li {
   align-items: center;
 }
 
-.menu ul {
+.menu-index {
+  background-color: #000;
+}
+
+.menu-maps ul,
+.menu-index ul {
   position: relative;
 }
 
-.menu ul li {
+.menu-maps ul li,
+.menu-index ul li {
   list-style: none;
 }
 
-.menu ul li a {
+.menu-maps ul li a,
+.menu-index ul li a {
   text-decoration: none;
+  line-height: 50px;
   font-size: 24px;
-  color: #111;
 }
 
-.menu ul li a:hover {
+.menu-maps ul li a {
+  color: #000;
+}
+
+.menu-index ul li a {
+  color: #fff;
+}
+
+.menu-maps ul li a:hover,
+.menu-index ul li a:hover {
   color: #03a9f4;
 }
 
-.list-group {
+/*====== Media Queries ====== */
+/* Ipad */
+@media (max-width: 768px) {
+  html,
+  body {
+    font-family: 'Ubuntu', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  .showcase {
+    overflow: hidden;
+    top: -15px;
+    padding: 40px;
+    height: 103vh;
+  }
+
+  .showcase header {
+    padding: 40px;
+  }
+
+  .toggle {
+    left: 350px;
+  }
+
+  .social {
+    bottom: 20px;
+    transform: translateX(78%);
+  }
+
+  .map-section header {
+    padding: 0 45px;
+  }
 }
 
-@media (max-width: 400px) {
+/* Mobile Phones */
+@media (max-width: 414px) and (min-width: 414px) {
+  .toggle {
+    left: 35px;
+  }
+
+  p {
+    visibility: hidden;
+  }
+
+  .text h2 {
+    font-size: 1em;
+  }
+
+  .text h3 {
+    font-size: 2em;
+  }
+
+  .text h2,
+  .text h3 {
+    position: relative;
+    bottom: 3rem;
+  }
+
+  .showcase header {
+    top: -15px;
+    padding: 40px;
+  }
+
+  .social {
+    bottom: 0px;
+    transform: translateX(12%);
+  }
+
+  .menu-maps {
+    visibility: hidden;
+  }
+
+  .menu-maps.active {
+    visibility: visible;
+  }
+}
+
+@media (max-width: 375px) {
   html,
   body {
     font-family: 'Ubuntu', sans-serif;
@@ -262,20 +371,18 @@ li {
   }
 
   .showcase {
-    overflow-x: hidden;
+    overflow: hidden;
     top: -15px;
     padding: 40px;
-    overflow-y: hidden;
     height: 103vh;
   }
 
   .showcase header {
-    top: -15px;
-    padding: 40px;
+    padding: 25px;
   }
 
   .toggle {
-    left: 10px;
+    left: 25px;
   }
 
   .text h2 {
@@ -290,5 +397,22 @@ li {
   .text h3 {
     position: relative;
     bottom: 3rem;
+  }
+
+  .social {
+    bottom: 0;
+    transform: translateX(5%);
+  }
+
+  .menu-maps {
+    visibility: hidden;
+  }
+
+  .menu-maps.active {
+    visibility: visible;
+  }
+
+  .map-section header {
+    padding: 0 25px;
   }
 }

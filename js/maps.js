@@ -6,11 +6,20 @@ let marker;
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
 //========== Event Listeners for submission event
-let orderForm = document.getElementById('submit');
-let resetInputs = document.getElementById('reset');
+const orderForm = document.getElementById('submit');
+const resetInputs = document.getElementById('reset');
+const mapsSection = document.querySelector('.map-section');
+const Toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menu-maps');
+
 orderForm.addEventListener('click', geocodeData);
 orderForm.addEventListener('click', timeDate);
 resetInputs.addEventListener('click', resetForm);
+Toggle.addEventListener('click', () => {
+    Toggle.classList.toggle('active');
+    mapsSection.classList.toggle('active');
+    menu.classList.toggle('active');
+})
 
 //========== Init Map
 function initMap() {
@@ -307,9 +316,10 @@ let markers = [];
   locationButton.textContent = 'Current location';
   locationButton.classList.add('custom-map-control-button');
   map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+
   locationButton.addEventListener('click', () => {
     // Loading message 
-    window.alert('This will just take a moment to load 😊');
+    window.alert("This will just take a moment to load 😊 \nPlease enable your browser's location permissions.");
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
@@ -321,7 +331,7 @@ let markers = [];
            // Info Window of user location
            const infowindow = new google.maps.InfoWindow({
             position: pos,
-            content: '<strong>Here you are😎!</strong>', 
+            content: '<strong>Here you are😎 !</strong>', 
             map: map,
             center: pos
           });

@@ -10,15 +10,19 @@
     <link rel="stylesheet" href="css/style.css" />
     <title>Fast-Travel</title>
   </head> 
-    <!-- Brad Traversy code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx -->
+    <!--=========== Landing Page/ Hero Image -->
+      <!-- Brad Traversy code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx -->
     <body>  
         <section class="showcase">
+          <!--=========== Header --> 
             <header>
               <div class="row no-gutters">
-                <h2 class="logo mt-2">Fast-Travel</h2>
+                <h2 class="logo mt-2"><a href="index.html">Fast-Travel</a></h2>
                 <div class="toggle"></div>
               </div>
             </header>
+
+          <!--=========== Main body --> 
             <video src="assets/videos/Self-driving-2.mov" alt="self-driving car video" muted loop autoplay></video>
             <div class="overlay"></div>
             <div class="text">
@@ -34,24 +38,27 @@
                 </p>
               <a href="maps.html">Book</a>
             </div>
+
+        <!--=========== Socials -->  
             <ul class="social">
               <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
               <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
               <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
               <li><a href="https://youtube.com"><i class="fa fa-youtube text-dark"></i></a></li>
             </ul>
-          </section>
-        <!-- Navigation menu -->
-          <div class="menu">
+        </section>
+
+        <!--=========== Navigation menu on toggle -->
+          <div class="menu-index">
             <ul>
-              <li><a href="#">Home</a></li>
+              <li><a href="index.html">Home</a></li>
               <li><a href="maps.html">Book</a></li>
               <li><a href="#">FAQ</a></li>
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
             </ul>
           </div>
-
+        <!--=========== JS Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
