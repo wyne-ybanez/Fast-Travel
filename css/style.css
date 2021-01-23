@@ -6,6 +6,7 @@
   padding: 0;
 }
 
+/*====== Index.html and Maps.html styling ====== */
 /* Brad Traversy Code for header used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx */
 header {
   background-color: #000;
@@ -47,13 +48,6 @@ li {
   font-size: 20px;
 }
 
-#map {
-  position: relative;
-  height: 650px;
-  width: 100%;
-  bottom: 5px;
-}
-
 .page-heading {
   margin-top: 2em;
   justify-content: center;
@@ -75,20 +69,6 @@ li {
   text-decoration: none;
 }
 
-/* Geolocation button styling from: https://developers.google.com/maps/documentation/javascript/geolocation */
-.custom-map-control-button {
-  appearance: button;
-  background-color: #fff;
-  border: 0;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-  margin: 10px;
-  padding: 0 0.5em;
-  height: 40px;
-  font: 400 17px Ubuntu, sans-serif;
-  overflow: hidden;
-}
 /* Brad Traversy styling code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx  */
 .toggle {
   position: relative;
@@ -125,6 +105,7 @@ li {
   overflow: hidden;
 }
 
+.contactForm,
 .map-section {
   top: 0;
   right: 0;
@@ -136,14 +117,7 @@ li {
   height: 100vh;
 }
 
-.map-section header {
-  padding: 0 100px;
-}
-
-.map-section.height {
-  height: 150vh;
-}
-
+.contactForm.active,
 .map-section.active,
 .showcase.active {
   right: 300px;
@@ -158,6 +132,7 @@ li {
   object-fit: cover;
   opacity: 0.8;
 }
+
 .overlay {
   position: absolute;
   top: 0;
@@ -216,6 +191,7 @@ li {
   color: #fff;
 }
 
+.contactForm-social,
 .map-social,
 .social {
   position: absolute;
@@ -227,11 +203,7 @@ li {
   overflow: hidden;
 }
 
-.map-social {
-  bottom: -40px;
-  background-color: #000;
-}
-
+.contactForm-copyright,
 .map-copyright,
 .copyright {
   position: absolute;
@@ -244,21 +216,14 @@ li {
   overflow: hidden;
 }
 
-.map-copyright {
-  left: 43.2em;
-}
-
+.contactForm li,
 .map-social li,
 .social li {
   list-style: none;
   font-size: 50px;
 }
 
-.map-social li {
-  bottom: 500px;
-  transform: translate(-715px, -15px);
-}
-
+.contactForm li a,
 .map-social li a,
 .social li a {
   display: inline-block;
@@ -268,11 +233,13 @@ li {
   transition: 0.5s;
 }
 
+.contactForm li a:hover,
 .map-social li a:hover,
 .social li a:hover {
   transform: scale(0.5) translateY(-15px);
 }
 
+.menu-contact,
 .menu-maps,
 .menu-index {
   position: absolute;
@@ -289,16 +256,19 @@ li {
   background-color: #000;
 }
 
+.menu-contact ul,
 .menu-maps ul,
 .menu-index ul {
   position: relative;
 }
 
+.menu-contact ul li,
 .menu-maps ul li,
 .menu-index ul li {
   list-style: none;
 }
 
+.menu-contact ul li a,
 .menu-maps ul li a,
 .menu-index ul li a {
   text-decoration: none;
@@ -306,14 +276,11 @@ li {
   font-size: 24px;
 }
 
-.menu-maps ul li a {
-  color: #000;
-}
-
 .menu-index ul li a {
   color: #fff;
 }
 
+.menu-contact ul li a:hover,
 .menu-maps ul li a:hover,
 .menu-index ul li a:hover {
   color: #38acec;
@@ -334,6 +301,55 @@ li {
   letter-spacing: 6px;
   background-color: #38acec;
   transition: 0.2s;
+}
+
+/*====== Maps unique styling ====== */
+#map {
+  position: relative;
+  height: 650px;
+  width: 100%;
+  bottom: 5px;
+}
+
+/* Geolocation button styling from: https://developers.google.com/maps/documentation/javascript/geolocation */
+.custom-map-control-button {
+  appearance: button;
+  background-color: #fff;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  margin: 10px;
+  padding: 0 0.5em;
+  height: 40px;
+  font: 400 17px Ubuntu, sans-serif;
+  overflow: hidden;
+}
+
+.map-section header {
+  padding: 0 100px;
+}
+
+.map-section.height {
+  height: 150vh;
+}
+
+.map-social {
+  bottom: -40px;
+  background-color: #000;
+}
+
+.map-copyright {
+  left: 43.2em;
+}
+
+.map-social li {
+  bottom: 500px;
+  transform: translate(-715px, -15px);
+}
+
+.menu-maps ul li a {
+  color: #000;
 }
 
 /*====== Media Queries ====== */
@@ -497,6 +513,10 @@ li {
     transform: translateX(5%);
   }
 
+  .map-social {
+    visibility: hidden;
+  }
+
   .menu-maps {
     visibility: hidden;
   }
@@ -507,6 +527,14 @@ li {
 
   .map-section header {
     padding: 0 25px;
+  }
+
+  .map-section {
+    height: 180vh;
+  }
+
+  .map-section.height {
+    height: 248vh;
   }
 
   .copyright {

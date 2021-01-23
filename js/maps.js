@@ -468,7 +468,7 @@ function resetForm(){
 //========== If user submits without answering input fields
 function options(){
     let optionButtons = `
-            <div class="col-xs-12 col-md-6 mx-auto mb-1 text-center justify-content-center">
+            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
                 <a class="btn btn-dark" type="button" href="index.html">CANCEL</a>
             </div>
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">

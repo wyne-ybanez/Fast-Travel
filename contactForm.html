@@ -10,6 +10,64 @@
     <title>Contact Info.</title>
   </head>
     <body>
+      <!--=========== Header Section -->
+      <div class="contactForm">
+          <header>
+            <div class="row no-gutters">
+              <h2 class="logo mt-2"><a href="index.html">Fast-Travel</a></h2>
+              <div class="toggle"></div>
+            </div>
+          </header>
+          <h1 class="page-heading mb-4">Contact Information</h1>
+
+           <!--=========== Form Section -->
+            <form class="row g-3">
+              <div class="col-md-6">
+                  <label for="fname" class="form-label">Name:</label>
+                  <input type="text" class="form-control" id="fname" required>
+              </div>
+              <div class="col-md-6">
+                  <label for="lname" class="form-label">Surname:</label>
+                    <input type="text" class="form-control" id="lname">
+              </div>
+              <div class="col-6 col-offset-6 text-align-center justify-content-center">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" class="form-control" id="email" placeholder="Enter e-mail" required>
+              </div>
+              <div class="cols-xs-12 col-md-4">
+                  <label for="inputState" class="form-label">State</label>
+                  <select id="inputState" class="form-select">
+                    <option selected>Choose...</option>
+                    <option>...</option>
+                  </select>
+              </div>
+              <div class="col-md-2">
+                  <label for="inputZip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="inputZip">
+              </div>
+              <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>
+              <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>
+            </form>
+      </div>
+
+      <!-- =========== Navigation menu on toggle -->
+      <div class="menu-maps">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+      </div> 
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script
@@ -17,5 +75,6 @@
       defer
     ></script>
     <script src="js/maps.js"></script>
+    <script src="js/contact.js"></script>
   </body>
 </html>
