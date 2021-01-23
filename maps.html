@@ -19,7 +19,8 @@
           <div class="toggle"></div>
         </div>
       </header>
-      <h1 class="page-heading mb-3">Booking Preferences</h1>
+
+      <h1 class="page-heading mb-4">Booking Preferences</h1>
       <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
               <div class="row">
@@ -29,7 +30,7 @@
               </div>
 
             <!--=========== Filter Input Section -->
-            <form action="location-form">
+            <form>
               <!-- Origin Point -->
               <div class="row">
                   <div class="col-md-12 input-header">
@@ -118,15 +119,15 @@
                   </div>
                 </div>
                 <!-- Reset -->
-              <div class="row">
-                <div class="cols-xs-12 col-md-6 text-center submit-btn mt-3">
-                    <button id="reset" type="button" class="btn btn-dark" value="RESET">RESET</button>
+                <div class="row">
+                  <div class="col-xs-12 col-md-6 text-center reset-btn mt-3">
+                      <button id="reset" type="button" class="btn btn-dark" value="RESET">RESET</button>
+                  </div>
+                  <!-- Submit -->
+                  <div class="col-xs-12 col-md-6 text-center submit-btn mt-3">
+                      <button id="submit" type="submit" class="btn btn-dark" value="SUBMIT">SUBMIT</button>
+                  </div>
                 </div>
-                <!-- Submit -->
-                <div class="col-xs-12 col-md-6 text-center submit-btn mt-3">
-                    <button id="submit" type="button" class="btn btn-primary" value="SUBMIT">SUBMIT</button>
-                </div>
-              </div>
             </form>
           </div>
 
@@ -146,8 +147,10 @@
         </div>
 
  <!--=========== Summary Section -->
-        <div class="row" id="order-details"></div>
-        <!-- Address details -->
+        <div class="row">
+          <div id="order-details"></div>
+        </div>
+        <!-- Location details -->
           <div class="row">
             <div class="col-xs-12 col-6">
                 <div id="formatted-address-origins"></div>
@@ -159,11 +162,14 @@
         <!-- Date and time -->
           <div class="row">
             <div class="col-xs-12 col-6">
-              <div id="date"></div>
+                <div id="date"></div>
             </div>
             <div class="col-xs-12 col-6">
-              <div id="time"></div>
+                <div id="time"></div>
             </div>
+          </div>
+          <!-- Confirm or cancel -->
+          <div class="row" id="options">
           </div>
   </section>
 
@@ -176,7 +182,7 @@
               <li><a href="#">Contact</a></li>
           </ul>
         </div> 
-
+    
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
     <script

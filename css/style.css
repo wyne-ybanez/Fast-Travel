@@ -49,7 +49,7 @@ li {
 
 #map {
   position: relative;
-  height: 700px;
+  height: 650px;
   width: 100%;
   bottom: 5px;
 }
@@ -58,6 +58,16 @@ li {
   margin-top: 2em;
   justify-content: center;
   text-align: center;
+}
+
+/* Underlining the Heading with adjustable border: https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
+.page-heading:after {
+  content: '';
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+  padding-top: 20px;
+  border-bottom: 2px solid #000;
 }
 
 .logo a {
@@ -96,6 +106,7 @@ li {
   background-size: 25px;
   background-position: center;
   cursor: pointer;
+  transition: 1s;
 }
 
 .showcase {
@@ -179,7 +190,7 @@ li {
   max-width: 700px;
 }
 
-.text a {
+.text .buttons a {
   display: inline-block;
   font-size: 1em;
   background: #fff;
@@ -187,13 +198,13 @@ li {
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 500;
-  margin-top: 10px;
+  margin: 20px 0px;
   color: #111;
   letter-spacing: 2px;
   transition: 0.2s;
 }
 
-.text a:hover {
+.buttons a:hover {
   letter-spacing: 6px;
 }
 
@@ -201,6 +212,17 @@ li {
   position: absolute;
   z-index: 10;
   bottom: -25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.copyright {
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  right: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -270,6 +292,21 @@ li {
   color: #03a9f4;
 }
 
+.list-group {
+  border-radius: 5px;
+}
+
+.btn {
+  border-radius: 10px;
+  letter-spacing: 3px;
+}
+
+.btn:hover {
+  letter-spacing: 6px;
+  background-color: blue;
+  transition: 0.2s;
+}
+
 /*====== Media Queries ====== */
 /* Ipad */
 @media (max-width: 768px) {
@@ -281,6 +318,11 @@ li {
     margin: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
+  }
+
+  #map {
+    height: 500px;
+    width: 100%;
   }
 
   .showcase {
@@ -306,16 +348,26 @@ li {
   .map-section header {
     padding: 0 45px;
   }
+
+  .copyright {
+    right: 267px;
+  }
 }
 
 /* Mobile Phones */
 @media (max-width: 414px) and (min-width: 414px) {
-  .toggle {
-    left: 35px;
-  }
-
   p {
     visibility: hidden;
+  }
+
+  #map {
+    height: 470px;
+    width: 350px;
+    left: 20px;
+  }
+
+  .toggle {
+    left: 35px;
   }
 
   .text h2 {
@@ -362,8 +414,10 @@ li {
     scroll-behavior: smooth;
   }
 
-  p {
-    visibility: hidden;
+  #map {
+    height: 450px;
+    width: 320px;
+    left: 15px;
   }
 
   .logo h2 {
@@ -396,7 +450,17 @@ li {
   .text h2,
   .text h3 {
     position: relative;
-    bottom: 3rem;
+    bottom: 0rem;
+    top: 2rem;
+  }
+
+  .text p {
+    visibility: hidden;
+    margin-bottom: 7rem;
+  }
+
+  .buttons .about a {
+    margin: 20px 5.6rem;
   }
 
   .social {
@@ -414,5 +478,13 @@ li {
 
   .map-section header {
     padding: 0 25px;
+  }
+
+  .copyright {
+    font-size: 10px;
+    display: flex;
+    right: 0;
+    left: 15px;
+    bottom: -10px;
   }
 }

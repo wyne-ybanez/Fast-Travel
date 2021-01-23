@@ -1,8 +1,11 @@
 const labels = "AB";
-let labelIndex = 0;
-let map, infoWindow;
-let pos;
-let marker;
+const inputs = [
+    document.getElementById('origin'),
+    document.getElementById('destination'),
+    document.getElementById('timeInputHr'),
+    document.getElementById('timeInputMin'),
+    document.getElementById('dateInput'),
+];
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
 //========== Event Listeners for submission event
@@ -14,6 +17,7 @@ const menu = document.querySelector('.menu-maps');
 
 orderForm.addEventListener('click', geocodeData);
 orderForm.addEventListener('click', timeDate);
+orderForm.addEventListener('click', options);
 resetInputs.addEventListener('click', resetForm);
 Toggle.addEventListener('click', () => {
     Toggle.classList.toggle('active');
@@ -375,11 +379,11 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
 //========== Display the route between origin and destination
 // CodeFLix code used and editted:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
 function DisplayRoute(directionsService, directionsDisplay) {
-    let origin = document.getElementById('origin').value;
-    let destination = document.getElementById('destination').value;
+    const Origin = document.getElementById('origin').value;
+    const Destination = document.getElementById('destination').value;
     let request = { 
-        origin: origin,
-        destination: destination,
+        origin: Origin,
+        destination: Destination,
         travelMode: 'DRIVING'
         };
     directionsService.route(request, (response, status) => {
@@ -388,15 +392,15 @@ function DisplayRoute(directionsService, directionsDisplay) {
         // Make order details summary
         let visible = `
         <div class="col-md-12">
-            <h2 class="page-heading mt-5 active">Booking Details</h2>
+            <h2 class="page-heading mt-3 active">Booking Details</h2>
         </div>
         `;
         document.getElementById('order-details').innerHTML = visible;
       } 
-        else if (status === 'NOT_FOUND' || origin === '') {
+        else if (status === 'NOT_FOUND' && Origin === '') {
         window.alert('Missing Pick-Up location');
-      } else if (status === 'NOT_FOUND' || destination === '') {
-        window.alert('Missing Destination location');
+      } else if (status === 'NOT_FOUND' && Destination === '') {
+        window.alert('Missing Destination');
       } else {
         window.alert('Directions request failed due to ' + status);
       }
@@ -411,41 +415,48 @@ function geocodeData(e){
     // Geocode for origin location
     const originLocation = document.getElementById('origin').value
     const destinationLocation = document.getElementById('destination').value
-
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: originLocation,
+            key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
+        }
+    })
+    .then((response) => {
+        console.log(response);
+        // Formatted Origin address
+        const formattedOrigin = response.data.results[0].formatted_address; 
+        let formattedOrgOutput = `
+                <ul class="list-group">
+                    <h4>Origin:</h4>
+                    <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
+                </ul>
+            `;
+          document.getElementById('formatted-address-origins').innerHTML = formattedOrgOutput;
+        // Request Denied due to restrictions
+        if (response.data.status === 'REQUEST_DENIED'){
+            window.alert('You do not have permission to use this API key - Booking location details will not be shown');
+            console.log(response.data.status);
+        }
+    })
+    .catch((error) => {
+        console.log(error.response);
+    })
+
+    // Geocode Destination
+    axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
             address: destinationLocation,
             key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY'
         }
     })
     .then((response) => {
         console.log(response);
-
-        // Request Denied due to restrictions
-        if (response.data.status === 'REQUEST_DENIED'){
-            window.alert('You do not have permission to use this API key - Booking location details will not be shown');
-            console.log(response.data.status);
-        }
-        // Formatted Origin address
-        const formattedOrigin = response.data.results[0].formatted_address; 
-        let formattedOrgOutput = `
-                <ul class="list-group">
-                    <div class="col-6">
-                        <h4>Origin:</h4>
-                    </div>
-                    <li class="list-group-item list-group-item-dark text-center">${formattedOrigin}</li>
-                </ul>
-            `;
-          document.getElementById('formatted-address-origins').innerHTML = formattedOrgOutput;
         // Formatted Destination address
         const formattedDestination = response.data.results[0].formatted_address; 
         let formattedDestOutput = `
                 <ul class="list-group">
-                    <div class="col-6">
-                        <h4>Destination:</h4>
-                    </div>
-                    <li class="list-group-item list-group-item-dark text-center">${formattedDestination}</li>
+                    <h4>Destination:</h4>
+                    <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedDestination}</li>
                 </ul>
                 `;
           document.getElementById('formatted-address-destination').innerHTML = formattedDestOutput;
@@ -468,10 +479,8 @@ function timeDate(){
     } else { 
         date = `
         <ul class="list-group mb-5">
-            <div class="col-6">
-                <h4>Date:</h4>
-            </div>
-            <li class="list-group-item list-group-item-dark text-center">${dateInput}</li>
+            <h4>Date:</h4>
+            <li class="list-group-item list-group-item-secondary text-dark text-center">${dateInput}</li>
         </ul>
         `;
     }   
@@ -487,10 +496,8 @@ function timeDate(){
     } else {
         time = `  
         <ul class="list-group mb-5">
-            <div class="col-6">
-                <h4>Time:</h4>
-            </div>
-            <li class="list-group-item list-group-item-dark text-center">${timeHr} : ${timeMin}</li>
+            <h4>Time:</h4>
+            <li class="list-group-item list-group-item-secondary text-dark text-center">${timeHr} : ${timeMin}</li>
         </ul>
         `;
     }   
@@ -500,22 +507,16 @@ function timeDate(){
 
 //========== Reset Map and delivery preferences 
 function resetForm(){
-    let resetInputVal = [
-        document.getElementById('origin'),
-        document.getElementById('destination'),
-        document.getElementById('timeInputHr'),
-        document.getElementById('timeInputMin'),
-        document.getElementById('dateInput'),
-    ];
     let resetHtmlVal = [
         document.querySelector('#time'),
         document.querySelector('#date'),
         document.getElementById('formatted-address-origins'),
-        document.getElementById('formatted-address-destination')
+        document.getElementById('formatted-address-destination'),
+        document.getElementById('options')
     ]
     // Empty all inputs fields
-    for (i=0; i<resetInputVal.length; i++){
-        resetInputVal[i].value = '';
+    for (i=0; i<inputs.length; i++){
+        inputs[i].value = '';
     };
     // Remove all preferences details
     for (i=0; i<resetHtmlVal.length; i++){
@@ -526,4 +527,22 @@ function resetForm(){
     // Reinitialize Map
     initMap();
     console.log('Form has been reset');
+}
+
+
+//========== If user submits without answering input fields
+function options(){
+    let optionButtons = `
+            <div class="d-grid gap-4 col-xs-12 col-md-6 mx-auto mb-3">
+                <a class="btn btn-dark" type="button" href="index.html">CANCEL</a>
+                <a class="btn btn-dark" type="button" href="form.html">CONFIRM</a>
+            </div>` 
+
+    for(i=0; i<inputs.length; i++) {
+        if (inputs[i].value === ''){
+            document.getElementById('options').innerHTML = null;
+        } else {
+            document.getElementById('options').innerHTML = optionButtons;
+        }
+    }
 }
