@@ -15,10 +15,13 @@ const mapsSection = document.querySelector('.map-section');
 const Toggle = document.querySelector('.toggle');
 const menu = document.querySelector('.menu-maps');
 
+// Submit toggle events
 orderForm.addEventListener('click', geocodeData);
 orderForm.addEventListener('click', timeDate);
 orderForm.addEventListener('click', options);
 resetInputs.addEventListener('click', resetForm);
+
+//  Nav menu toggle event
 Toggle.addEventListener('click', () => {
     Toggle.classList.toggle('active');
     mapsSection.classList.toggle('active');
@@ -28,192 +31,129 @@ Toggle.addEventListener('click', () => {
 //========== Init Map
 function initMap() {
  let directionsService = new google.maps.DirectionsService;
- let directionsDisplay = new google.maps.DirectionsRenderer;
+ let directionsDisplay = new google.maps.DirectionsRenderer({
+     // To change the color of the route: https://stackoverflow.com/questions/19022702/how-to-change-the-color-of-route-in-google-maps-v3
+    polylineOptions: {
+      strokeColor: "dark"
+    }
+  });
  const map = new google.maps.Map(document.getElementById("map"), {
     center: Ireland,
     zoom: 7,
-    // Map styling from: https://snazzymaps.com/style/132/light-gray
-    styles: [
+    // Map styling from Snazzy Maps: https://snazzymaps.com/style/47631/blue
+    styles: 
+    [
         {
-            "featureType": "water",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#d3d3d3"
-                }
-            ]
-        },
-        {
-            "featureType": "transit",
-            "stylers": [
-                {
-                    "color": "#808080"
-                },
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry.stroke",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "color": "#b3b3b3"
-                }
-            ]
-        },
-        {
-            "featureType": "road.highway",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#ffffff"
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "color": "#ffffff"
-                },
-                {
-                    "weight": 1.8
-                }
-            ]
-        },
-        {
-            "featureType": "road.local",
-            "elementType": "geometry.stroke",
-            "stylers": [
-                {
-                    "color": "#d7d7d7"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "visibility": "on"
-                },
-                {
-                    "color": "#ebebeb"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative",
+            "featureType": "all",
             "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#a7a7a7"
+                    "color": "#005383"
                 }
             ]
         },
         {
-            "featureType": "road.arterial",
-            "elementType": "geometry.fill",
+            "featureType": "all",
+            "elementType": "labels.text.fill",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "gamma": 0.01
+                },
+                {
+                    "lightness": 20
                 }
             ]
         },
         {
-            "featureType": "road.arterial",
-            "elementType": "geometry.fill",
+            "featureType": "all",
+            "elementType": "labels.text.stroke",
             "stylers": [
                 {
-                    "color": "#ffffff"
+                    "saturation": -31
+                },
+                {
+                    "lightness": -33
+                },
+                {
+                    "weight": 2
+                },
+                {
+                    "gamma": 0.8
+                }
+            ]
+        },
+        {
+            "featureType": "all",
+            "elementType": "labels.icon",
+            "stylers": [
+                {
+                    "visibility": "off"
                 }
             ]
         },
         {
             "featureType": "landscape",
-            "elementType": "geometry.fill",
+            "elementType": "geometry",
             "stylers": [
                 {
-                    "visibility": "on"
+                    "lightness": 30
                 },
                 {
-                    "color": "#efefef"
+                    "saturation": 30
+                }
+            ]
+        },
+        {
+            "featureType": "poi",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "saturation": 20
+                }
+            ]
+        },
+        {
+            "featureType": "poi.park",
+            "elementType": "geometry",
+            "stylers": [
+                {
+                    "lightness": 20
+                },
+                {
+                    "saturation": -20
                 }
             ]
         },
         {
             "featureType": "road",
-            "elementType": "labels.text.fill",
+            "elementType": "geometry",
             "stylers": [
                 {
-                    "color": "#696969"
-                }
-            ]
-        },
-        {
-            "featureType": "administrative",
-            "elementType": "labels.text.fill",
-            "stylers": [
-                {
-                    "visibility": "on"
+                    "lightness": 10
                 },
                 {
-                    "color": "#737373"
+                    "saturation": -30
                 }
             ]
         },
         {
-            "featureType": "poi",
-            "elementType": "labels.icon",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "poi",
-            "elementType": "labels",
-            "stylers": [
-                {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {
-            "featureType": "road.arterial",
+            "featureType": "road",
             "elementType": "geometry.stroke",
             "stylers": [
                 {
-                    "color": "#d6d6d6"
+                    "saturation": 25
+                },
+                {
+                    "lightness": 25
                 }
             ]
         },
         {
-            "featureType": "road",
-            "elementType": "labels.icon",
+            "featureType": "water",
+            "elementType": "all",
             "stylers": [
                 {
-                    "visibility": "off"
-                }
-            ]
-        },
-        {},
-        {
-            "featureType": "poi",
-            "elementType": "geometry.fill",
-            "stylers": [
-                {
-                    "color": "#dadada"
+                    "lightness": -20
                 }
             ]
         }
@@ -402,19 +342,19 @@ function DisplayRoute(directionsService, directionsDisplay) {
       } else if (status === 'NOT_FOUND' && Destination === '') {
         window.alert('Missing Destination');
       } else {
-        window.alert('Directions request failed due to ' + status);
+        // When request fails - user cannot move forward with booking
+        mapsSection.classList.remove('height');
+        window.alert('Directions request failed. Please be specific or check permissions. \nFailure status: ' + status);
       }
     });
 }
 
 //========== Get Geocode Data to display on web page
 // Brad Traversy code used and eddited: https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia
-function geocodeData(e){
-    //prevent actual submit
-    e.preventDefault();
+function geocodeData(){
     // Geocode for origin location
-    const originLocation = document.getElementById('origin').value
-    const destinationLocation = document.getElementById('destination').value
+    let originLocation = document.getElementById('origin').value;
+    let destinationLocation = document.getElementById('destination').value;
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
             address: originLocation,
@@ -441,7 +381,6 @@ function geocodeData(e){
     .catch((error) => {
         console.log(error.response);
     })
-
     // Geocode Destination
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
         params: {
@@ -474,7 +413,6 @@ function timeDate(){
     // Date
     if (document.querySelector('#dateInput').value === ''){
         date =  null;
-        window.alert('Date of journey unspecified. Please choose a date');
         console.log('User must choose a date');
     } else { 
         date = `
@@ -487,11 +425,9 @@ function timeDate(){
     // Time
     if (document.querySelector('#timeInputHr').value === ''){
         time =  null;
-        window.alert('Please choose an hourly time of departure');
         console.log('User must choose an hourly time');
     } else if (document.getElementById('timeInputMin').value === ''){ 
         time = null;
-        window.alert('Time of departure is incomplete');
         console.log('User must choose at what minute they would like to depart at');
     } else {
         time = `  
@@ -500,7 +436,7 @@ function timeDate(){
             <li class="list-group-item list-group-item-secondary text-dark text-center">${timeHr} : ${timeMin}</li>
         </ul>
         `;
-    }   
+    }
     document.querySelector('#time').innerHTML = time;
     document.querySelector('#date').innerHTML = date;
 }
@@ -529,20 +465,26 @@ function resetForm(){
     console.log('Form has been reset');
 }
 
-
 //========== If user submits without answering input fields
 function options(){
     let optionButtons = `
-            <div class="d-grid gap-4 col-xs-12 col-md-6 mx-auto mb-3">
+            <div class="col-xs-12 col-md-6 mx-auto mb-1 text-center justify-content-center">
                 <a class="btn btn-dark" type="button" href="index.html">CANCEL</a>
-                <a class="btn btn-dark" type="button" href="form.html">CONFIRM</a>
+            </div>
+            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
+                <a class="btn btn-dark" type="button" href="contactForm.html">CONFIRM</a>
             </div>` 
 
+    // Reactive Page height
     for(i=0; i<inputs.length; i++) {
-        if (inputs[i].value === ''){
-            document.getElementById('options').innerHTML = null;
+        if (inputs[i].value === '' || inputs[0].value === '' || inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '' || inputs[4].value === ''){
+            document.getElementById('options').innerHTML = null; 
+            mapsSection.classList.remove('height');
         } else {
             document.getElementById('options').innerHTML = optionButtons;
+            mapsSection.classList.toggle('height');
         }
     }
 }
+
+//|| inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '' || inputs[4].value === ''

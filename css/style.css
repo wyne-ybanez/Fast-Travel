@@ -133,10 +133,15 @@ li {
   transition: 0.5s;
   z-index: 2;
   overflow: hidden;
+  height: 100vh;
 }
 
 .map-section header {
   padding: 0 100px;
+}
+
+.map-section.height {
+  height: 150vh;
 }
 
 .map-section.active,
@@ -201,13 +206,17 @@ li {
   margin: 20px 0px;
   color: #111;
   letter-spacing: 2px;
-  transition: 0.2s;
+  transition: 0.5s;
 }
 
 .buttons a:hover {
-  letter-spacing: 6px;
+  background-color: red;
+  letter-spacing: 5px;
+  margin-left: 10px;
+  color: #fff;
 }
 
+.map-social,
 .social {
   position: absolute;
   z-index: 10;
@@ -218,6 +227,12 @@ li {
   overflow: hidden;
 }
 
+.map-social {
+  bottom: -40px;
+  background-color: #000;
+}
+
+.map-copyright,
 .copyright {
   position: absolute;
   z-index: 10;
@@ -229,11 +244,22 @@ li {
   overflow: hidden;
 }
 
+.map-copyright {
+  left: 43.2em;
+}
+
+.map-social li,
 .social li {
   list-style: none;
   font-size: 50px;
 }
 
+.map-social li {
+  bottom: 500px;
+  transform: translate(-715px, -15px);
+}
+
+.map-social li a,
 .social li a {
   display: inline-block;
   margin: 0 10px 0 10px;
@@ -242,6 +268,7 @@ li {
   transition: 0.5s;
 }
 
+.map-social li a:hover,
 .social li a:hover {
   transform: scale(0.5) translateY(-15px);
 }
@@ -289,7 +316,9 @@ li {
 
 .menu-maps ul li a:hover,
 .menu-index ul li a:hover {
-  color: #03a9f4;
+  color: #38acec;
+  letter-spacing: 5px;
+  transition: 0.5s;
 }
 
 .list-group {
@@ -303,7 +332,7 @@ li {
 
 .btn:hover {
   letter-spacing: 6px;
-  background-color: blue;
+  background-color: #38acec;
   transition: 0.2s;
 }
 

@@ -94,4 +94,11 @@ changed the query selector specified Id to the correct Id within the html page
 ` document.querySelector('#date').innerHTML = date;`
 
 (viii) Bug (Fixed): Geolocation feature for current location no longer functioning after styling the header for the navigation menu. Displays a success message however, shows no results
-      Solution: Developer's own device was not registering chrome as enabled for location services. Security system automatically disabled every unrecognised user location request. Went to security & privacy settings, allowed Google Chrome to obtain device location.
+      Solution: Developer's own device was not registering chrome as enabled for location services. Security system automatically disabled every unrecognised user location request. Went
+      to security & privacy settings, allowed Google Chrome to obtain device location.
+
+(ix) Bug: Answering all input fields and pressing submit resets the entire map and voids all input fields. It could be due to an event listener placed incorrectly
+
+    Solved using the following code in maps.html: 
+  ` <form name="booking-form" onsubmit="return false;"> ` 
+  [Stack Overflow solution](https://stackoverflow.com/questions/40813467/html-reset-after-form-submit)

@@ -19,7 +19,7 @@
           <div class="toggle"></div>
         </div>
       </header>
-
+      
       <h1 class="page-heading mb-4">Booking Preferences</h1>
       <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
@@ -30,7 +30,7 @@
               </div>
 
             <!--=========== Filter Input Section -->
-            <form>
+            <form name="booking-form" onsubmit="return false;">
               <!-- Origin Point -->
               <div class="row">
                   <div class="col-md-12 input-header">
@@ -39,7 +39,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" required/>
+                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" required>
                 </div>
               </div>
               <!-- Destination -->
@@ -50,7 +50,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" required/>
+                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" required>
                 </div>
               </div>
               <!-- Time Options -->
@@ -61,7 +61,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-12 col-md-6">   
-                    <select class="input-panel form-select form-select-lg" id="timeInputHr">
+                    <select class="input-panel form-select form-select-lg" id="timeInputHr" required>
                       <option selected value="" class="text-secondary">hrs</option>
                       <option value="00">00</option>
                       <option value="01">01</option>
@@ -90,7 +90,7 @@
                     </select>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                  <select class="input-panel form-select form-select-lg" id="timeInputMin" placeholder="mins">
+                  <select class="input-panel form-select form-select-lg" id="timeInputMin" placeholder="mins" required>
                     <option selected value="" class="text-secondary">mins</option>
                     <option value="00">00</option>
                     <option value="05">05</option>
@@ -171,6 +171,19 @@
           <!-- Confirm or cancel -->
           <div class="row" id="options">
           </div>
+
+       <!--=========== Socials -->  
+      <div class="row">
+          <ul class="map-social">
+              <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+              <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+              <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+              <li><a href="https://youtube.com"><i class="fa fa-youtube text-dark"></i></a></li>
+          </ul>
+      <p class="map-copyright text-white">
+          © 2021 Created by Wyne Ybanez
+      </p>
+    </div>
   </section>
 
          <!-- =========== Navigation menu on toggle -->
