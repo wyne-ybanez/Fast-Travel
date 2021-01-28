@@ -1,4 +1,6 @@
 const labels = "AB";
+
+//========== Input fields
 const inputs = [
     document.getElementById('origin'),
     document.getElementById('destination'),
@@ -13,19 +15,21 @@ const orderForm = document.getElementById('submit');
 const resetInputs = document.getElementById('reset');
 const mapsSection = document.querySelector('.map-section');
 const Toggle = document.querySelector('.toggle');
-const menu = document.querySelector('.menu-maps');
+const menuMaps = document.querySelector('.menuMaps');
 
-// Submit toggle events
+// Submit event Listeners
 orderForm.addEventListener('click', geocodeData);
 orderForm.addEventListener('click', timeDate);
 orderForm.addEventListener('click', options);
+orderForm.addEventListener('click', scrollFunc);
+
+// Reset form event
 resetInputs.addEventListener('click', resetForm);
 
 //  Nav menu toggle event
 Toggle.addEventListener('click', () => {
     Toggle.classList.toggle('active');
     mapsSection.classList.toggle('active');
-    menu.classList.toggle('active');
 })
 
 //========== Init Map
@@ -199,7 +203,7 @@ let markers = [];
     const bounds = new google.maps.LatLngBounds();
     places.forEach((place) => {
        if (!place.geometry) {
-           console.log("Returned place contains no geometry");
+           console.log("Returned origin contains no geometry");
          return;
        }
        // Create a marker for origin place
@@ -234,7 +238,7 @@ let markers = [];
     const bounds = new google.maps.LatLngBounds();
     places.forEach((place) => {
       if (!place.geometry) {
-          console.log("Returned place contains no geometry");
+          console.log("Returned destination contains no geometry");
         return;
       }
       markers.push(
@@ -332,7 +336,7 @@ function DisplayRoute(directionsService, directionsDisplay) {
         // Make order details summary
         let visible = `
         <div class="col-md-12">
-            <h2 class="page-heading mt-3 active">Booking Details</h2>
+            <h1 class="page-heading mt-5 active id="booking-details">Booking Information</h1>
         </div>
         `;
         document.getElementById('order-details').innerHTML = visible;
@@ -469,10 +473,10 @@ function resetForm(){
 function options(){
     let optionButtons = `
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
-                <a class="btn btn-dark" type="button" href="index.html">CANCEL</a>
+                <a class="btn btn-light" type="button" href="index.html">CANCEL</a>
             </div>
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
-                <a class="btn btn-dark" type="button" href="contactForm.html">CONFIRM</a>
+                <a class="btn btn-light" type="button" href="contactForm.html">CONFIRM</a>
             </div>` 
 
     // Reactive Page height
@@ -480,11 +484,21 @@ function options(){
         if (inputs[i].value === '' || inputs[0].value === '' || inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '' || inputs[4].value === ''){
             document.getElementById('options').innerHTML = null; 
             mapsSection.classList.remove('height');
+            menuMaps.classList.remove('height');
         } else {
             document.getElementById('options').innerHTML = optionButtons;
             mapsSection.classList.toggle('height');
+            menuMaps.classList.toggle('height');
         }
     }
 }
 
-//|| inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '' || inputs[4].value === ''
+//========== Scroll to booking details after submission
+function scrollFunc(){
+    window.scrollTo(0, 1500);
+}
+
+// Give height time to expand before scrolling
+setTimeout(scrollFunc(),9000);
+
+

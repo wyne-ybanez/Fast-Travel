@@ -11,7 +11,7 @@
   </head>
   <body>
     <!-- Code by Ben Hasselgren - used and modified: https://benhasselgren.github.io/ifd-milestone-project-pages/ -->
-    <section class="container-fluid map-section">
+    <section class="container-fluid map-section bg-dark text-white">
       <!--=========== Header Section -->
       <header>
         <div class="row no-gutters">
@@ -20,12 +20,12 @@
         </div>
       </header>
       
-      <h1 class="page-heading mb-4">Booking Preferences</h1>
+      <h1 class="page-heading mb-5">Booking Preferences</h1>
       <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
               <div class="row">
                   <div class="col-md-12">
-                      <h3 class="section-heading uppercase">Filter</h3>
+                      <h3 class="section-heading uppercase">Journey <i class="fa fa-location-arrow"></i></h3>
                   </div>
               </div>
 
@@ -39,7 +39,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" required>
+                    <input class="input-panel form-control form-control-lg bg-light" id="origin" type="text" placeholder="Enter a pick-up address" autocomplete="off" required>
                 </div>
               </div>
               <!-- Destination -->
@@ -50,7 +50,7 @@
               </div>
               <div class="row">
                 <div class="col-md-12">   
-                    <input class="input-panel form-control form-control-lg" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" required>
+                    <input class="input-panel form-control form-control-lg bg-light" id="destination" type="text" placeholder="Enter a destination" autocomplete="off" required>
                 </div>
               </div>
               <!-- Time Options -->
@@ -61,7 +61,7 @@
               </div>
               <div class="row">
                 <div class="col-xs-12 col-md-6">   
-                    <select class="input-panel form-select form-select-lg" id="timeInputHr" required>
+                    <select class="input-panel form-select form-select-lg bg-light" id="timeInputHr" required>
                       <option selected value="" class="text-secondary">hrs</option>
                       <option value="00">00</option>
                       <option value="01">01</option>
@@ -90,7 +90,7 @@
                     </select>
                 </div>
                 <div class="col-xs-12 col-md-6">
-                  <select class="input-panel form-select form-select-lg" id="timeInputMin" placeholder="mins" required>
+                  <select class="input-panel form-select form-select-lg bg-light" id="timeInputMin" placeholder="mins" required>
                     <option selected value="" class="text-secondary">mins</option>
                     <option value="00">00</option>
                     <option value="05">05</option>
@@ -115,17 +115,17 @@
                 </div>
                 <div class="row no-gutters">
                   <div class="col-md-12">   
-                      <input class="input-panel form-control form-control-lg" id="dateInput" name="trip-date" type="date" min="2021/01/01" max="2041/01/01" required/>
+                      <input class="input-panel form-control form-control-lg bg-light" id="dateInput" name="trip-date" type="date" min="2021/01/01" max="2041/01/01" required/>
                   </div>
                 </div>
                 <!-- Reset -->
                 <div class="row">
                   <div class="col-xs-12 col-md-6 text-center reset-btn mt-3">
-                      <button id="reset" type="button" class="btn btn-dark" value="RESET">RESET</button>
+                      <button id="reset" type="button" class="btn btn-light" value="RESET">RESET</button>
                   </div>
                   <!-- Submit -->
                   <div class="col-xs-12 col-md-6 text-center submit-btn mt-3">
-                      <button id="submit" type="submit" class="btn btn-dark" value="SUBMIT">SUBMIT</button>
+                      <button id="submit" type="submit" class="btn btn-light" value="SUBMIT" href="#booking-details">SUBMIT</button>
                   </div>
                 </div>
             </form>
@@ -135,12 +135,12 @@
           <div class="col-xs-12 col-sm-8 col-md-8 ">
             <div class="row">
                 <div class="col-md-12">
-                    <h3 class="section-heading uppercase">Map</h3>
+                    <h3 class="section-heading uppercase">Map <i class="fa fa-globe"></i></h3>
                 </div>
             </div>
             <div class="row">
               <div class="col-md-12 filter-column">
-                  <div id="map"></div>
+                  <div id="map" class="text-dark"></div>
               </div>
             </div>
           </div>
@@ -187,7 +187,7 @@
   </section>
 
          <!-- =========== Navigation menu on toggle -->
-         <div class="menu-maps">
+         <div class="menu menuMaps">
           <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="#">FAQ</a></li>
