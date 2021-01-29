@@ -11,17 +11,18 @@ const inputs = [
 const Ireland = {lat: 53.2734, lng: -7.77832031};
 
 //========== Event Listeners for submission event
-const orderForm = document.getElementById('submit');
+const order = document.getElementById('submit');
 const resetInputs = document.getElementById('reset');
 const mapsSection = document.querySelector('.map-section');
 const Toggle = document.querySelector('.toggle');
 const menuMaps = document.querySelector('.menuMaps');
 
 // Submit event Listeners
-orderForm.addEventListener('click', geocodeData);
-orderForm.addEventListener('click', timeDate);
-orderForm.addEventListener('click', options);
-orderForm.addEventListener('click', scrollFunc);
+order.addEventListener('click', geocodeData);
+order.addEventListener('click', timeDate);
+order.addEventListener('click', options);
+order.addEventListener('click', scrollFunc);
+order.addEventListener('click', localDataStorage);
 
 // Reset form event
 resetInputs.addEventListener('click', resetForm);
@@ -321,6 +322,7 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
 }
 
 //========== Display the route between origin and destination
+// If successful, allow use to add specifications to order
 // CodeFLix code used and editted:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
 function DisplayRoute(directionsService, directionsDisplay) {
     const Origin = document.getElementById('origin').value;
@@ -335,8 +337,8 @@ function DisplayRoute(directionsService, directionsDisplay) {
         directionsDisplay.setDirections(response);
         // Make order details summary
         let visible = `
-        <div class="col-md-12">
-            <h1 class="page-heading mt-5 active id="booking-details">Booking Information</h1>
+        <div class="col-12">
+            <h1 class="page-heading mt-5 active id="order-details">Booking Information</h1>
         </div>
         `;
         document.getElementById('order-details').innerHTML = visible;
@@ -369,7 +371,7 @@ function geocodeData(){
         console.log(response);
         // Formatted Origin address
         const formattedOrigin = response.data.results[0].formatted_address; 
-        let formattedOrgOutput = `
+            let formattedOrgOutput = `
                 <ul class="list-group">
                     <h4>Origin:</h4>
                     <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
@@ -396,7 +398,7 @@ function geocodeData(){
         console.log(response);
         // Formatted Destination address
         const formattedDestination = response.data.results[0].formatted_address; 
-        let formattedDestOutput = `
+            let formattedDestOutput = `
                 <ul class="list-group">
                     <h4>Destination:</h4>
                     <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedDestination}</li>
@@ -476,7 +478,7 @@ function options(){
                 <a class="btn btn-light" type="button" href="index.html">CANCEL</a>
             </div>
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
-                <a class="btn btn-light" type="button" href="contactForm.html">CONFIRM</a>
+                <a class="btn btn-light" type="button" href="specsForm.html">CONFIRM</a>
             </div>` 
 
     // Reactive Page height
@@ -501,4 +503,21 @@ function scrollFunc(){
 // Give height time to expand before scrolling
 setTimeout(scrollFunc(),9000);
 
+//========== Set Local Storage for accessing data
+// Dcode Local storage code used and eddited: https://www.youtube.com/watch?v=AUOzvFzdIk4&ab_channel=dcode
+function localDataStorage(){
+let localObj = {
+    origin: document.getElementById('origin').value,
+    destination: document.getElementById('destination').value,
+    date: document.getElementById('dateInput').value,
+    time: document.getElementById('timeInputHr').value + ":" + document.getElementById('timeInputMin').value 
+};
 
+// Make it into a JSON string
+let localObj_serialized = JSON.stringify(localObj);
+localStorage.setItem("localObj", localObj_serialized);
+
+// Parse it into an object we can analyse
+let localObj_deserialized = JSON.parse(localStorage.getItem("localObj"));
+console.log(localObj_deserialized);
+}

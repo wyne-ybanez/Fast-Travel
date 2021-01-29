@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Specifications</title>
+  </head>
+    <body>
+
+      <!--=========== Header Section -->
+      <div class="specsForm bg-dark text-light">
+          <header>
+            <div class="row no-gutters">
+              <h2 class="logo mt-2"><a href="index.html">Fast-Travel</a></h2>
+              <div class="toggle"></div>
+            </div>
+          </header>
+          <h1 class="page-heading mb-4">Specifications</h1>
+
+           <!--=========== Form Section -->
+           <!-- onsubmit="return sendMail(this); -->
+            <form name="specifications" id="SpecForm" class="row g-3 needs-validation" onsubmit="return false">
+              <!-- Name and Email -->
+              <div class="col-12">
+                  <label for="name" class="form-label">Name:</label>
+                  <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter name" required>
+                    <div class="form-text text-white">* We need a name for our cars to identify</div>
+                    <div class="invalid-feedback">
+                      Please provide a name.
+                    </div>
+              </div>
+              <div class="col-12 text-align-center justify-content-center">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" class="form-control form-control-lg" id="email" placeholder="Enter e-mail" required>
+                    <div class="form-text text-white">* We'll never share your email with anyone else</div>
+                    <div class="invalid-feedback">
+                      Please provide a valid email.
+                    </div>
+              </div>
+
+              <!-- Select Vehicle -->
+                  <div class="col-xs-12 col-md-6">
+                      <label for="Vehicle" class="form-label">Vehicle Type:</label>
+                      <select id="Vehicle" class="form-select form-select-lg" required>
+                        <optgroup label="-- Specialist Models --">
+                          <option value="Tesla Model S">Tesla Model S</option>
+                          <option value="Cadillac CT6">Cadillac CT6</option>
+                          <option value="Nissan Rogue">Nissan Rogue</option>
+                          <option value="BMW X7">BMW X7</option>
+                          <option value="Mercedes-Benz S-Class">Mercedes-Benz S-Class</option>
+                          <option value="Toyota RAV4">Toyota RAV4</option>
+                          <option value="Volvo XC60">Volvo XC60</option>
+                          <option value="Limo">Limo</option>
+                        </optgroup>
+                        <optgroup label="-- Any Car --">
+                          <option value="Any 2 seater">Any 2 seater</option>
+                          <option value="Any 5 seater" selected>Any 5 seater</option>
+                          <option value="Any 8 seater">Any 8 seater</option>
+                        </optgroup>
+                      </select>
+                      <div class="form-text text-white">* Designated vehicle</div>
+                  </div>
+                  <div class="invalid-feedback">
+                      You must choose a vehicle.
+                  </div>
+
+              <!-- Select Car Music -->
+                  <div class="col-xs-12 col-md-6">
+                    <label for="Music" class="form-label">In-car Music:</label>
+                    <select id="Music" class="form-select form-select-lg">
+                      <option value="" selected>Choose...</option>
+                      <option value="Rock n Roll">Rock n Roll</option>
+                      <option value="Jazz">Jazz</option>
+                      <option value="Hip Hop">Hip Hop</option>                      
+                      <option value="R&B">R&B</option>
+                      <option value="Electronic Disco">Electronic Disco</option>
+                      <option value="Classical">Classical</option>
+                    </select>
+                    <div class="form-text text-white">* You can change this once inside the vehicle</div>
+                  </div>
+
+                <!-- Payment method -->
+              <div class="col-md-12">
+                <div class="form-check" name="paymentMethod" id="paymentMethod" required>
+                  <label for="payment" class="form-label">Payment Method:</label>
+                      <br>
+                    <input class="form-check-input mb-3" type="radio" name="radioBtn" id="VisaCheck" value="VISA">
+                    <label class="form-check-label" for="VisaCheck">
+                      VISA
+                    </label>           
+                      <br>                      
+                    <input class="form-check-input mb-3" type="radio" name="radioBtn" id="MasterCheck" value="MasterCard">
+                    <label class="form-check-label" for="MasterCheck">
+                      Mastercard
+                    </label>                    
+                      <br> 
+                    <input class="form-check-input mb-3" type="radio" name="radioBtn" id="CryptoCheck" value="Crypto-currency">
+                    <label class="form-check-label" for="CryptoCheck">
+                      Crypto Currency
+                    </label>  
+                      <br>    
+                    <input class="form-check-input mb-3" type="radio" name="radioBtn" id="PayPalCheck" value="PayPal">
+                    <label class="form-check-label" for="PayPalCheck">
+                      PayPal
+                    </label>  
+                </div>
+              </div>
+              <!-- Submit or cancel -->
+              <div class="row">
+                <div class="col-xs-12 col-6 text-center justify-content-center">
+                    <a type="button" class="btn btn-danger mt-2 " href="maps.html" value="CANCEL">CANCEL</a>
+                </div>
+                <div class="col-xs-12 col-6 text-center justify-content-center">
+                    <button type="submit" class="btn btn-primary mt-2" id="submit" value="SUBMIT">SUBMIT</button>
+                </div>
+              </div>
+            </form>
+
+            <!--=========== Socials -->  
+            <div class="row no-gutters">
+              <ul class="specsForm-social">
+                  <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+                  <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+                  <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+                  <li><a href="https://youtube.com"><i class="fa fa-youtube text-dark"></i></a></li>
+              </ul>
+          <p class="specsForm-copyright text-white">
+              © 2021 Created by Wyne Ybanez
+          </p>
+          </div>
+      </div>
+
+      <!-- =========== Navigation menu on toggle -->
+      <div class="menu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="maps.html">Book</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+      </div> 
+
+      <!-- EmailJS -->
+    <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+          (function(){
+              emailjs.init("user_pHThjXjsc2Z3MnGT7tNCP");
+          })();
+    </script>
+    <script src="js/specs.js"></script>
+  </body>
+</html>

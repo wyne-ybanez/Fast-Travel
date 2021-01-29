@@ -102,3 +102,5 @@ changed the query selector specified Id to the correct Id within the html page
     Solved using the following code in maps.html: 
   ` <form name="booking-form" onsubmit="return false;"> ` 
   [Stack Overflow solution](https://stackoverflow.com/questions/40813467/html-reset-after-form-submit)
+
+  (x) Bug: Specifications form will not validate inputs despite browser "required" annotation within element. Clicking submit does not continue with request

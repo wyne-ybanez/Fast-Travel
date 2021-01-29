@@ -117,7 +117,7 @@ li {
   overflow: hidden;
 }
 
-.contactForm,
+.specsForm,
 .map-section {
   top: 0;
   right: 0;
@@ -128,7 +128,7 @@ li {
   overflow: hidden;
 }
 
-.contactForm.active,
+.specsForm.active,
 .map-section.active,
 .showcase.active {
   right: 300px;
@@ -202,7 +202,7 @@ li {
   color: #fff;
 }
 
-.contactForm-social,
+.specsForm-social,
 .map-social,
 .social {
   position: absolute;
@@ -214,7 +214,18 @@ li {
   overflow: hidden;
 }
 
-.contactForm-copyright,
+.specsForm-social,
+.map-social {
+  bottom: -40px;
+  background-color: #000;
+}
+
+.specsForm-copyright,
+.map-copyright {
+  left: 43.2em;
+}
+
+.specsForm-copyright,
 .map-copyright,
 .copyright {
   position: absolute;
@@ -227,14 +238,20 @@ li {
   overflow: hidden;
 }
 
-.contactForm li,
+.specsForm-social li,
 .map-social li,
 .social li {
   list-style: none;
   font-size: 50px;
 }
 
-.contactForm li a,
+.specsForm-social li,
+.map-social li {
+  bottom: 500px;
+  transform: translate(-715px, -15px);
+}
+
+.specsForm-social li a,
 .map-social li a,
 .social li a {
   display: inline-block;
@@ -244,7 +261,7 @@ li {
   transition: 0.5s;
 }
 
-.contactForm li a:hover,
+.specsForm-social li a:hover,
 .map-social li a:hover,
 .social li a:hover {
   transform: scale(0.5) translateY(-15px);
@@ -341,27 +358,19 @@ li {
   height: 160vh;
 }
 
-.map-social {
-  bottom: -40px;
-  background-color: #000;
-}
+/*====== Specifications Form ====== */
 
-.map-copyright {
-  left: 43.2em;
-}
-
-.map-social li {
-  bottom: 500px;
-  transform: translate(-715px, -15px);
-}
-
-/*====== Contact Form ====== */
-.contactForm {
+.specsForm {
   padding: 0 500px 500px 500px;
+  height: 150vh;
 }
 
-.contactForm .page-heading:after {
-  width: 63%;
+.specsForm .page-heading:after {
+  width: 53%;
+}
+
+.specsForm-social {
+  left: 0;
 }
 
 /*====== Media Queries ====== */
