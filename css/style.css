@@ -362,7 +362,19 @@ li {
 
 .specsForm {
   padding: 0 500px 500px 500px;
-  height: 150vh;
+  height: 100vh;
+}
+
+.specsForm h2 {
+  font-size: 45px;
+}
+
+.specsForm li {
+  font-size: 25px;
+}
+
+.specsForm.height {
+  height: 200vh;
 }
 
 .specsForm .page-heading:after {

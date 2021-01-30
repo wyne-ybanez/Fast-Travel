@@ -20,7 +20,7 @@ const menuMaps = document.querySelector('.menuMaps');
 // Submit event Listeners
 order.addEventListener('click', geocodeData);
 order.addEventListener('click', timeDate);
-order.addEventListener('click', options);
+order.addEventListener('click', height);
 order.addEventListener('click', scrollFunc);
 order.addEventListener('click', localDataStorage);
 
@@ -472,7 +472,7 @@ function resetForm(){
 }
 
 //========== If user submits without answering input fields
-function options(){
+function height(){
     let optionButtons = `
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
                 <a class="btn btn-light" type="button" href="index.html">CANCEL</a>
@@ -504,20 +504,10 @@ function scrollFunc(){
 setTimeout(scrollFunc(),9000);
 
 //========== Set Local Storage for accessing data
-// Dcode Local storage code used and eddited: https://www.youtube.com/watch?v=AUOzvFzdIk4&ab_channel=dcode
 function localDataStorage(){
-let localObj = {
-    origin: document.getElementById('origin').value,
-    destination: document.getElementById('destination').value,
-    date: document.getElementById('dateInput').value,
-    time: document.getElementById('timeInputHr').value + ":" + document.getElementById('timeInputMin').value 
-};
-
-// Make it into a JSON string
-let localObj_serialized = JSON.stringify(localObj);
-localStorage.setItem("localObj", localObj_serialized);
-
-// Parse it into an object we can analyse
-let localObj_deserialized = JSON.parse(localStorage.getItem("localObj"));
-console.log(localObj_deserialized);
+    localStorage.setItem("origin", document.getElementById('origin').value);
+    localStorage.setItem("destination", document.getElementById('destination').value);
+    localStorage.setItem("date", document.getElementById('dateInput').value);
+    localStorage.setItem("time", document.getElementById('timeInputHr').value + ":" + document.getElementById('timeInputMin').value);
+    console.log(localStorage);
 }

@@ -1,4 +1,15 @@
+//========== Variables
+const specsForm = document.querySelector('.specsForm');
+
 //========== Input fields
+let inputs = [
+  document.getElementById('name'),
+  document.getElementById('email'),
+  document.getElementById('Vehicle'),
+  document.getElementById('Music'),
+  document.getElementsByName("radioBtn")
+]
+
 const name = document.getElementById('name');
 const email = document.getElementById('email');
 const vehicle = document.getElementById('Vehicle');
@@ -6,49 +17,67 @@ const music = document.getElementById('Music');
 const payment_method = document.getElementsByName("radioBtn"); 
 const submit = document.getElementById('submit');
 
+const menu = document.querySelector('.menu');
 const menuToggle = document.querySelector('.toggle');
-const specificationForm = document.querySelector('.specsForm');
 
+//========== Event Listeners
+submit.addEventListener('click', bookingSummary);
+submit.addEventListener('click', specsSummary);
 
 //========== Menu toggle event listener
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('active');
-  specificationForm.classList.toggle('active');
+  specsForm.classList.toggle('active');
 })
 
-//========== Give local storage new data info on submit
-submit.addEventListener('click', () => {
-  let specData= {
-          name: name.value,
-          email: email.value,
-          vehicle: vehicle.value,
-          music: music.value,
-          payment_method: payment_method.value
-      };
+//========== Give local storage new specs data info on submit
+function specsSummary(){
 
-  // Make it into a JSON string
-  let specData_serialized = JSON.stringify(specData);
-  localStorage.setItem("specData", specData_serialized);
+  let name = localStorage.getItem('name');
+  let email = localStorage.getItem('email');
+  let vehicle = localStorage.getItem('vehicle');
+  let music = localStorage.getItem('music');
+  let payment = localStorage.getItem('payment');
+};
 
-  // Parse it into an object we can analyse
-  let specObj_deserialized = JSON.parse(localStorage.getItem("specData"));
-  console.log(specObj_deserialized);
+//========== Show local sotrage data of booking details and display them on page
+// Dcode Local storage code used and eddited: https://www.youtube.com/watch?v=k8yJCeuP6I8&ab_channel=dcode
+function bookingSummary(){
 
-  for(var i=0;i<payment_method.length;i++){
-        payment_method[i].checked = true; // marking the required radio as checked
-    }  
-});
+  let origin = localStorage.getItem('origin');
+  let destination = localStorage.getItem('destination');
+  let date = localStorage.getItem('date');
+  let time = localStorage.getItem('time');
 
+  let orderSummary = `
+          <ul class="list-group">     
+            <h2>Origin:</h2>
+                <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${origin}</li>  
+                  <br>  
+            <h2>Destination:</h2> 
+                <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${destination}</li> 
+                  <br>   
+            <h2>Date:</h2>        
+                <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${date}</li>  
+                  <br>   
+            <h2>Time:</h2>          
+                <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${time}</li>
+          </ul>    
+          ` 
 
-
-//========== Get Local storage Data of Booking page
-let orderData = localStorage.getItem('localObj');
-
-// make it JSON string and parse it again to create the object
-let orderData_serialized = JSON.stringify(orderData);
-let orderData_deserialized = JSON.parse(localStorage.getItem('localObj'));
-console.log(orderData_deserialized);
-
+  // Reactive Page height
+  for(i=0; i<inputs.length; i++) {
+      if (inputs[i].value === '' || inputs[0].value === '' || inputs[1].value === '' || inputs[2].value === '' || inputs[3].value === '' || inputs[4].value === ''){
+          document.getElementById('summary').innerHTML = null; 
+          specsForm.classList.remove('height');
+          menu.classList.remove('height');
+      } else {
+          document.getElementById('summary').innerHTML = orderSummary;
+          specsForm.classList.toggle('height');
+          menu.classList.toggle('height');
+      }
+  }
+}
 
 
 

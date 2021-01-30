@@ -103,4 +103,11 @@ changed the query selector specified Id to the correct Id within the html page
   ` <form name="booking-form" onsubmit="return false;"> ` 
   [Stack Overflow solution](https://stackoverflow.com/questions/40813467/html-reset-after-form-submit)
 
-  (x) Bug: Specifications form will not validate inputs despite browser "required" annotation within element. Clicking submit does not continue with request
+  (x) EmailJS Bug: Specifications form will not validate inputs despite browser "required" annotation within element. Clicking submit does not continue with EmailJS request
+
+  (xi) LocalStorage undefined Bug: Unable to output local storage object onto html page
+      [Screenshot of Local Storage Bug](assets/img/LocalStorage-bug.png)
+
+      SOLVED
+
+
