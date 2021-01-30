@@ -21,7 +21,7 @@ const menuMaps = document.querySelector('.menuMaps');
 order.addEventListener('click', geocodeData);
 order.addEventListener('click', timeDate);
 order.addEventListener('click', height);
-order.addEventListener('click', scrollFunc);
+order.addEventListener('click', ScrollFunc);
 order.addEventListener('click', localDataStorage);
 
 // Reset form event
@@ -337,8 +337,8 @@ function DisplayRoute(directionsService, directionsDisplay) {
         directionsDisplay.setDirections(response);
         // Make order details summary
         let visible = `
-        <div class="col-12">
-            <h1 class="page-heading mt-5 active id="order-details">Booking Information</h1>
+        <div class="col-12" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">
+            <h1 class="page-heading mt-5 active" id="order-details">Booking Information</h1>
         </div>
         `;
         document.getElementById('order-details').innerHTML = visible;
@@ -350,7 +350,8 @@ function DisplayRoute(directionsService, directionsDisplay) {
       } else {
         // When request fails - user cannot move forward with booking
         mapsSection.classList.remove('height');
-        window.alert('Directions request failed. Please be specific or check permissions. \nFailure status: ' + status);
+        menuMaps.classList.remove('height');
+        window.alert('Your request failed :( \n Please be specfic, keep requests to the same country and check your permissions. \nFailure status: ' + status);
       }
     });
 }
@@ -474,11 +475,15 @@ function resetForm(){
 //========== If user submits without answering input fields
 function height(){
     let optionButtons = `
-            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
-                <a class="btn btn-light" type="button" href="index.html">CANCEL</a>
+            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">
+                <a class="btn btn-light" type="button" href="index.html">
+                    CANCEL
+                </a>
             </div>
-            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center">
-                <a class="btn btn-light" type="button" href="specsForm.html">CONFIRM</a>
+            <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-delay="500" data-aos-duration="1500">
+                <a class="btn btn-light" type="button" href="specsForm.html">
+                    CONFIRM
+                </a>
             </div>` 
 
     // Reactive Page height
@@ -487,6 +492,7 @@ function height(){
             document.getElementById('options').innerHTML = null; 
             mapsSection.classList.remove('height');
             menuMaps.classList.remove('height');
+            
         } else {
             document.getElementById('options').innerHTML = optionButtons;
             mapsSection.classList.toggle('height');
@@ -496,12 +502,9 @@ function height(){
 }
 
 //========== Scroll to booking details after submission
-function scrollFunc(){
-    window.scrollTo(0, 1500);
-}
-
-// Give height time to expand before scrolling
-setTimeout(scrollFunc(),9000);
+function ScrollFunc(){
+    window.scrollTo(0, 600)
+}    
 
 //========== Set Local Storage for accessing data
 function localDataStorage(){

@@ -48,10 +48,18 @@ li {
   font-size: 20px;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
 .page-heading {
   margin-top: 1em;
   justify-content: center;
-  font-size: 73px;
+  font-size: 75px;
 }
 
 /* Underlining the Heading with adjustable border: https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
@@ -118,7 +126,8 @@ li {
 }
 
 .specsForm,
-.map-section {
+.map-section,
+.about-section {
   top: 0;
   right: 0;
   width: 100%;
@@ -130,7 +139,8 @@ li {
 
 .specsForm.active,
 .map-section.active,
-.showcase.active {
+.showcase.active,
+.about-section.active {
   right: 300px;
 }
 
@@ -204,7 +214,8 @@ li {
 
 .specsForm-social,
 .map-social,
-.social {
+.social,
+.about-social {
   position: absolute;
   z-index: 10;
   bottom: -25px;
@@ -215,14 +226,10 @@ li {
 }
 
 .specsForm-social,
-.map-social {
+.map-social,
+.about-social {
   bottom: -40px;
   background-color: #000;
-}
-
-.specsForm-copyright,
-.map-copyright {
-  left: 43.2em;
 }
 
 .specsForm-copyright,
@@ -238,22 +245,31 @@ li {
   overflow: hidden;
 }
 
+.specsForm-copyright,
+.map-copyright,
+.about-copyright {
+  left: 43.2em;
+}
+
 .specsForm-social li,
 .map-social li,
+.about-social li,
 .social li {
   list-style: none;
   font-size: 50px;
 }
 
 .specsForm-social li,
-.map-social li {
+.map-social li,
+.about-social li {
   bottom: 500px;
   transform: translate(-715px, -15px);
 }
 
 .specsForm-social li a,
 .map-social li a,
-.social li a {
+.social li a,
+.about-social li a {
   display: inline-block;
   margin: 0 10px 0 10px;
   filter: invert(1);
@@ -263,7 +279,8 @@ li {
 
 .specsForm-social li a:hover,
 .map-social li a:hover,
-.social li a:hover {
+.social li a:hover,
+.about-social li a:hover {
   transform: scale(0.5) translateY(-15px);
 }
 
@@ -272,7 +289,6 @@ li {
   top: 0;
   right: 0;
   width: 300px;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -342,20 +358,19 @@ li {
   padding: 0 100px;
 }
 
-.map-section {
-  height: 105vh;
-}
-
-.map-section.height {
-  height: 160vh;
-}
-
+.map-section,
 .menuMaps {
-  height: 105vh;
+  height: 107vh;
 }
 
+.map-section.height,
 .menuMaps.height {
-  height: 160vh;
+  height: 162vh;
+}
+
+.menuMaps.height ul {
+  position: fixed;
+  bottom: 25.3em;
 }
 
 /*====== Specifications Form ====== */
@@ -365,24 +380,61 @@ li {
   height: 100vh;
 }
 
-.specsForm h2 {
+.specsForm .headings {
   font-size: 45px;
 }
 
-.specsForm li {
+.specsForm .list-group-item {
   font-size: 25px;
 }
 
+.specsMenu {
+  height: 100vh;
+  position: fixed;
+}
+
 .specsForm.height {
-  height: 200vh;
+  height: 250vh;
+}
+
+.specsForm .page-heading {
+  position: relative;
+  right: 10rem;
+}
+
+.specsForm h2 {
+  position: relative;
+  right: 5rem;
 }
 
 .specsForm .page-heading:after {
-  width: 53%;
+  width: 38%;
 }
 
 .specsForm-social {
-  left: 0;
+  left: 0px;
+  width: 110vw;
+}
+
+/*====== About Us Section ====== */
+
+.about-section,
+.aboutMenu {
+  height: 150vh;
+}
+
+.aboutMenu ul {
+  position: relative;
+  bottom: 10em;
+}
+
+.about-section .page-heading:after {
+  border-bottom: 2px solid #000;
+  width: 18.5%;
+}
+
+.about-body {
+  padding: 0 400px 400px 400px;
 }
 
 /*====== Media Queries ====== */

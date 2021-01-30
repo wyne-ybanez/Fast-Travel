@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <title>Booking</title>
   </head>
@@ -20,7 +21,7 @@
         </div>
       </header>
       
-      <h1 class="page-heading mb-5">Booking Preferences</h1>
+      <h1 class="page-heading mb-5" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">Booking Preferences</h1>
       <div class="row">
           <div class="col-xs-12 col-sm-4 col-md-4 filter-column">
               <div class="row">
@@ -190,8 +191,8 @@
          <div class="menu menuMaps">
           <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
               <li><a href="maps.html">Book</a></li>
+              <li><a href="about.html">About</a></li>             
           </ul>
         </div> 
     
@@ -201,6 +202,10 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCACRlDlzkN-6K9h0yiK8a9wA6pjw7IGQY&libraries=places&callback=initMap"
       defer
     ></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
     <script src="js/maps.js"></script>
   </body>
 </html>
