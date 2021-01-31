@@ -22,6 +22,10 @@ let inputs = [
 
 //========== Event Listeners
 submit.addEventListener('click', bookingSummary);
+submit.addEventListener('click', () => {
+  setTimeout(ScrollFunc, 300);
+});
+
 
 //========== Menu toggle event listener
 menuToggle.addEventListener('click', () => {
@@ -66,34 +70,41 @@ function bookingSummary(){
               Order Summary
           </h1>
             <ul class="list-group">  
-              <h2 class="headings">Name:</h2>
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${name}</li>  
+              <h2 class="display-6">Name:</h2>
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${name}</li>  
                     <br>
-              <h2 class="headings">Email:</h2>
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${email}</li>  
+              <h2 class="display-6">Email:</h2>
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${email}</li>  
                     <br>
-              <h2 class="headings">Origin:</h2>
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${origin}</li>  
+              <h2 class="display-6">Origin:</h2>
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${origin}</li>  
                     <br>  
-              <h2 class="headings">Destination:</h2> 
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${destination}</li> 
+              <h2 class="display-6">Destination:</h2> 
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${destination}</li> 
                     <br>   
-              <h2 class="headings">Date:</h2>        
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${date}</li>  
+              <h2 class="display-6">Date:</h2>        
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${date}</li>  
                     <br>   
-              <h2 class="headings">Time:</h2>          
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${time}</li>
+              <h2 class="display-6">Time:</h2>          
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${time}</li>
                     <br>
-              <h2 class="headings">Payment-Method:</h2>          
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${payment}</li>
+              <h2 class="display-6">Payment-Method:</h2>          
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${payment}</li>
                     <br>
-              <h2 class="headings">Vehicle selected:</h2>
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${vehicle}</li>  
+              <h2 class="display-6">Vehicle selected:</h2>
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${vehicle}</li>  
                     <br>
-              <h2 class="headings">Music selected:</h2>
-                  <li class="list-group-item list-group-item-action bg-secondary text-light text-center">${music}</li>  
+              <h2 class="display-6">Music selected:</h2>
+                  <li class="list-group-item list-group-item-action list-group-item-secondary text-dark text-center">${music}</li>  
                     <br>       
             </ul>    
+
+            <div class="row">
+              <div class="col-12 text-center justify-content-center submit-btn mt-3">
+                <div class="form-text text-secondary">* This may take a moment to load *</div>
+                <button id="confirm" type="button" class="btn btn-dark" value="CONFIRM" onsubmit="return sendMail(this);">EMAIL CONFRIMATION</button>
+              </div>
+            </div>
           ` 
   // Reactive Page height
   for(i=0; i<inputs.length; i++) {
@@ -107,28 +118,52 @@ function bookingSummary(){
           menu.classList.toggle('height');
       }
   }
+
+  // Send Email a confirmation of order
+  const confirm =  document.getElementById('confirm');
+  confirm.addEventListener('click', sendMail);
 }
 
+//========== Scroll to summary section
+function ScrollFunc(){
+  window.scrollTo(0, 800);
+}    
 
+// ========== Sending Email Summary 
+function sendMail(){
 
+  //Get Local Storage of all Data
+  let name = localStorage.getItem('name');
+  let email = localStorage.getItem('email');
+  let vehicle = localStorage.getItem('vehicle');
+  let music = localStorage.getItem('music');
+  let payment = localStorage.getItem('payment');
+  let origin = localStorage.getItem('origin');
+  let destination = localStorage.getItem('destination');
+  let date = localStorage.getItem('date');
+  let time = localStorage.getItem('time');
 
-//========== Sending Email Summary 
-// function sendMail(specsForm){
-//   emailjs.send("gmail","wyne", {
-//       // the name, email and specifications from form
-//       "from_name": specsForm.name.value,
-//       "from_email": specsForm.email.value,
-//       "Vehicle": specsForm.Vehicle.value,
-//       "Music": specsForm.Music.value,
-//       "Payment-method": specsForm.paymentMethod.value
-//   })
-//   // emailjs.send.then promise
-//   .then(
-//       function(response) {
-//           console.log("SUCCESS", response);
-//       }, 
-//       function(error){
-//           console.log("FAILED", error);
-//       })
-//   return false;
-// };
+  // Booking form info 
+  emailjs.send("gmail","wyne", {
+      "from_name": name,
+      "from_email": email,
+      "from_location": origin,
+      "to_location": destination,
+      "time": time,
+      "date": date,
+      "vehicle": vehicle,
+      "music": music,
+      "payment_method": payment
+  })
+  // emailjs.send.then promise
+  .then(
+      function(response) {
+          window.alert('Order Summary Sent 👍')
+          console.log("SUCCESS", response);
+      }, 
+      function(error){
+          window.alert('Order Summary failed to send')
+          console.log("FAILED", error);
+      })
+  return false;
+};

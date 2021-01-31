@@ -373,11 +373,11 @@ function geocodeData(){
         // Formatted Origin address
         const formattedOrigin = response.data.results[0].formatted_address; 
             let formattedOrgOutput = `
-                <ul class="list-group">
-                    <h4>Origin:</h4>
-                    <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
-                </ul>
-            `;
+                <h4>Origin:</h4>
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
+                    </ul>
+                    `;
           document.getElementById('formatted-address-origins').innerHTML = formattedOrgOutput;
         // Request Denied due to restrictions
         if (response.data.status === 'REQUEST_DENIED'){
@@ -400,8 +400,8 @@ function geocodeData(){
         // Formatted Destination address
         const formattedDestination = response.data.results[0].formatted_address; 
             let formattedDestOutput = `
+            <h4>Destination:</h4>
                 <ul class="list-group">
-                    <h4>Destination:</h4>
                     <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedDestination}</li>
                 </ul>
                 `;
@@ -423,8 +423,8 @@ function timeDate(){
         console.log('User must choose a date');
     } else { 
         date = `
+        <h4>Date:</h4>
         <ul class="list-group mb-5">
-            <h4>Date:</h4>
             <li class="list-group-item list-group-item-secondary text-dark text-center">${dateInput}</li>
         </ul>
         `;
@@ -438,8 +438,8 @@ function timeDate(){
         console.log('User must choose at what minute they would like to depart at');
     } else {
         time = `  
-        <ul class="list-group mb-5">
-            <h4>Time:</h4>
+        <h4>Time:</h4>
+        <ul class="list-group mb-5">         
             <li class="list-group-item list-group-item-secondary text-dark text-center">${timeHr} : ${timeMin}</li>
         </ul>
         `;
@@ -457,16 +457,23 @@ function resetForm(){
         document.getElementById('formatted-address-destination'),
         document.getElementById('options')
     ]
+
     // Empty all inputs fields
     for (i=0; i<inputs.length; i++){
         inputs[i].value = '';
     };
+
     // Remove all preferences details
     for (i=0; i<resetHtmlVal.length; i++){
         resetHtmlVal[i].innerHTML = null;
     };
     let visible = '';
-        document.getElementById('order-details').innerHTML = visible;
+    document.getElementById('order-details').innerHTML = visible;
+
+    // Reset height
+    mapsSection.classList.remove('height');
+    menuMaps.classList.remove('height');
+
     // Reinitialize Map
     initMap();
     console.log('Form has been reset');

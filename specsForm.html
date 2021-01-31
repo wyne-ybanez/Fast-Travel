@@ -13,7 +13,7 @@
     <body>
 
       <!--=========== Header Section -->
-      <div class="specsForm bg-dark text-light">
+      <div class="specsForm bg-light text-dark">
           <header>
             <div class="row no-gutters">
               <h2 class="logo mt-2"><a href="index.html">Fast-Travel</a></h2>
@@ -22,14 +22,13 @@
           </header>
           <h1 class="page-heading mb-4" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">Specifications</h1>
 
-           <!--=========== Form Section -->
-           <!-- onsubmit="return sendMail(this); -->
+           <!--=========== Form Section -->           
             <form name="specifications" id="SpecForm" class="row g-3 needs-validation" onsubmit="return false">
               <!-- Name and Email -->
               <div class="col-12">
                   <label for="name" class="form-label">Name:</label>
                   <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter name" required>
-                    <div class="form-text text-white">* We need a name for our cars to identify</div>
+                    <div class="form-text text-secondary">* We need a name for our cars to identify</div>
                     <div class="invalid-feedback">
                       Please provide a name.
                     </div>
@@ -37,7 +36,7 @@
               <div class="col-12 text-align-center justify-content-center">
                   <label for="email" class="form-label">Email:</label>
                   <input type="email" class="form-control form-control-lg" id="email" placeholder="Enter e-mail" required>
-                    <div class="form-text text-white">* We'll never share your email with anyone else</div>
+                    <div class="form-text text-secondary">* We'll never share your email with anyone else</div>
                     <div class="invalid-feedback">
                       Please provide a valid email.
                     </div>
@@ -45,7 +44,7 @@
 
               <!-- Select Vehicle -->
                   <div class="col-xs-12 col-md-6">
-                      <label for="Vehicle" class="form-label">Vehicle Type:</label>
+                      <label name="Vehicle" for="Vehicle" class="form-label">Vehicle Type:</label>
                       <select id="Vehicle" class="form-select form-select-lg" required>
                         <optgroup label="-- Specialist Models --">
                           <option value="Tesla Model S">Tesla Model S</option>
@@ -63,7 +62,7 @@
                           <option value="Any 8 seater">Any 8 seater</option>
                         </optgroup>
                       </select>
-                      <div class="form-text text-white">* All Designated vehicles are electric</div>
+                      <div class="form-text text-secondary">* All Designated vehicles are electric</div>
                   </div>
                   <div class="invalid-feedback">
                       You must choose a vehicle.
@@ -71,7 +70,7 @@
 
               <!-- Select Car Music -->
                   <div class="col-xs-12 col-md-6">
-                    <label for="Music" class="form-label">In-car Music:</label>
+                    <label name="Music" for="Music" class="form-label">In-car Music:</label>
                     <select id="Music" class="form-select form-select-lg">
                       <option value="" selected>Choose...</option>
                       <option value="Rock n Roll">Rock n Roll</option>
@@ -81,7 +80,7 @@
                       <option value="Electronic Disco">Electronic Disco</option>
                       <option value="Classical">Classical</option>
                     </select>
-                    <div class="form-text text-white">* You can change this once inside the vehicle</div>
+                    <div class="form-text text-secondary">* You can change this once inside the vehicle</div>
                   </div>
 
                 <!-- Payment method -->
@@ -113,10 +112,10 @@
               <!-- Submit or cancel -->
               <div class="row">
                 <div class="col-xs-12 col-6 text-center justify-content-center">
-                    <a type="button" class="btn btn-danger mt-4" href="maps.html" value="CANCEL">CANCEL</a>
+                    <a type="button" class="btn btn-light mt-4" href="maps.html" value="CANCEL">CANCEL</a>
                 </div>
                 <div class="col-xs-12 col-6 text-center justify-content-center">
-                    <button type="submit" class="btn btn-primary mt-4" id="submit" value="SUBMIT">SUBMIT</button>
+                    <button type="submit" class="btn btn-dark mt-4" id="submit" value="SUBMIT">SUBMIT</button>
                 </div>
               </div>
             </form>
@@ -160,10 +159,14 @@
               emailjs.init("user_pHThjXjsc2Z3MnGT7tNCP");
           })();
     </script>
+
+    <!-- AOS -->
       <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
       <script>
           AOS.init();
-        </script>
+      </script>
+
+    <!-- Own Script -->
     <script src="js/specs.js"></script>
   </body>
 </html>

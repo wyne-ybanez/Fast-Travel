@@ -56,6 +56,10 @@ li {
   text-transform: capitalize;
 }
 
+.underline {
+  text-decoration: underline;
+}
+
 .page-heading {
   margin-top: 1em;
   justify-content: center;
@@ -69,7 +73,7 @@ li {
   margin: -10px 10px 10px 10px;
   width: 30%;
   padding-top: 20px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #000;
 }
 
 .logo a {
@@ -289,6 +293,7 @@ li {
   top: 0;
   right: 0;
   width: 300px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -316,13 +321,16 @@ li {
   transition: 0.5s;
 }
 
-.list-group {
+.list-group-item {
   border-radius: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Button shadow styling used and editted: https://codepen.io/seme332/pen/reJOwo */
 .btn {
   border-radius: 10px;
   letter-spacing: 3px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .btn:hover {
@@ -337,6 +345,7 @@ li {
   height: 650px;
   width: 100%;
   bottom: 5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.8);
 }
 
 /* Geolocation button styling from: https://developers.google.com/maps/documentation/javascript/geolocation */
@@ -380,10 +389,6 @@ li {
   height: 100vh;
 }
 
-.specsForm .headings {
-  font-size: 45px;
-}
-
 .specsForm .list-group-item {
   font-size: 25px;
 }
@@ -394,7 +399,7 @@ li {
 }
 
 .specsForm.height {
-  height: 250vh;
+  height: 255vh;
 }
 
 .specsForm .page-heading {
@@ -408,7 +413,7 @@ li {
 }
 
 .specsForm .page-heading:after {
-  width: 38%;
+  width: 40%;
 }
 
 .specsForm-social {
@@ -420,7 +425,11 @@ li {
 
 .about-section,
 .aboutMenu {
-  height: 150vh;
+  height: 140vh;
+}
+
+.aboutMenu {
+  position: fixed;
 }
 
 .aboutMenu ul {
@@ -429,7 +438,7 @@ li {
 }
 
 .about-section .page-heading:after {
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #fff;
   width: 18.5%;
 }
 
