@@ -2,27 +2,32 @@
 
 (PROJECT IS STILL INCOMPLETE) - https://wyne-ybanez.github.io/self-driving-car-delivery/
 
+## Table of contents
+ - [Project Goal](##Project-Goal)
+
+ - [UX](##UX)
+
+ - [User Stories](##User-Stories)
+
 ## Project Goal
 
-This project aims to create an interactive front end layout for a self-driving car taxi service called 'Fast-Travel'.
+This project aims to create an interactive front end layout for ordering a self driving car taxi service called 'Fast-Travel'.
 
 The target audience for this project are its customers/users. It will allow them to order a self driving cab which they can customise via a specification form. They can also choose where their starting point and destination is via the Google Maps API feature on the project. 
-
-For the purpose of the project. The options of destination will be kept local.
 
 ## UX 
 
 ### Strategy 
 
-My goal for the website was to allow the users to order a self driving taxi. It will focus primarily on functionality and ease of use. The website should process the user's input and acknowledge their specifications. It will give them the route the taxi will take and outline their specification options prior to the trip. Providing them an immersive experience.
+My strategy for the website is to allow the users to order a self driving taxi via a form. It focuses primarily on functionality and ease of use. The website should process the user's input and acknowledge their specifications. It will give them the route the taxi will take and outline their specification options prior to the trip. Providing them an immersive experience. It will then provide them a booking confirmation.
 
 ### Scope 
 
-The website will allow the user to decide the starting point and the destination(s) of his journey where their route is shown on the map. It will then provide the user with more options via a form so that the customer can personally customize their experience. A summary of the user's order should be provided to them. 
+The website will allow the user to decide the starting point and the destination(s) of his journey where their route is shown on the map. The map is also interactive and will show markers to relevant locations. It will then provide the user with more options via a form so that the customer can personally customize their experience. A summary of the user's order should be provided to them. 
 
 ### Structure 
 
-The website incorporates a multi-page design. The landing page, the Google Maps form, and the specifications form will be separated and have their own dedicated pages. The pages will be interactive and connected to each other, one page will ultimately lead to another. They shall also acknowledge any buttons the user presses or any preferences the user chooses.
+The website incorporates a multi-page design. The landing page, the Google Maps form, the specifications form and the about page will be separated and have their own dedicated pages. The two form pages will be interactive and connected to each other, one page will ultimately lead to another. They shall also acknowledge any buttons the user presses or any preferences the user chooses.
 
 ### Skeleton
 
@@ -34,9 +39,11 @@ These wireframes are the blueprints to the project. These were made to help plan
 
   [Specifications Form](assets/wireframes/Specifications.png) 
 
+  [About Page](assets/wireframes/about.png)
+
 ### Surface
 
-The site focuses primarily on functionality rather than design. The design of the website will be simply made yet elegant, focusing on dark, silver and lightning blue. It uses an mp4 video gif for the landing page. The Maps form page is interactive and will respond when the user interacts with the inputs fields or the map. Their interactions will reflect on the map itself. The specification form page will consist of a simple form and its color scheme will inherit the site's overall theme.
+The site focuses primarily on functionality rather than design. The design of the website will be simply made yet elegant, focusing on balancing dark and light colors complimented with lightning blue. It uses an mp4 video gif for the landing page. The Maps form page is interactive and will respond when the user interacts with the inputs fields or the map. Their interactions will reflect on the map itself. The specification form page will consist of a simple form and its color scheme will inherit the site's overall theme.
 
 ## User Stories:
 
@@ -48,21 +55,23 @@ The site focuses primarily on functionality rather than design. The design of th
   <br>
   c. I expect the website to display relevant content and stay consistently relevant as I explore the site.
   <br>
-  d. I would appreciate it if my interactions with the site were acknowledged so that I know what I am doing and where I am going. 
+  d. I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going. 
   <br>
   e. I would like the content to be structured and easy to follow.
+  <br>
+  f. I would like the website to be interactive and to respond according to my interactions.
   
 - ### Returning Visitor Goals:
   
-  a. I would like to see in-depth information to the website with regards to how the candidate is improving in his ability to code. 
+  a. I would like if the website assisted me by predicting my inputs based on past interactions. 
   <br>
-  b. I would like to see if the candidate has completed any coding experience with other businesses.
+  b. I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
   <br>
-  c. I would like to it if there were a way to contact the candidate and find out more information.
+  c. I would like to receive an email summary of what I have ordered 
 
 - ### Frequent Visitor Goals: 
   
-  a. I would like to check if the candidate is working on any projects.
+  a. I would like if the website could tell me where I am during my trip
   <br>
   b. I want to be able to contact the candidate quickly.
   <br>

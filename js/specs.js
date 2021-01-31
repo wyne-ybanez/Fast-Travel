@@ -33,7 +33,7 @@ menuToggle.addEventListener('click', () => {
   specsForm.classList.toggle('active');
 })
 
-//========== Show local sotrage data of booking details and display them on page
+//========== Show local storage data of booking details and display them on page
 // Dcode Local storage code used and eddited: https://www.youtube.com/watch?v=k8yJCeuP6I8&ab_channel=dcode
 function bookingSummary(){
 
@@ -41,7 +41,7 @@ function bookingSummary(){
   localStorage.setItem("name", document.getElementById('name').value);
   localStorage.setItem("email", document.getElementById('email').value);
   localStorage.setItem("vehicle", document.getElementById('Vehicle').value);
-  localStorage.setItem("music", document.getElementById('Music').value);;
+  localStorage.setItem("music", document.getElementById('Music').value);
   console.log(localStorage);
 
   // Get radio btn value if checked
@@ -50,7 +50,7 @@ function bookingSummary(){
         document.getElementsByName("radio") === payment_method[i].value;
         localStorage.setItem("payment", payment_method[i].value);
     }
-  }
+}
 
 // Get Local Storage of all Data
   let name = localStorage.getItem('name');
@@ -101,7 +101,6 @@ function bookingSummary(){
 
             <div class="row">
               <div class="col-12 text-center justify-content-center submit-btn mt-3">
-                <div class="form-text text-secondary">* This may take a moment to load *</div>
                 <button id="confirm" type="button" class="btn btn-dark" value="CONFIRM" onsubmit="return sendMail(this);">EMAIL CONFRIMATION</button>
               </div>
             </div>
@@ -129,9 +128,19 @@ function ScrollFunc(){
   window.scrollTo(0, 800);
 }    
 
-// ========== Sending Email Summary 
+// ========== Sending Email Confirmation 
 function sendMail(){
+  
+  // Generate order number - Code used: https://www.drzon.net/posts/generate-random-order-number/
+  let now = Date.now().toString() // '1492341545873'
+    // pad with extra random digit
+  now += now + Math.floor(Math.random() * 10)
+    // format
+  let orderNo = [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
 
+  // Let user know it takes time
+  window.alert('Your confirmation email will arrive shortly')
+  
   //Get Local Storage of all Data
   let name = localStorage.getItem('name');
   let email = localStorage.getItem('email');
@@ -145,6 +154,7 @@ function sendMail(){
 
   // Booking form info 
   emailjs.send("gmail","wyne", {
+      "order_number": orderNo,
       "from_name": name,
       "from_email": email,
       "from_location": origin,
@@ -159,11 +169,11 @@ function sendMail(){
   .then(
       function(response) {
           window.alert('Order Summary Sent 👍')
-          console.log("SUCCESS", response);
+          console.log("SUCCESS", response)
       }, 
       function(error){
-          window.alert('Order Summary failed to send')
-          console.log("FAILED", error);
+          window.alert('Order Summary failed to send 😔')
+          console.log("FAILED", error)
       })
   return false;
 };

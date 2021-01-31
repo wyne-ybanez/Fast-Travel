@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Customer Service</title>
+  </head>
+    <body>
+
+      <!--=========== Header Section -->
+      <div class="specsForm bg-light text-dark">
+          <header>
+            <div class="row no-gutters">
+              <h2 class="logo mt-2"><a href="index.html">Fast-Travel</a></h2>
+              <div class="toggle"></div>
+            </div>
+          </header>
+          <h1 class="page-heading mb-4" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">Customer Service</h1>
+
+           <!--=========== Form Section -->           
+            <form name="specifications" id="SpecForm" class="row g-3 needs-validation" onsubmit="return sendMail(this)">
+              <!-- Name and Email -->
+              <div class="col-12">
+                  <label for="name" class="form-label">Name:</label>
+                  <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter name" required>
+                    <div class="form-text text-secondary">* We need a name to identify</div>
+                    <div class="invalid-feedback">
+                      Please provide a name.
+                    </div>
+              </div>
+              <div class="col-12 text-align-center justify-content-center">
+                  <label for="email" class="form-label">Email:</label>
+                  <input type="email" class="form-control form-control-lg" id="email" placeholder="Enter e-mail" required>
+                    <div class="form-text text-secondary">* We'll never share your email with anyone else</div>
+                    <div class="invalid-feedback">
+                      Please provide a valid email.
+                    </div>
+              </div>
+              <!-- Order Number -->
+              <div class="col-12 text-align-center justify-content-center">
+                <label for="email" class="form-label">Order Number:</label>
+                <input type="text" class="form-control form-control-lg" id="order" placeholder="Enter order number" required>
+                  <div class="form-text text-secondary">* We need to identify the order</div>
+                  <div class="invalid-feedback">
+                    Please provide a valid order number
+                  </div>
+              </div>
+              <!-- Text-Area -->
+              <div class="input-group">
+                <span class="input-group-text">Specify Issue</span>
+                <textarea class="form-control form-control-lg" id="textarea" aria-label="Specify Issue"></textarea>
+              </div>
+
+              <!-- Submit or cancel -->
+              <div class="row">
+                <div class="col-xs-12 col-6 text-center justify-content-center">
+                    <a type="button" class="btn btn-light mt-4" href="help.html" value="CANCEL">CANCEL</a>
+                </div>
+                <div class="col-xs-12 col-6 text-center justify-content-center">
+                    <button type="submit" class="btn btn-dark mt-4" id="submit" value="SUBMIT">SUBMIT</button>
+                </div>
+              </div>
+            </form>
+
+            <!-- Summary section after complete submission -->
+            <div class="row">
+              <div class="col-12">
+                <div id="summary"></div>
+              </div>
+            </div>
+
+            <!--=========== Socials -->  
+            <div class="row no-gutters">
+              <ul class="specsForm-social">
+                  <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
+                  <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
+                  <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+                  <li><a href="https://youtube.com"><i class="fa fa-youtube text-dark"></i></a></li>
+              </ul>
+          <p class="specsForm-copyright text-white">
+              © 2021 Created by Wyne Ybanez
+          </p>
+          </div>
+      </div>
+
+      <!-- =========== Navigation menu on toggle -->
+      <div class="menu specsMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="maps.html">Book</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+      </div> 
+
+      <!-- EmailJS -->
+    <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+          (function(){
+              emailjs.init("user_pHThjXjsc2Z3MnGT7tNCP");
+          })();
+    </script>
+
+    <!-- AOS -->
+      <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+      <script>
+          AOS.init();
+      </script>
+
+    <!-- Own Script -->
+    <script src="js/help.js"></script>
+  </body>
+</html>
