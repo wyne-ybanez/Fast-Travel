@@ -17,7 +17,7 @@ function sendMail() {
 
   // Let user know it takes time
   window.alert(
-    'Your message will process shortly. This may just take a minute or two'
+    'Your message will process shortly. This may just take a minute or two...'
   )
 
   // Booking form info
@@ -32,6 +32,7 @@ function sendMail() {
     .then(
       function (response) {
         window.alert('Message was successfully sent 👍')
+        reset();
         console.log('SUCCESS', response)
       },
       function (error) {
@@ -39,7 +40,6 @@ function sendMail() {
         console.log('FAILED', error)
       }
     )
-  reset()
   return false
 }
 
@@ -52,7 +52,6 @@ function reset(){
    ]
 
   for(i=0;i<inputs.length;i++){
-    inputs[i].innerHTML = '';
     inputs[i].value='';
   }
 }

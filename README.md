@@ -1,15 +1,17 @@
 # Self-driving Car Taxi Service Web Project - Front End
 
-(PROJECT IS STILL INCOMPLETE) - https://wyne-ybanez.github.io/self-driving-car-delivery/
+Project Link: https://wyne-ybanez.github.io/self-driving-car-delivery/
 
 ## Table of contents
- - [Project Goal](##Project-Goal)
+ - [Project Goal](#Project-Goal)
 
- - [UX](##UX)
+ - [UX](#UX)
 
- - [User Stories](##User-Stories)
+ - [User Stories](#User-Stories)
 
- - [Design](##Design-In-depth)
+ - [Design](#Design-In-depth)
+ 
+ - [Features](#Features)
 
 ## Project Goal
 
@@ -51,35 +53,35 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - ### First Time Visitor Goals:
 
-  a. I would like to know the purpose for the creation of the website from the first instance of opening it
+  <strong>a.</strong>. I would like to know the purpose for the creation of the website from the first instance of opening it
   <br>
-  b. I would greatly appreciate it if the website were easy to navigate.
+  <strong>b.</strong> I would greatly appreciate it if the website were easy to navigate.
   <br>
-  c. I expect the website to display relevant content and stay consistently relevant as I explore the site
+  <strong>c.</strong> I expect the website to display relevant content and stay consistently relevant as I explore the site
   <br>
-  d. I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going
+  <strong>d.</strong> I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going
   <br>
-  e. I would like the content to be structured and easy to follow
+  <strong>e.</strong> I would like the content to be structured and easy to follow
   <br>
-  f. I would like the website to be interactive and to respond according to my interactions
+  <strong>f.</strong> I would like the website to be interactive and to respond according to my interactions
   
 - ### Returning Visitor Goals:
   
-  a. I would like if the website assisted me by predicting my inputs based on past interactions
+  <strong>a.</strong> I would like if the website assisted me by predicting my inputs based on past interactions
   <br>
-  b. I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
+  <strong>b.</strong> I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
   <br>
-  c. I would like to receive an email summary of what I have ordered 
+  <strong>c.</strong> I would like to receive an email summary of what I have ordered 
   <br>
-  d. I would like to research the company further 
+  <strong>d.</strong> I would like to research the company further 
 
 - ### Frequent Visitor Goals: 
   
-  a. I would like if the website could tell me where I am during my trip
+  <strong>a.</strong> I would like if the website could tell me where I am during my trip
   <br>
-  b. I want to be able to contact the business quickly should I encounter any issues during the journey
+  <strong>b.</strong> I want to be able to contact the business quickly should I encounter any issues during the journey
   <br>
-  c. I want to be able to navigate to any section of the website at any point in time
+  <strong>c.</strong> I want to be able to navigate to any section of the website at any point in time
 
 ## Design In-depth
 
@@ -87,13 +89,13 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - The overall project will use the colors:
   
-  (i) Lightning blue (#38acec) 
+  <strong>(i)</strong> Lightning blue (#38acec) 
 
-  (ii) White (#fff) 
+  <strong>(ii)</strong> White (#fff) 
 
-  (iii) Dark (#000)(Bootstrap version - #161c2d). 
+  <strong>(iii)</strong> Dark (#000)(Bootstrap version - #161c2d). 
 
-  (iv) Red (#ff0000)
+  <strong>(iv)</strong> Red (#ff0000)
  
 
 ### Fonts 
@@ -145,27 +147,17 @@ The site focuses primarily on functionality rather than design. The design of th
 
 ### Customer Service: 
 
-- It would be efficient if there was a way for users to contact the business should they encounter any issues during their trip.
+- It would be efficient if there was a way for users to contact the business should they encounter any issues during their trip
 
-- This feature will require the user to input their contact details via a contact form. 
-  
-- First name and the email address is required. 
-  
-- I 
+- This feature will require the user to input their contact details and order ID via a contact form 
 
-[Screenshot](assets/readMe/contactme-sc.png)
-
-Screenshot of page that will come after the user send their comments - [link](assets/readMe/thankyou-sc.png)
+[Screenshot](assets/readMe/help.png)
 
 ### Footer:
   
-- When reaching the end point of the website, there may be a further queries users would like to ask the candidate.
+- There is no dedicated footer links for the website 
   
-- Perhaps the user would like to read back over to the previous content. 
-  
-- The footer should have the relevant social links and navigation links. These can help users/recruiters to research candidate further or go back over specific content. 
-
-[Screenshot](assets/readMe/footer-sc.png)
+- Rather, the site will focus primarily on functionality. Should the user wish to learn more about the business, theu can click on the social links at the bottom of the page 
 
 ## Features
 

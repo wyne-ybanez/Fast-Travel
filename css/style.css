@@ -445,6 +445,13 @@ li {
 }
 
 /*====== Media Queries ====== */
+/* Desktop */
+@media (max-width: 1600px) and (min-width: 992px) {
+  .toggle{
+    left: 63em;
+  }
+}
+
 /* Laptop */
 @media (max-width: 1280px) and (min-width: 802px) {
   #map {
@@ -452,11 +459,12 @@ li {
   }
 
   .map-section {
-    min-height: 125vh;
+    min-height: 100vh;
   }
 
-  .map-section.height {
-    height: 205vh;
+  .map-section.height,
+  .menuMaps.height {
+    height: 165vh;
   }
 
   .map-social li {
@@ -475,11 +483,11 @@ li {
 
   .specsForm {
     padding: 0 300px 300px 300px;
-    height: 135vh;
+    height: 110vh;
   }
 
   .specsForm.height {
-    height: 368vh;
+    height: 290vh;
   }
 
   .about-body {
@@ -520,8 +528,9 @@ li {
   }
 
   #map {
-    height: 500px;
-    width: 100%;
+    height: 400px;
+    width: 700px;
+    transform: translateX(20px);
   }
 
   .showcase {
@@ -548,8 +557,40 @@ li {
     padding: 0 45px;
   }
 
+  .map-section, 
+  .menuMaps {
+    height: 111vh;
+  }
+
+  .specsForm-social li, 
+  .map-social li, 
+  .about-social li {
+    transform: translate(0px, -15px);
+  }
+
   .copyright {
     right: 267px;
+  }
+
+  .about-section,
+  .specsForm {
+    padding: 0 100px 100px 100px;
+  }
+
+  .specsForm .page-heading {
+    right: 5rem;
+  }
+
+  .specsForm .toggle {
+    left: 290px;
+  }
+
+  .specsForm h2 {
+    right: 3rem;
+  }
+
+  .helpForm .page-heading {
+    font-size: 71px;
   }
 }
 
