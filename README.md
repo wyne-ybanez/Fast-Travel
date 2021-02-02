@@ -9,6 +9,8 @@
 
  - [User Stories](##User-Stories)
 
+ - [Design](##Design-In-depth)
+
 ## Project Goal
 
 This project aims to create an interactive front end layout for ordering a self driving car taxi service called 'Fast-Travel'.
@@ -49,94 +51,111 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - ### First Time Visitor Goals:
 
-  a. I would like to know the purpose for the creation of the website from the first instance of opening it.
+  a. I would like to know the purpose for the creation of the website from the first instance of opening it
   <br>
   b. I would greatly appreciate it if the website were easy to navigate.
   <br>
-  c. I expect the website to display relevant content and stay consistently relevant as I explore the site.
+  c. I expect the website to display relevant content and stay consistently relevant as I explore the site
   <br>
-  d. I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going. 
+  d. I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going
   <br>
-  e. I would like the content to be structured and easy to follow.
+  e. I would like the content to be structured and easy to follow
   <br>
-  f. I would like the website to be interactive and to respond according to my interactions.
+  f. I would like the website to be interactive and to respond according to my interactions
   
 - ### Returning Visitor Goals:
   
-  a. I would like if the website assisted me by predicting my inputs based on past interactions. 
+  a. I would like if the website assisted me by predicting my inputs based on past interactions
   <br>
   b. I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
   <br>
   c. I would like to receive an email summary of what I have ordered 
+  <br>
+  d. I would like to research the company further 
 
 - ### Frequent Visitor Goals: 
   
   a. I would like if the website could tell me where I am during my trip
   <br>
-  b. I want to be able to contact the candidate quickly.
+  b. I want to be able to contact the business quickly should I encounter any issues during the journey
   <br>
-  c. I want to be able to navigate to any section of the website in order to read it in more detail.
+  c. I want to be able to navigate to any section of the website at any point in time
 
-## Design - In Depth
+## Design In-depth
 
 ### Colour Scheme 
 
-- The overall project will use the colors lightning blue, dark gray, silver and white. 
-- The two main contrasting colours for the project are turquoise and blue. This will be complimented with dark and white background/texts.
+- The overall project will use the colors:
+  
+  (i) Lightning blue (#38acec) 
+
+  (ii) White (#fff) 
+
+  (iii) Dark (#000)(Bootstrap version - #161c2d). 
+
+  (iv) Red (#ff0000)
+ 
 
 ### Fonts 
 
-- Ubuntu is the font used for the overall project.
-- Sans serif is the fallback font should the fonts be imported incorrectly.
+- Ubuntu is the font used for the overall project
+- Sans serif is the fallback font should the fonts be imported incorrectly
 
 ### Opening the website: 
 
-- The website should be consistent and objective. It should avoid straying away from promoting the candidate, this may create confusion. 
-
-[Screenshot](assets/readMe/hero-sc.png)
-
-### About Me:
-
-- To display an overview of the candidate, his current skills, a profile image, a summary text and progression bars of his technical ability
-
-- Unlike the wireframe, the placements of the content has switched
-
-- This section of the page will have a call to action buttons, mainly to 'projects' and 'contact me' section. 
+- The website should be consistent and objective. It should communicate the reason as to what the website was created for using the text and video that plays in the background 
   
-[Screenshot](assets/readMe/aboutme-sc.png)
+- There will be two 'call to action' buttons where the user can book a journey straight away or explore more on what the website is supposed to do/how to use it
 
-### Work History Timeline:
+[Screenshot](assets/readMe/landing-page.png)
 
-- To display the candidate's past work experience.
+### Navigation 
+
+- The navigation menu will always be present as a toggle menu at the top right hand side of the page. 
   
-- Follows the 'Timeline' wireframe accordingly
+- It will be there to assist the user in traversing to certain parts of the site at any point in time
 
-[Screenshot](assets/readMe/timeline-sc.png)
+### Booking:
 
-### Transparent Sticky-Navbar: 
+- This section will assist the user with a simple form and a map
 
-- If at any point the user should find themselves lost whilst navigating the website, they should be able to return to the home page or to the page they would like to view easily. 
+- As show in the wireframe this section will have a map and will also request for the origin point and the destination
 
-- Users should be able to traverse to any section of the website at any point in time.
+- Unlike the map wireframe it has changed and will only request for one destination point. It will additionally ask for the date and the time of booking
 
-### Contact Form: 
+- Unlike the map wireframes as well, this section of the website will expand to show the Geocode and the booking summary of the user's journey. Additional 'call to action' buttons have also been implemented
+  
+[Screenshot of Map](assets/readMe/map.png)
+[Screenshot of Map - Booking Summary](assets/readMe/map2.png)
 
-- It would be efficient if there was a way for users to contact the candidate at any point of whilst traversing their website. There is a button 'contact me' on the navigation bar to help with this.
+### Specifications form:
+
+- Once the user has confirmed the details of their journey. They can then personalize the trip to their liking
+  
+- The Specifications form has changed from what is displayed on the wireframes
+
+- The Date and Time of the journey is no longer requested on this page but has moved to the booking form in maps.html
+
+- Still requests for name, email, payment method, vehicle and music choice
+
+- Page height is reactive and will expand once the required inputs have been entered with an additional 'call to action' button for an email confirmation to be sent to the user
+
+[Screenshot of Specification Form](assets/readMe/specs.png)
+[Screenshot of Specifications Expanded](assets/readMe/specs2.png)
+
+### Customer Service: 
+
+- It would be efficient if there was a way for users to contact the business should they encounter any issues during their trip.
+
 - This feature will require the user to input their contact details via a contact form. 
+  
 - First name and the email address is required. 
-- If the candidate should ever respond, he/she will then know where/who the response is going to. 
+  
+- I 
 
 [Screenshot](assets/readMe/contactme-sc.png)
 
 Screenshot of page that will come after the user send their comments - [link](assets/readMe/thankyou-sc.png)
-
-### Projects: 
-  
-- It will display 4 projects. The projects will for the mean time link to external third-party websites however, in future I will link my other completed projects to this section.
-
-- It will consist of 4 projects supported by descriptive text at the side just as specified on the wireframe.
-
-[Screenshot](assets/readMe/projects-sc.png)
 
 ### Footer:
   
