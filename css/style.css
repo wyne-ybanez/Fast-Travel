@@ -113,7 +113,7 @@ li {
   transition: 1s;
 }
 
-.showcase {
+.landing {
   position: absolute;
   top: 0;
   right: 0;
@@ -143,12 +143,12 @@ li {
 
 .specsForm.active,
 .map-section.active,
-.showcase.active,
+.landing.active,
 .about-section.active {
   right: 300px;
 }
 
-.showcase video {
+.landing video {
   position: absolute;
   top: 0;
   left: 0;
@@ -450,6 +450,48 @@ li {
   .toggle{
     left: 63em;
   }
+
+  .specsForm {
+    padding: 0 370px 370px 370px;
+  }
+
+  .specsForm h2 {
+    right: 0;
+  }
+
+  .specsForm.height {
+    height: 234vh;
+  }
+
+  .map-section, .menuMaps {
+    height: 100vh;
+  }
+
+  .about-body {
+    padding: 0 200px 200px 200px;
+  }
+
+  .about-section, 
+  .aboutMenu {
+    height: 125vh;
+  }
+
+  .map-section.height,
+  .menuMaps.height {
+    height: 148vh;
+  }
+
+  .specsForm-copyright, 
+  .map-copyright, 
+  .about-copyright {
+    left: 33em;
+  }
+
+  .specsForm-social li, 
+  .map-social li, 
+  .about-social li {
+    transform: translate(-550px, -15px);
+  }
 }
 
 /* Laptop */
@@ -496,7 +538,7 @@ li {
 
   .about-section,
   .about-menu {
-    height: 220vh;
+    height: 180vh;
   }
 
   .specsForm-social li,
@@ -533,19 +575,19 @@ li {
     transform: translateX(20px);
   }
 
-  .showcase {
+  .landing {
     overflow: hidden;
     top: -15px;
     padding: 40px;
     height: 103vh;
   }
 
-  .showcase header {
+  .landing header {
     padding: 40px;
   }
 
   .toggle {
-    left: 350px;
+    left: 290px;
   }
 
   .social {
@@ -554,7 +596,7 @@ li {
   }
 
   .map-section header {
-    padding: 0 45px;
+    padding: 0 70px;
   }
 
   .map-section, 
@@ -577,20 +619,49 @@ li {
     padding: 0 100px 100px 100px;
   }
 
+  .about-section h2 {
+    right: 4rem;
+  }
+
   .specsForm .page-heading {
     right: 5rem;
   }
 
   .specsForm .toggle {
-    left: 290px;
+    left: 270px;
   }
 
   .specsForm h2 {
-    right: 3rem;
+    right: 2rem;
+  }
+
+  .specsForm.height {
+    height: 221vh;
   }
 
   .helpForm .page-heading {
     font-size: 71px;
+  }
+
+  .about-body {
+    padding: 0;
+  }
+
+  .about-section header {
+    padding: 0 70px;
+  }
+
+  .about-section, 
+  .aboutMenu {
+    height: 170vh;
+  }
+
+  .about-section .toggle {
+    left: 290px;
+  }
+
+  .about-social {
+    left: 0;
   }
 }
 
@@ -624,7 +695,7 @@ li {
     bottom: 3rem;
   }
 
-  .showcase header {
+  .landing header {
     top: -15px;
     padding: 40px;
   }
@@ -664,14 +735,14 @@ li {
     visibility: visible;
   }
 
-  .showcase {
+  .landing {
     overflow: hidden;
     top: -15px;
     padding: 40px;
     height: 103vh;
   }
 
-  .showcase header {
+  .landing header {
     padding: 25px;
   }
 
