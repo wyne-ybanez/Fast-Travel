@@ -173,7 +173,7 @@ document.getElementById('submit').addEventListener('click', () => {
     markers.forEach((marker) => {
         marker.setMap(null);
       });
-      markers = [];
+    markers = [];
 });
 
 //========== Auto Completion on input 
@@ -183,10 +183,10 @@ const inputDestination = document.getElementById("destination");
 const searchBox1 = new google.maps.places.SearchBox(inputOrigin);
 const searchBox2 = new google.maps.places.SearchBox(inputDestination);
     // Bias the SearchBox results towards current map's viewport.
- map.addListener("bounds_changed", () => {
+map.addListener("bounds_changed", () => {
      searchBox1.setBounds(map.getBounds());
      searchBox2.setBounds(map.getBounds());
- });
+});
 let markers = [];
     // Listen for the event fired when the user selects a prediction and retrieve
     // more details for that place.

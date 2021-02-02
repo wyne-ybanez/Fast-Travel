@@ -26,7 +26,6 @@ submit.addEventListener('click', () => {
   setTimeout(ScrollFunc, 300);
 });
 
-
 //========== Menu toggle event listener
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('active');

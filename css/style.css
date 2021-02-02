@@ -236,8 +236,6 @@ li {
   background-color: #000;
 }
 
-.specsForm-copyright,
-.map-copyright,
 .copyright {
   position: absolute;
   z-index: 10;
@@ -363,13 +361,13 @@ li {
   overflow: hidden;
 }
 
-.map-section header {
-  padding: 0 100px;
-}
-
 .map-section,
 .menuMaps {
   height: 106vh;
+}
+
+.map-section header {
+  padding: 0 100px;
 }
 
 .map-section.height,
@@ -449,20 +447,63 @@ li {
 /*====== Media Queries ====== */
 /* Laptop */
 @media (max-width: 1280px) and (min-width: 802px) {
+  #map {
+    height: 500px;
+  }
+
   .map-section {
-    min-height: 145vh;
+    min-height: 125vh;
   }
 
   .map-section.height {
-    height: 215vh;
+    height: 205vh;
   }
 
   .map-social li {
     transform: translate(-390px, -15px);
   }
 
-  .map-copyright {
+  .map-copyright,
+  .specsForm-copyright,
+  .about-copyright {
     left: 23.5em;
+  }
+
+  .toggle {
+    left: 45em;
+  }
+
+  .specsForm {
+    padding: 0 300px 300px 300px;
+    height: 135vh;
+  }
+
+  .specsForm.height {
+    height: 368vh;
+  }
+
+  .about-body {
+    padding: 0 200px 200px 200px;
+  }
+
+  .about-section,
+  .about-menu {
+    height: 220vh;
+  }
+
+  .specsForm-social li,
+  .map-social li,
+  .about-social li {
+    bottom: 500px;
+    transform: translate(-400px, -15px);
+  }
+
+  .specsForm header {
+    padding: 0 187px;
+  }
+
+  .specsForm .toggle {
+    left: 40em;
   }
 }
 
