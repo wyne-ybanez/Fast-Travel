@@ -537,10 +537,7 @@ function ScrollFunc() {
 //========== Set Local Storage for accessing data
 function localDataStorage() {
   localStorage.setItem('origin', document.getElementById('origin').value)
-  localStorage.setItem(
-    'destination',
-    document.getElementById('destination').value
-  )
+  localStorage.setItem('destination', document.getElementById('destination').value)
   localStorage.setItem('date', document.getElementById('dateInput').value)
   localStorage.setItem(
     'time',

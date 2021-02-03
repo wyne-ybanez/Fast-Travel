@@ -3,6 +3,7 @@
 Project Link: https://wyne-ybanez.github.io/self-driving-car-delivery/
 
 ## Table of contents
+
  - [Project Goal](#Project-Goal)
 
  - [UX](#UX)
@@ -12,6 +13,22 @@ Project Link: https://wyne-ybanez.github.io/self-driving-car-delivery/
  - [Design](#Design-In-depth)
  
  - [Features](#Features)
+
+ - [Testing](#Testing)
+
+ - [Technologies](#technologies-used)
+
+ - [Deployment](#deployment)
+
+ - [Credits](#credits)
+
+ - [Known Bugs](#known-bugs)
+
+ - [Design Changes](#design-changes)
+
+ - [Future Implementations](#future-implementations)
+
+ - [Acknowledgements](#acknowledgements)
 
 ## Project Goal
 
@@ -107,7 +124,7 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - The website should be consistent and objective. It should communicate the reason as to what the website was created for using the text and video that plays in the background 
   
-- There will be two 'call to action' buttons where the user can book a journey straight away or explore more on what the website is supposed to do/how to use it
+- There will be two 'call to action' buttons where the user can book a journey straight away or explore more on what the website is supposed to do/how to use it.
 
 [Screenshot](assets/readMe/landing-page.png)
 
@@ -167,70 +184,86 @@ The site focuses primarily on functionality rather than design. The design of th
 
   There should be some sort of indicator or animation that can confirm whenever the user is hovering over a button or clicking on it when using a computer or desktop.
 
+  The inputs the user enters should saved and displayed accordingly when necessary.
+
   It should shrink windows and align items correctly when the user is minimizing the window or using a mobile phone. The website should be responsive when viewed on modern devices.
 
   The website should function accordingly in modern web browsers.
 
+  The website will provide alert windows which informs the user of waiting times or of events that will be ocurring. 
+
 ### Interactive: 
 
   The user should be able to interact with the website and function according to the given text
-  i.e. Clicking on 'Contact Me' should bring the user to 'contact.html'.
+  i.e. Clicking on 'Email COnfirmation' should send an automated message to the designated email address.
 
-  Fade animations should be present on accordingly as the user scrolls down.
+  Fade animations should be present on accordingly as the user enters or traverses down the page.
+
+  The page will display the appropriate information as stored in the API's used and/or display the inputs the user has typed into the forms.
   
 ### Convenience: 
 
-  The user should be able to navigate the website at any point in time.
+  The user should be able to navigate the website easily, at any point in time.
   
   The content of the website should stay relevant and appropriate. 
 
-  The buttons leading to separate pages should appear in good time in preparation for the user's desire to know more about the candidate.
+  The buttons leading to separate pages should appear in good time in preparation for the user's desire to proceed with any request.
 
-  The content should be clear and presented without any distractions. Ideally the user should know where and what part of the website they are reading/exploring.
+  All features/functionalities should be clear and presented without any distractions. Ideally, it should be easy for the user to understand and use the website.
 
 ## Testing 
   
-I have added the testing onto a separate .md file as its content has increased exponentially, here is the [link](https://github.com/wyne-ybanez/personal-portfolio-master/blob/main/TESTING.md)
+I have added the testing onto a separate .md file as its content has increased exponentially, here is the [link](test/TESTING.md)
 
 ## Technologies used:
 
 ### Languages
+
 -  [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -  [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -  [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
   
 ### IDE
+
 - [VScode:](https://code.visualstudio.com/) - The IDE used to code the website. 
 - VSCode extension: [LiveServer](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+- VSCode extension: [Prettier - Code Formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 ### Frameworks, Libraries, CDN's, Resources etc.
-1. [AOS:](https://michalsnik.github.io/aos/) 
+
+1. [AOS](https://michalsnik.github.io/aos/) 
     - This JS library was used for the animations on scroll.
-2. [HVR:](https://github.com/IanLunn/Hover/blob/master/css/hover.css)
-    - This library was used for the hover effects of the navbar items.
-3. [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 
+2. [Bootstrap v5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/) 
     - Bootstrap was used for the overall components documentation and responsiveness of the website.
-4. [W3Schools](https://www.w3schools.com/)
-    - Documentation for Media Queries and CSS when I encountered bugs.
-5. [Balsamiq:](https://balsamiq.com/)
+3. [Balsamiq](https://balsamiq.com/)
     - Balsamiq was used to create the wireframes during the design process.
-6. [GitHub:](https://github.com/)
+4. [GitHub](https://github.com/)
     - GitHub is used to store the projects code after being pushed from Git.
-7. [Git](https://git-scm.com/)
+5. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
-8. [Font Awesome:](https://fontawesome.com/)
+6. [Font Awesome](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
-9.  [Google Fonts:](https://fonts.google.com/)
+7. [Google Fonts](https://fonts.google.com/)
     - Google fonts were used to import 'Roboto' and 'Montserrat' as the chosen styled fonts for the site.
-10. [Chrome Developer Tools:](https://developers.google.com/web/tools/chrome-devtools)
+8. [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/overview)
+    - Documentation used for creating interactive map, markers and info-window on maps.html.
+9. [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/start?utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_397052992475-ADGP_Hybrid%20%7C%20AW%20SEM%20%7C%20SKWS%20~%20Places%20%7C%20BMM%20%7C%20Geocoding%20API-KWID_43700049595992151-aud-903284319980%3Akwd-301485308042-userloc_1007835&utm_term=KW_%2Bgeocoding%20%2Bapi-ST_%2Bgeocoding%20%2Bapi&gclid=CjwKCAiAjeSABhAPEiwAqfxURaMpqReVWiqrv3HLN6eRCg3t4R8M_VXfnVzKOwrrdQ5tRIzP3Azj7BoC2hAQAvD_BwE)
+    - Used to display booking summary within maps.html.
+10. [Google Directions API](https://developers.google.com/maps/documentation/directions/overview)
+    - Used to display route on map once pick-up location and destination has been determined.
+11. [Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
     - Used to debug and style with css for the whole project.
-    - Used for media queries
-11. [Ami Responsive](http://ami.responsivedesign.is/#)
-    - Used to test for website responsiveness and media query establishment
-12. [Snazzy Maps](https://snazzymaps.com/style/132/light-gray)
-    - Used to style the map and give it the light grey futuristic look
-13. [Axios](https://github.com/axios/axios)
-    - To get Data and display it on page from Google's Geocode API
+    - Used for media queries.
+12. [Ami Responsive](http://ami.responsivedesign.is/#)
+    - Used to test for website responsiveness and media query establishment.
+13. [Snazzy Maps](https://snazzymaps.com/style/132/light-gray)
+    - Used to style the map and give it the light grey futuristic look.
+14. [Axios](https://github.com/axios/axios)
+    - To get Data and display it on page from Google's Geocode API via promises.
+15. [Jasmine Testing](https://jasmine.github.io/)
+    - Used to test for code functionality.
+16. [EmailJS](https://www.emailjs.com/)
+    - Automated confirmation emails sent to user's once they've submitted their inputs.
 
 ## Deployment
 
@@ -269,30 +302,39 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 ### Code 
 
 - Animate on Scroll used throughout the entire website. Check it out [here](https://michalsnik.github.io/aos/)
-- Hover Animation for the [Navbar](https://github.com/IanLunn/Hover/blob/master/css/hover.css)
-- Transparent Navbar Code from Stack Overflow - Here's the [link](https://stackoverflow.com/questions/16453537/bootstrap-transparent-navbar) 
-- How to keep the navbar sticky. This is the [solution](https://www.w3schools.com/howto/howto_js_navbar_sticky.asp)
-- Transparent Navbar with scroll effect when scrolling [solution](https://stackoverflow.com/questions/29646622/set-bootstrap-navbar-transparency-on-scroll)
-- Solution for full page background Image. This is the [website](https://css-tricks.com/perfect-full-page-background-image/)
-- Solution to darken the background image from [stackoverflow](https://stackoverflow.com/questions/23208200/how-to-darken-a-background-using-css/36390220)
-- Documentation for Bootstrap [Contact Form](https://getbootstrap.com/docs/4.0/components/forms/) 
-- Adam Sky's code solution to center icons for the footer - here is his github [repo](https://github.com/Adamsky94/milestone1/blob/master/index.html)
+   
+- Brad Traversy code used and editted for landing page video, navigation menu toggle, overall index.html styling and social icon hover [animation](https://codepen.io/bradtraversy/pen/eYdMqvx)
+
+- Ben Hasselgren's styling used for maps.html inputs, map and project [inspiration](https://benhasselgren.github.io/ifd-milestone-project-pages/)
+
+- Documentation for Bootstrap [Contact Form](https://getbootstrap.com/docs/5.0/forms/validation/) 
+
+- Solution for simple calendar functionality on date [input field](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
+
 - Underlining the Heading with adjustable border - this is the [solution](https://www.steckinsights.com/shorten-length-border-bottom-pure-css/)
-- Icon Hover [Effects](https://codepen.io/nxworld/pen/ZYNOBZ?fbclid=IwAR1C0Fp-oCTJS1KfeV7TDmL_3KJNneOL146xKX0Y1Bl6UbP6X6TSF_SKV-k)
-- Website [favicon](https://favicon.io/favicon-generator/)
+  
 - CodeFlix's solution for route between two [points](https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0)
 
-### Git Bash Code
+- Google Maps predictive text [autocompletion](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)
 
-- I had initially started the project with a local IDE and a local username. I forgot to configure and log the right username and email for the author. Hence, my initial contributions were not counted by Github. The solution as to how to change the author/committer email and user name is found [here](https://stackoverflow.com/questions/750172/how-to-change-the-author-and-committer-name-and-e-mail-of-multiple-commits-in-gi)
+- Google Maps documentation for getting the user's current location by geolocating their [device](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)
+
+- Brad Traversy code for location geocoding implemented to show booking [summary](https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia)
+
+- Dcode Local storage tutorial used to access local storage data and display it for order summary in Specifications [page](https://www.youtube.com/watch?v=k8yJCeuP6I8&ab_channel=dcode)
+
+- Generate random order code to provide bookings with unique order ID's - here is the [link](https://www.drzon.net/posts/generate-random-order-number/)
+
+- AMI responsive screen devices used for specifying max/min width of media [queries](http://ami.responsivedesign.is/)
   
 ### Content
-- Etoro's article about self-driving cars used within [index.html](https://www.etoro.com/news-and-analysis/market-insights/self-driving-cars-the-biggest-development-in-transportation-since-the-automobile/?gclid=CjwKCAiAxp-ABhALEiwAXm6IyVNlUeSKc-wQishBJWyBlx6SzvMlAnk9Cw8rV1YNpAZerLKV-LfI2hoCmYsQAvD_BwE)
+
+- Etoro's article about self-driving cars was used and editted within [index.html](https://www.etoro.com/news-and-analysis/market-insights/self-driving-cars-the-biggest-development-in-transportation-since-the-automobile/?gclid=CjwKCAiAxp-ABhALEiwAXm6IyVNlUeSKc-wQishBJWyBlx6SzvMlAnk9Cw8rV1YNpAZerLKV-LfI2hoCmYsQAvD_BwE)
 
 ### Media 
 
-- AVTR youtube [video](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
-- 
+- AVTR youtube video which was used for landing [page](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
+  
 ## Known Bugs
 
 - There is a bug with the carousel indicator `.carousel-indicators li` by which the indicators move up and down when the testimonial section is viewed on mobile device (iPhone 6, 7, 8).
@@ -303,11 +345,13 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 ## Design Changes 
 
-- The website used to incorporate a black background, this has been changed to a white background. Text colors and section backgrounds have been changed accordingly
+- The website used to incorporate a light background, this has been changed to a white background. Dark Text color has been assigned to contrast this accordingly.
 
-- Previously, the website would link externally to 'projects.html' and 'contactme.html'. These files have been deleted and instead the site incorporates a one page design.
+- Previously, the website was supposed to input several destinations and set way point this these other destinations before reaching the final location. This was specified in the wireframes, this has been altered. 
+  
+- The Specifications page has also changed from what the wireframes initially displayed. It no longer asks for the date and time of the trip.
 
-- Previously, it was planned that the Footer would have 3 navigation buttons as specified in the Wireframes. This has been altered and now the footer will now contain navigation links, social icons as well as contact information.
+- There is now a dedicated help/customer service page which will assist the customer with and journey issues they may encounter during their trip.
 
 ## Future Implementations 
 

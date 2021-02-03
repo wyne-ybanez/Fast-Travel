@@ -436,7 +436,7 @@ li {
 }
 
 .about-section .page-heading:after {
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #000;
   width: 18.5%;
 }
 
@@ -604,6 +604,10 @@ li {
     height: 111vh;
   }
 
+  .menuMaps ul {
+    bottom: 3em;
+  }
+
   .specsForm-social li, 
   .map-social li, 
   .about-social li {
@@ -654,6 +658,10 @@ li {
   .about-section, 
   .aboutMenu {
     height: 170vh;
+  }
+
+  .aboutMenu ul {
+    bottom: 22em;
   }
 
   .about-section .toggle {
