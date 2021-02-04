@@ -673,7 +673,7 @@ li {
   }
 }
 
-/* Mobile Phones */
+/* Modern Mobile Phones */
 @media (max-width: 667px) and (min-width: 375px) {
   .text p {
     visibility: hidden;
@@ -800,21 +800,21 @@ li {
 
 }
 
-@media (max-width: 320px) {
-  html,
-  body {
-    font-family: 'Ubuntu', sans-serif;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+/* Iphone 5/SE */
+@media (max-width: 320px) and (min-width: 320px) {
+  .landing header {
+    padding: 20px 20px 0 20px;
+  }
+
+  .map-section,
+  .menuMaps {
+    height: 215vh;
   }
 
   #map {
-    height: 450px;
-    width: 320px;
-    left: 15px;
+    height: 400px;
+    width: 250px;
+    left: 4px;
   }
 
   .logo h2 {
@@ -828,12 +828,23 @@ li {
     height: 103vh;
   }
 
-  .landing header {
-    padding: 25px;
+  .landing.active,
+  .map-section.active,
+  .specsForm.active,
+  .about-section.active {
+    right: 250px
+  }
+
+  .page-heading {
+    font-size: 40px;
   }
 
   .toggle {
-    left: 25px;
+    left: -15px;
+  }
+
+  .text {
+    transform: translateX(-10%);
   }
 
   .text h2 {
@@ -852,8 +863,7 @@ li {
   }
 
   .text p {
-    /* visibility: hidden; */
-    margin-bottom: 7rem;
+    visibility: hidden;
   }
 
   .buttons .about a {
@@ -862,38 +872,92 @@ li {
 
   .social {
     bottom: 0;
-    transform: translateX(5%);
+    transform: translateX(-5%);
   }
 
   .map-social {
     visibility: hidden;
   }
 
-  .menu-maps {
-    visibility: hidden;
-  }
-
-  .menu-maps.active {
-    visibility: visible;
-  }
-
   .map-section header {
     padding: 0 25px;
   }
 
-  .map-section {
-    height: 180vh;
+  .map-section.height,
+  .menuMaps.height {
+    height: 330vh;
   }
 
-  .map-section.height {
-    height: 248vh;
+  .menuMaps ul {
+    bottom: 11em;
+    position: fixed;
   }
 
   .copyright {
-    font-size: 10px;
-    display: flex;
-    right: 0;
-    left: 15px;
-    bottom: -10px;
+    visibility: hidden;
+  }
+
+  .about-social {
+    visibility: hidden;
+  }
+
+  .about-section header {
+    padding: 0 20px;
+  }
+
+  .about-section .toggle {
+    left: -15px;
+  }
+
+  .about-section, 
+  .aboutMenu {
+    height: 535vh;
+  }
+
+  .aboutMenu ul {
+    position: fixed;
+    bottom: 11em;
+  }
+
+  .about-section, 
+  .specsForm {
+    padding: 0px 20px 20px 20px;
+  }
+
+  .specsForm {
+    height: 160vh;
+  }
+
+  .specsForm .page-heading {
+    right: 1rem;
+  }
+
+  .specsForm header{
+    padding: 0 50px;
+  }
+
+  .specsForm .toggle {
+    left: -45px;
+  }
+
+  .specsForm-social {
+    visibility: hidden;
+  }
+
+  .specsForm.height {
+    height: 405vh;
+  }
+
+  .specsForm .logo {
+    right: 2rem;
+  }
+
+  .helpForm .page-heading {
+    font-size: 35px;
+    margin-top: 50px;
+  }
+
+  .helpForm {
+    height: 130vh;
   }
 }
