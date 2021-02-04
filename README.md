@@ -306,6 +306,8 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 ### Code 
 
 - Animate on Scroll used throughout the entire website. Check it out [here](https://michalsnik.github.io/aos/)
+
+- Google Maps template used for styling from Snazzy Maps. Here is the [link](https://snazzymaps.com/style/47631/blue)
    
 - Brad Traversy code used and editted for landing page video, navigation menu toggle, overall index.html styling and social icon hover [animation](https://codepen.io/bradtraversy/pen/eYdMqvx)
 
@@ -318,6 +320,8 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 - Underlining the Heading with adjustable border - this is the [solution](https://www.steckinsights.com/shorten-length-border-bottom-pure-css/)
   
 - CodeFlix's solution for route between two [points](https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0)
+
+- StackOverFlow solution for changing route [color](https://stackoverflow.com/questions/19022702/how-to-change-the-color-of-route-in-google-maps-v3)
 
 - Google Maps predictive text [autocompletion](https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete)
 
@@ -339,13 +343,14 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 - AVTR youtube video which was used for landing [page](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
   
-## Known Bugs
+## Known Bugs - The following have been noted in the Tests folder
 
-- There is a bug with the carousel indicator `.carousel-indicators li` by which the indicators move up and down when the testimonial section is viewed on mobile device (iPhone 6, 7, 8).
+-  After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
 
 - When viewed on the Macbook Air 2015 - 13", there was a bug where the blue border behind the "About me" image was not styled properly. The `height` and the `bottom` position the blue border did not apply the styles specified in style.css. However, upon viewing it on the Macbook Pro - 13" and testing on [ami responsive](http://ami.responsivedesign.is/#), the border followed its styling accordingly. 
   
-- When viewed on Github pages using a physical mobile phone, the hero image is not clear nor is it fully presented. The hero image looks zoomed in and the alignment is unknown.
+- Bug found where a route will display even when it's not on the same country - won't stick to the same region:
+  [Screenshot of bug](assets/img/country-bug.png)
 
 ## Design Changes 
 

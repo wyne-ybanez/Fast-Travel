@@ -58,13 +58,13 @@
 
  <strong>(ii)</strong> Attempted to solve this issue with the following code under numerous functions:
 
-  `marker.addListener('click', () => { `
-          `infowindow.open(map, marker)`
-          `map.setZoom(13)`
-          `map.setCenter(marker.getPosition())`
-      `})`
+      `marker.addListener('click', () => { 
+          infowindow.open(map, marker)
+          map.setZoom(13)
+          map.setCenter(marker.getPosition())
+       })`
   
- <strong>Conclusion:</strong> The issue is still present
+<strong>Conclusion:</strong> The issue is still present
 
 ### 2. Marking the user's current location
 
@@ -74,20 +74,19 @@
 
   - Describing the position of the user and containing this data within a constant variable named 'pos':    
 
-      `  (position) => {`
-        `  const pos = {`
-           ` lat: position.coords.latitude,`
-           ` lng: position.coords.longitude,`
-          ` } `
+        `const pos = {`
+           lat: position.coords.latitude,
+           lng: position.coords.longitude,
+           }`
     
   - Then add a marker to the constant variable: 
 
-           ` const marker = new google.maps.Marker({`
-           ` position: pos,`
-           ` map: map,`
-           `})`
+         `const marker = new google.maps.Marker({
+            position: pos,
+            map: map,
+           })`
            
- <strong>Conclusion:</strong> Issue solved
+<strong>Conclusion:</strong> Issue solved
 
 ### 3. Server Error Response comes early before the user can set a orgin/destination point
 
@@ -99,11 +98,11 @@
  
 - Added a click event to initialize the function once submit button is clicked 
 
-   ` document.getElementById('submit').addEventListener('click', () => {`
-   ` DisplayRoute(directionsService, directionsDisplay);`
-   `}`
+   `document.getElementById('submit').addEventListener('click', () => 
+    {DisplayRoute(directionsService, directionsDisplay);
+    }`
   
- <strong>Conclusion:</strong> Issue solved
+<strong>Conclusion:</strong> Issue solved
 
 ### 4. Directions route is automatically displayed
 
@@ -113,11 +112,11 @@
 
 - Adding an onclick event handler to the submit button which will trigger a function to display a route: 
 
-`  document.getElementById('submit').addEventListener('click', () => {`
-        `DisplayRoute(directionsService, directionsDisplay);`
-    `});`
+  `document.getElementById('submit').addEventListener('click', () => {
+        DisplayRoute(directionsService, directionsDisplay);
+    })`
 
- <strong>Conclusion:</strong> Issue solved
+<strong>Conclusion:</strong> Issue solved
 
 ### 5. Geocode Data not displayed due to API key restrictions
 
@@ -129,14 +128,14 @@
 - [Stack Overflow Solution](https://stackoverflow.com/questions/48189532/get-request-with-axios-returning-undefined)
 - New error handling message: 
   
-      ` if (response.data.status === 'REQUEST_DENIED'){`
-           ` window.alert('You do not have permission to use this API key - Booking location details will not be shown');`
-            `console.log(response.data.status);`
-       ` }`
+      `if(response.data.status === 'REQUEST_DENIED'){
+            window.alert('You do not have permission to use this API key - Booking location details will not be shown');
+            console.log(response.data.status);
+        }`
 
 - The restrictions for this API key has now been changed and is open for this project, specifically, for Geocoding purposes. 
 
- <strong>Conclusion:</strong> Issue solved
+<strong>Conclusion:</strong> Issue solved
 
 ### 6. Geocode Data not displayed due to even handler
 
@@ -149,9 +148,10 @@
 - Set the `locationForm` variable to listen for a click 'submit' event:
  
   `let locationForm = document.getElementById('submit');`
+
   `locationForm.addEventListener('click', geocodeData);` 
 
- <strong>Conclusion:</strong> Issue solved
+<strong>Conclusion:</strong> Issue solved
 
 ### 7. Directions route is displayed despite not being in the same region
 
@@ -160,53 +160,83 @@
 
  <strong>(ii)</strong> Attempted to fix the bug through the following code in the function 'DisplayRoute' - it shows that I tried to change the region of the request to be made solely for the country of Ireland: 
   
-  ` let request = {`
-  ` origin: Origin,`
-  ` destination: Destination,`
-  ` travelMode: 'DRIVING',`
-  ` region: 'IE',`
-  `}`
+  `let request = {
+    origin: Origin,
+    destination: Destination,
+    travelMode: 'DRIVING',
+    region: 'IE',
+    }`
 
-  <strong>Conclusion:</strong> Issue is still present
+<strong>Conclusion:</strong> Issue is still present
 
-(vii) Bug: The on click event to display results for the date and time input is not outputting on the the HTML page: 
-    [Screenshot of Date Bug](assets/img/date-bug.png)
+### 8. Date and Time inputs are not displaying on the page
 
+ <strong>(i)</strong> The on click event to display results for the date and time input is not outputting on the the HTML page. 
+ 
+ - [Screenshot of Date Bug](assets/img/date-bug.png)
 
-  `function timeDate(){`
-   ` let dateInput = document.getElementById('dateInput').value;`
-    `if (dateInput === document.getElementById('dateInput').value) {`
-        `let date = `
-           ` <div class="col-6">`
-               ` <h4>Date:</h4>`
-            `</div>`
-           ` <li class="list-group-item list-group-item-dark">${dateInput}</li>`
-        `document.getElementById('dateInput').innerHTMl = date;`
-   ` }`
-  ` console.log(dateInput);`
-`}`
+ <strong>(ii)</strong> Bug Fixed through the following solution: 
 
-  Fix: 
+ - changed the query selector specified Id to the correct Id within the html page
+ - `document.querySelector('#date').innerHTML = date;`
 
-changed the query selector specified Id to the correct Id within the html page
+<strong>Conclusion:</strong> Issue solved
 
-` document.querySelector('#date').innerHTML = date;`
+### 9. Geolocation feature stopped working
 
-(viii) Bug (Fixed): Geolocation feature for current location no longer functioning after styling the header for the navigation menu. Displays a success message however, shows no results
-      Solution: Developer's own device was not registering chrome as enabled for location services. Security system automatically disabled every unrecognised user location request. Went
-      to security & privacy settings, allowed Google Chrome to obtain device location.
+ <strong>(i)</strong> Geolocation feature for current location no longer functioning after styling the header for the navigation menu. It displays a success message however, it shows no results.
 
-(ix) Bug: Answering all input fields and pressing submit resets the entire map and voids all input fields. It could be due to an event listener placed incorrectly
+ <strong>(ii)</strong> Discoveries: Developer's own device was not registering chrome as enabled for location services. Security system automatically disabled every unrecognised user location request. Went to security & privacy settings, allowed Google Chrome to obtain device location.
 
-    Solved using the following code in maps.html: 
-  ` <form name="booking-form" onsubmit="return false;"> ` 
-  [Stack Overflow solution](https://stackoverflow.com/questions/40813467/html-reset-after-form-submit)
+  - A new warning alert has been implemented for this issue: 
 
-  (x) EmailJS Bug: Specifications form will not validate inputs despite browser "required" annotation within element. Clicking submit does not continue with EmailJS request
+  `window.alert(
+      'Your request failed :( \nPlease be specfic, keep requests to the same country and check your permissions. 
+      \nFailure status: ' + status
+      )`
 
-  (xi) LocalStorage undefined Bug: Unable to output local storage object onto html page
-      [Screenshot of Local Storage Bug](assets/img/LocalStorage-bug.png)
+<strong>Conclusion:</strong> Issue solved
 
-      SOLVED
+### 10. Submission Page reset
+
+ <strong>(i)</strong> Answering all input fields and pressing submit resets the entire map and voids all input fields. 
+
+ <strong>(ii)</strong> Bug fixed using the following code in maps.html: 
+
+  - `<form name="booking-form" onsubmit="return false;">` 
+  - [Stack Overflow solution](https://stackoverflow.com/questions/40813467/html-reset-after-form-submit)
+  
+<strong>Conclusion:</strong> Issue solved
+
+### 11. Specification form validation stopping EmailJS
+
+ <strong>(i)</strong> Specifications form will not validate inputs despite browser "required" annotation within the element. Clicking submit does not continue with EmailJS request.
+
+ <strong>(ii)</strong> This bug has been fixed through the following:
+
+  - The page will no longer reset once the 'submit' button has been clicked `onsubmit="return false"`
+  - A 'sendEmail' function has been created and implemented in the 'bookingSummary' function.
+  - A confirmation button is available once the function 'bookingSummary' is called. 
+  - The function 'sendEmail' will be triggered once the user clicks to 'confirm' their order:
+  
+    `const confirm = document.getElementById('confirm')`
+
+    `confirm.addEventListener('click', sendMail)`
+
+  - Please check specs.js for these functions
+
+<strong>Conclusion:</strong> Issue solved
+
+### 12. Local Storage Undefined error
+
+ <strong>(i)</strong> Unable to output local storage object onto html page - [Screenshot of Local Storage Bug](assets/img/LocalStorage-bug.png)
+ 
+ <strong>(ii)</strong> Bug Fixed by changing local storage object value into string values. In maps.html the following code is used to store the data and then retrieve it to output onto the page:
+
+  - Example: `localStorage.setItem('origin', document.getElementById('origin').value)`
+  
+  - Retrieving the data example: `let origin = localStorage.getItem('origin')`
+
+ <strong>Conclusion:</strong> Issue solved
 
 
