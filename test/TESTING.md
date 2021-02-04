@@ -10,6 +10,8 @@
 
 - [Validators](#validators)
 
+- [Further Testing](#further-testing)
+
 ## Website Testing: 
 
 ### Navigation Menu
@@ -59,6 +61,14 @@
 - Form will not send if one of the input fields has no value 
 - Clicking on 'Submit' will issue a confirmation email to the user's desingated email address
 - Clicking on 'Cancel' will direct the user to index.html
+
+### Viewport Responsiveness
+
+- Website appears to be res
+
+### Other Browswers
+
+- 
 
 ## Bug encounters: 
 
@@ -322,12 +332,29 @@
 
 ### W3CSchools HTML Validator
 
-- Tested all HTML pages, results depicted minimal errors. Here are the [results]()
+- Tested all HTML pages, results depicted minimal errors mainly with about.html 
+  
+- Here are the [results]()
 
 ### W3CSchools CSS Validator
 
 - There are multiple CDN's that I use which is causing this validator to find errors and issue warnings.
 
-Here are the [results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwyne-ybanez.github.io%2Fpersonal-portfolio-master%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- Here are the [results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwyne-ybanez.github.io%2Fpersonal-portfolio-master%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
-### LightRoom 
+### Google LightHouse 
+
+- Index.html [results](assets/img/index-lighthouse.png)
+- Booking Form [results](assets/img/booking-lighthouse.png)
+- Specifications Form [results](assets/img/specs-lighthouse.png)
+- About.html [results](assets/img/about-lighthouse.png)
+- Customer Service section [results](assets/img/help-lighthouse.png)
+
+## Further Testing 
+
+- The Website was tested on Google Chrome, Microsoft Edge and Safari browsers.
+- The Website was viewed on the specified testing devices such as Desktop, Laptop, iPad, iPhone 5, SE 6, 7, 8 and iPhone X using Chrome Developer Tools.
+- The Website was tested using the following physical devices: Macbook Pro Mid 2012, iPhone XR, 11, iPad, iPad pro.
+- Links were tested repeatedly.
+- Friends and family members were asked to review the website, its content and the user experience overall.
+- Code Institute students were asked to review the website for any responsiveness insufficiencies and coding errors

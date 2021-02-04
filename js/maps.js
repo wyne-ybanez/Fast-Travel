@@ -498,12 +498,12 @@ function resetForm() {
 function height() {
   let optionButtons = `
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">
-                <a class="btn btn-light" type="button" href="maps.html">
+                <a class="btn btn-light" href="maps.html">
                     CANCEL
                 </a>
             </div>
             <div class="col-xs-12 col-md-6 mx-auto mb-3 text-center justify-content-center" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-delay="500" data-aos-duration="1500">
-                <a class="btn btn-light" type="button" href="specsForm.html">
+                <a class="btn btn-light" href="specsForm.html">
                     CONFIRM
                 </a>
             </div>`
