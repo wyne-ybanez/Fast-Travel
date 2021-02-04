@@ -43,7 +43,7 @@
               </div>
               <!-- Order Number -->
               <div class="col-12 text-align-center justify-content-center">
-                <label for="email" class="form-label">Order Number:</label>
+                <label for="order" class="form-label">Order Number:</label>
                 <input type="text" class="form-control form-control-lg" id="order" placeholder="Enter order number" required>
                   <div class="form-text text-secondary">* We need to identify the order</div>
                   <div class="invalid-feedback">
@@ -58,10 +58,10 @@
               <!-- Submit or cancel -->
               <div class="row">
                 <div class="col-xs-12 col-6 text-center justify-content-center">
-                    <a type="button" class="btn btn-light mt-4" href="index.html" value="CANCEL">CANCEL</a>
+                    <a class="btn btn-light mt-4" href="index.html">CANCEL</a>
                 </div>
                 <div class="col-xs-12 col-6 text-center justify-content-center">
-                    <button type="submit" class="btn btn-dark mt-4" id="submit" href="help.html" value="SUBMIT">SUBMIT</button>
+                    <a class="btn btn-dark mt-4" id="submit" href="help.html">SUBMIT</a>
                 </div>
               </div>
             </form>
@@ -76,9 +76,9 @@
             <!--=========== Socials -->  
             <div class="row no-gutters">
               <ul class="specsForm-social">
-                  <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png"></a></li>
-                  <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png"></a></li>
-                  <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png"></a></li>
+                  <li><a href="https://facebook.com"><img src="https://i.ibb.co/x7P24fL/facebook.png" alt="link to facebook"></a></li>
+                  <li><a href="https://twitter.com"><img src="https://i.ibb.co/Wnxq2Nq/twitter.png" alt="link to twitter"></a></li>
+                  <li><a href="https://instagram.com"><img src="https://i.ibb.co/ySwtH4B/instagram.png" alt="link to instagram"></a></li>
                   <li><a href="https://youtube.com"><i class="fa fa-youtube text-dark"></i></a></li>
               </ul>
           <p class="specsForm-copyright copyright text-white">
@@ -98,9 +98,7 @@
       </div> 
 
       <!-- EmailJS -->
-    <script type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
     <script type="text/javascript">
           (function(){
               emailjs.init("user_pHThjXjsc2Z3MnGT7tNCP");

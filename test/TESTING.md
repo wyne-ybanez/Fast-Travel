@@ -8,6 +8,8 @@
 
 - [Testing User Stories from UX](#testing-user-stories-from-ux)
 
+- [Validators](#validators)
+
 ## Website Testing: 
 
 ### Navigation Menu
@@ -315,3 +317,17 @@
 
   - The navigation menu is always accessible at the top right position in every page. 
   - The navigation menu will have a link to all the relevant pages of ther website.
+
+## Validators 
+
+### W3CSchools HTML Validator
+
+- Tested all HTML pages, results depicted minimal errors. Here are the [results]()
+
+### W3CSchools CSS Validator
+
+- There are multiple CDN's that I use which is causing this validator to find errors and issue warnings.
+
+Here are the [results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwyne-ybanez.github.io%2Fpersonal-portfolio-master%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+
+### LightRoom 

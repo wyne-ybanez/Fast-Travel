@@ -333,11 +333,11 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 - AVTR youtube video which was used for landing [page](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
   
-## Known Bugs - The following have been noted in the Tests folder
+## Known Bugs
 
 - After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
 
-- When viewed on the Macbook Air 2015 - 13, the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) is not applying the styling correctly. Although when checked on the website, the intended styling is present
+- When viewed on the Macbook Pro Mid 2012 - 13", the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) is not applying the styling correctly to this device. Although when checked on the website, the intended styling is present
   
 - Bug where a route will display even when it's not on the same country. Route display seems like it will not stay to the specified region:
   [Screenshot of bug](assets/img/country-bug.png)
