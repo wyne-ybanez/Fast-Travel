@@ -871,7 +871,8 @@ li {
   }
 
   .social {
-    bottom: 0;
+    bottom: -15px;
+    right: 28px;
     transform: translateX(-5%);
   }
 

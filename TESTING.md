@@ -64,12 +64,12 @@
 
 ### Viewport Responsiveness
 
-- Website appears to be responsive on IPad and Desktop
+- Website appears to be responsive on IPad, Desktop, Laptop and Iphones 5/SE/6/7/8
+- Viewport reponsiveness tested with [AMI Responsive](http://ami.responsivedesign.is/#)
 
 ### Other Browsers
 
-- Website was tested on Safari through a desktop, the date input in the booking.html had no calendar icon which differs when view with Google Chrome
-
+- Website was tested on Safari through a desktop, the date input in the booking.html had no calendar icon nor did it have a date template. This differs when viewed on Google Chrome.
 
 ## Bug encounters: 
 
@@ -353,7 +353,7 @@
 
 ## Further Testing 
 
-- The Website was tested on Google Chrome, Microsoft Edge and Safari browsers.
+- The Website was tested on Google Chrome and Safari browsers.
 - The Website was viewed on the specified testing devices such as Desktop, Laptop, iPad, iPhone 5, SE 6, 7, 8 and iPhone X using Chrome Developer Tools.
 - The Website was tested using the following physical devices: Macbook Pro Mid 2012, iPhone XR, 11, iPad, iPad pro.
 - Links were tested repeatedly.
