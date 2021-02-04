@@ -1,15 +1,78 @@
 # Tests 
 
+## Website Testing: 
+
+### Navigation Menu
+
+- When hover the cursor changes to a pointer
+- When clicked the toggler changes from a humburger menu to an 'X'
+- After clicking the page moves left and displays the navigation menu 
+- The navigation menu shows the list 
+- Clicking on the list forwards the user to the appropriate pages
+
+### Landing Page 
+
+- Clicking on "Book" brings to the user to the appropriate page
+- Clicking on "About" brings the user to the apprpriate 'How It Works' page
+- The background video plays automatically plays once the user enters the landing page
+
+### Booking Page
+
+- Text predictions are present in both 'origin' and 'destination' inputs
+- Time inputs display both the max number of hours and the number of minutes in multiples of 5 
+- The date input can be accessed appropriately and pressing on "today" uses the current date
+- Page expands when the clicking submit 
+- Page will not expand if the required input fields are not answered correctly
+- Booking summary displays the values provided in the input fields
+
+### Map
+
+- The map pans and zooms towards the specified locations once the values have been inputted
+- The map zooms to the user's current location when 'current location' is clicked - geolocating their device
+- A route in red is displayed between the origin location and the destination
+
+### Specifications Form
+
+- Specification form required inputs are working as intended and will not continue if certain inputs are missing 
+- Clicking on 'Submit' will expand the page and display the order summary gathered from local storage
+- Clicking on 'Cancel' will bring the user back to the booking form 
+- Clicking on 'Email Confirmation' will send an email to the designated email
+
+### About 
+
+- About animation effects are working appropriately on the headings 
+- Clicking on 'Book' brings the user to the booking form
+
+### Customer Service 
+
+- Customer Service form required inputs are working as intended 
+- Form will not send if one of the input fields has no value 
+- Clicking on 'Submit' will issue a confirmation email to the user's desingated email address
+- Clicking on 'Cancel' will direct the user to index.html
+
 ## Bug encounters: 
 
-(i) After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen
+### 1. Marker Pan and Zoom after route display
 
-(ii) Trying to add a marker to user's current location. After panning to it, marker does not appear 
+ <strong>(i)</strong> After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
 
-  Bug Fixed
+ <strong>(ii)</strong> Attempted to solve this issue with the following code under numerous functions:
 
-    - Solution: 
-  - Describing the position of the user and containing it within a constant variable,    
+  `marker.addListener('click', () => { `
+          `infowindow.open(map, marker)`
+          `map.setZoom(13)`
+          `map.setCenter(marker.getPosition())`
+      `})`
+  
+ <strong>Conclusion:</strong> The issue is still present
+
+### 2. Marking the user's current location
+
+ <strong>(i)</strong> Trying to add a marker to user's current location. After panning to it, marker does not appear, just the infowindow. 
+
+ <strong>(ii)</strong> Bug Fixed through the following solution: 
+
+  - Describing the position of the user and containing this data within a constant variable named 'pos':    
 
       `  (position) => {`
         `  const pos = {`
@@ -17,58 +80,94 @@
            ` lng: position.coords.longitude,`
           ` } `
     
-    - Adding a marker to the constant variable 
+  - Then add a marker to the constant variable: 
 
            ` const marker = new google.maps.Marker({`
            ` position: pos,`
            ` map: map,`
-          `})`
+           `})`
+           
+ <strong>Conclusion:</strong> Issue solved
 
-(iii) Server error response comes early before the user can set a orgin/destination point on the map stating error 
-`DIRECTIONS_ROUTE: NOT_FOUND: There was an issue performing a Directions request` 
+### 3. Server Error Response comes early before the user can set a orgin/destination point
 
-Bug Fixed 
-- Solution: 
+ <strong>(i)</strong> The error message is displayed prior to the user having made a complete request ie. both origin and destination have not yet been established and a request is made.
+
+- Error message: `DIRECTIONS_ROUTE: NOT_FOUND: There was an issue performing a Directions request` 
+
+ <strong>(ii)</strong> Bug Fixed through the following solution: 
+ 
 - Added a click event to initialize the function once submit button is clicked 
 
    ` document.getElementById('submit').addEventListener('click', () => {`
    ` DisplayRoute(directionsService, directionsDisplay);`
    `}`
+  
+ <strong>Conclusion:</strong> Issue solved
 
-(iv) The directions will automatically render the route without the user pressing the submit button, submit button is inactive:
+### 4. Directions route is automatically displayed
 
-Bug Fixed
+ <strong>(i)</strong> The map will automatically render the route without the user clicking the 'submit' button.
 
-- Solution: 
+ <strong>(ii)</strong> Bug Fixed through the following solution:
+
+- Adding an onclick event handler to the submit button which will trigger a function to display a route: 
 
 `  document.getElementById('submit').addEventListener('click', () => {`
         `DisplayRoute(directionsService, directionsDisplay);`
     `});`
 
-(v) Bug where the Geocode data was not displaying. 
+ <strong>Conclusion:</strong> Issue solved
 
-Bug Fixed: 
+### 5. Geocode Data not displayed due to API key restrictions
 
-- Solution: Went go Google Developer Console and attached the appropriate required IP address as a referral for the API key
+ <strong>(i)</strong> Bug where the Geocode data was not displaying once 'submit' was clicked in the booking page, although, the page would still expand.
+
+ <strong>(ii)</strong> Bug Fixed through the following solution:
+
+- I went go Google Developer Console and attached the appropriate required IP address as a referral for the API key
 - [Stack Overflow Solution](https://stackoverflow.com/questions/48189532/get-request-with-axios-returning-undefined)
 - New error handling message: 
+  
       ` if (response.data.status === 'REQUEST_DENIED'){`
            ` window.alert('You do not have permission to use this API key - Booking location details will not be shown');`
             `console.log(response.data.status);`
        ` }`
 
-(vi) Geocode information for origin and destination after pressing submit is not appearing `Error Uncaught TypeError: Cannot read property 'addEventListener' of null at maps.js:280`
+- The restrictions for this API key has now been changed and is open for this project, specifically, for Geocoding purposes. 
 
-Bug Fixed
+ <strong>Conclusion:</strong> Issue solved
 
-- Solution: Set the `locationForm` variable to listen for a click 'submit' event
+### 6. Geocode Data not displayed due to even handler
+
+ <strong>(i)</strong> Geocode information for origin and destination after clicking 'submit' is not appearing, it displays the following error:
+
+  `Error Uncaught TypeError: Cannot read property 'addEventListener' of null at maps.js:280`
+
+ <strong>(ii)</strong> Bug Fixed through the following solution:
+
+- Set the `locationForm` variable to listen for a click 'submit' event:
  
- `let locationForm = document.getElementById('submit');`
-`locationForm.addEventListener('click', geocodeData);` 
+  `let locationForm = document.getElementById('submit');`
+  `locationForm.addEventListener('click', geocodeData);` 
 
-(vi) Bug found where a route will display even when it's not on the same country - won't stick to the same region
+ <strong>Conclusion:</strong> Issue solved
+
+### 7. Directions route is displayed despite not being in the same region
+
+ <strong>(i)</strong> Bug found where a route will display even when it's not on the same country - won't stick to the same region
     [Screenshot of bug](assets/img/country-bug.png)
 
+ <strong>(ii)</strong> Attempted to fix the bug through the following code in the function 'DisplayRoute' - it shows that I tried to change the region of the request to be made solely for the country of Ireland: 
+  
+  ` let request = {`
+  ` origin: Origin,`
+  ` destination: Destination,`
+  ` travelMode: 'DRIVING',`
+  ` region: 'IE',`
+  `}`
+
+  <strong>Conclusion:</strong> Issue is still present
 
 (vii) Bug: The on click event to display results for the date and time input is not outputting on the the HTML page: 
     [Screenshot of Date Bug](assets/img/date-bug.png)

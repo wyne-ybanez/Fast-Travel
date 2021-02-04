@@ -126,13 +126,15 @@ The site focuses primarily on functionality rather than design. The design of th
   
 - There will be two 'call to action' buttons where the user can book a journey straight away or explore more on what the website is supposed to do/how to use it.
 
-[Screenshot](assets/readMe/landing-page.png)
+[Screenshot of landing Page](assets/readMe/landing-page.png)
 
 ### Navigation 
 
 - The navigation menu will always be present as a toggle menu at the top right hand side of the page. 
   
 - It will be there to assist the user in traversing to certain parts of the site at any point in time
+
+[Screenshot of Navigation Menu](assets/readMe/menu.png)
 
 ### Booking:
 
@@ -168,7 +170,7 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - This feature will require the user to input their contact details and order ID via a contact form 
 
-[Screenshot](assets/readMe/help.png)
+[Screenshot of Customer Service Page](assets/readMe/help.png)
 
 ### Footer:
   
@@ -191,6 +193,8 @@ The site focuses primarily on functionality rather than design. The design of th
   The website should function accordingly in modern web browsers.
 
   The website will provide alert windows which informs the user of waiting times or of events that will be ocurring. 
+
+  Responsiveness will be following the guidelines of the devices shown in [AMI responsive](http://ami.responsivedesign.is/)
 
 ### Interactive: 
 
@@ -269,17 +273,17 @@ I have added the testing onto a separate .md file as its content has increased e
 
 ### Github
 
-1. Log into Github and Locate the relevant repository. Here is a [link](https://github.com/wyne-ybanez/personal-portfolio-master)  
+1. Log into Github and Locate the relevant repository. Here is a [link](https://github.com/wyne-ybanez/self-driving-car-delivery)  
 2. Click on the settings buttons on the horizontal menu
 3. Scrolling down until you reach "Github pages" 
 4. There is a heading named "Source". There is a button underneath it. Click on that button and change it from "none" to "main". Then click "save"
-5. You will have to scroll down to the heading "Github Pages". The published [site](https://wyne-ybanez.github.io/personal-portfolio-master/) with the link should be there.   
+5. You will have to scroll down to the heading "Github Pages". The published [site](https://wyne-ybanez.github.io/self-driving-car-delivery/) with the link should be there.   
 
 ### Forking the Repository
 
 You can fork the repository through the following steps. Forking the repository means you will have a copy of the repository and any changes you make will not affect the original repository.
 
-1. Log in to GitHub and locate the GitHub Repository. Here is a link for the [repository](https://github.com/wyne-ybanez/personal-portfolio-master)
+1. Log in to GitHub and locate the GitHub Repository. Here is a link for the [repository](https://github.com/wyne-ybanez/self-driving-car-delivery)
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu. Looking towards the right of the page. Locate the button "Fork" then click 
 3. You should now have a copy of the original repository in your GitHub account
 
@@ -287,7 +291,7 @@ You can fork the repository through the following steps. Forking the repository 
 
 This is used when you would like to make changes to the project code
 
-1. Should you wish to use a different IDE like VSCode. You first log in to Github and locate the required repository. Here is the link for this [repository](https://github.com/wyne-ybanez/personal-portfolio-master)
+1. Should you wish to use a different IDE like VSCode. You first log in to Github and locate the required repository. Here is the link for this [repository](https://github.com/wyne-ybanez/self-driving-car-delivery)
 2. Open a new terminal on Git Bash
 3. Type `git clone`, and then paste the URL you copied 
 
@@ -345,30 +349,39 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 ## Design Changes 
 
-- The website used to incorporate a light background, this has been changed to a white background. Dark Text color has been assigned to contrast this accordingly.
+- The website used to incorporate a dark background, this has been changed to a light background. Dark Text color has been assigned to contrast this accordingly.
 
-- Previously, the website was supposed to input several destinations and set way point this these other destinations before reaching the final location. This was specified in the wireframes, this has been altered. 
+- Previously, the website was supposed to input several destinations and set way point this these other destinations before reaching the final location. This was specified in the wireframes, this has been altered so that vehicle only travels between 2 locations. 
   
 - The Specifications page has also changed from what the wireframes initially displayed. It no longer asks for the date and time of the trip.
 
-- There is now a dedicated help/customer service page which will assist the customer with and journey issues they may encounter during their trip.
+- There is now a dedicated help/customer service page which will assist the customer with any issues they may encounter during their trip.
 
 ## Future Implementations 
 
 - I would like to style further media queries for the website
-- To update the 'projects' section with real projects
-- To update the content to show real work experience
-- To add a download cv button in the options menu or the footer
-- To code additional Javascript animations on the website in future
-- I would like for the 'contact me' form to send any contacts to my professional email address
+
+- I would like to add a dedicated back end processing to save previous customer interactions and use that data to 
+  predict the customer's future requests, send them the appropriate vehicles, save any useful data that can make the booking process quicker.
+  
+- To allow user's to log in and set up personal accounts.
+  
+- To refine maps.html and make it simpler or more convenient to use.
+
+- I would like for the social links to lead to a dedicated social media account for the business.
+  
+- I would like to implement a chat bot to assist the user's on any query during their travel.
 
 ## Acknowledgements
 
-- I received Inspiration for the Maps section of the project from Ben Hasselgren's Holiday Planner [Project](https://benhasselgren.github.io/ifd-milestone-project-pages/#)
-- Timeline Section inspired by [Code Institute](https://codeinstitute.net/)
+- I received Inspiration for the Maps section and the predicitve input fields from Ben Hasselgren's Holiday Planner [Project](https://benhasselgren.github.io/ifd-milestone-project-pages/#)
+
 - My Mentor Dick Vlaanderen for his continuous feedback
+  
 - Tutors at Code Institute for their on-going support
-- Jim Lynx a Code Institute lead who provided me invaluable insight 
+  
+- Code Institute's EmailJS lesson which inspired me to send confirmation emails after user form sumbissions
+  
 - Code Institute's Slack community which provided me with ideas as to how to approach the project
 
 

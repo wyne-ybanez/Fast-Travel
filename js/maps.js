@@ -1,4 +1,4 @@
-const labels = 'AB'
+const labels = 'AB';
 
 //========== Input fields
 const inputs = [
@@ -346,7 +346,7 @@ function DisplayRoute(directionsService, directionsDisplay) {
             <h1 class="page-heading mt-5 active" id="order-details">Booking Information</h1>
         </div>
         `
-      document.getElementById('order-details').innerHTML = visible
+      document.getElementById('order-details').innerHTML = visible;  
     } else if (status === 'NOT_FOUND' && Origin === '') {
       window.alert('Missing Pick-Up location')
     } else if (status === 'NOT_FOUND' && Destination === '') {
