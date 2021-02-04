@@ -70,34 +70,24 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - ### First Time Visitor Goals:
 
-  <strong>a.</strong>. I would like to know the purpose for the creation of the website from the first instance of opening it
-  <br>
+  <strong>a.</strong> I would like to know the purpose for the creation of the website from the first instance of opening it
   <strong>b.</strong> I would greatly appreciate it if the website were easy to navigate.
-  <br>
-  <strong>c.</strong> I expect the website to display relevant content and stay consistently relevant as I explore the site
-  <br>
+  <strong>c.</strong> I expect the website to display relevant content and stay consistently relevant as I explore the site 
   <strong>d.</strong> I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going
-  <br>
   <strong>e.</strong> I would like the content to be structured and easy to follow
-  <br>
   <strong>f.</strong> I would like the website to be interactive and to respond according to my interactions
-  
+
 - ### Returning Visitor Goals:
   
-  <strong>a.</strong> I would like if the website assisted me by predicting my inputs based on past interactions
-  <br>
+  <strong>a.</strong> I would like if the website assisted me by predicting my inputs
   <strong>b.</strong> I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
-  <br>
   <strong>c.</strong> I would like to receive an email summary of what I have ordered 
-  <br>
   <strong>d.</strong> I would like to research the company further 
 
 - ### Frequent Visitor Goals: 
   
   <strong>a.</strong> I would like if the website could tell me where I am during my trip
-  <br>
   <strong>b.</strong> I want to be able to contact the business quickly should I encounter any issues during the journey
-  <br>
   <strong>c.</strong> I want to be able to navigate to any section of the website at any point in time
 
 ## Design In-depth
@@ -345,11 +335,11 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
   
 ## Known Bugs - The following have been noted in the Tests folder
 
--  After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
+- After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
 
-- When viewed on the Macbook Air 2015 - 13", there was a bug where the blue border behind the "About me" image was not styled properly. The `height` and the `bottom` position the blue border did not apply the styles specified in style.css. However, upon viewing it on the Macbook Pro - 13" and testing on [ami responsive](http://ami.responsivedesign.is/#), the border followed its styling accordingly. 
+- When viewed on the Macbook Air 2015 - 13, the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) is not applying the styling correctly. Although when checked on the website, the intended styling is present
   
-- Bug found where a route will display even when it's not on the same country - won't stick to the same region:
+- Bug where a route will display even when it's not on the same country. Route display seems like it will not stay to the specified region:
   [Screenshot of bug](assets/img/country-bug.png)
 
 ## Design Changes 
@@ -364,7 +354,7 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 ## Future Implementations 
 
-- I would like to style further media queries for the website
+- I would like to style further media queries for the website.
 
 - I would like to add a dedicated back end processing to save previous customer interactions and use that data to 
   predict the customer's future requests, send them the appropriate vehicles, save any useful data that can make the booking process quicker.
@@ -373,7 +363,7 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
   
 - To refine maps.html and make it simpler or more convenient to use.
 
-- I would like for the social links to lead to a dedicated social media account for the business.
+- I would like for the social links to lead to a dedicated social media accounts for the website.
   
 - I would like to implement a chat bot to assist the user's on any query during their travel.
 

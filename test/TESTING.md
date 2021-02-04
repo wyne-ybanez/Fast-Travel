@@ -1,5 +1,13 @@
 # Tests 
 
+## Table of Contents
+
+- [Website Testing](#website-testing)
+
+- [Bug Encounters](#bug-encounters)
+
+- [Testing User Stories from UX](#testing-user-stories-from-ux)
+
 ## Website Testing: 
 
 ### Navigation Menu
@@ -239,4 +247,71 @@
 
  <strong>Conclusion:</strong> Issue solved
 
+ ## Testing User Stories from UX 
 
+### First Time Visitors: 
+
+<strong>a.</strong> I would like to know the purpose for the creation of the website from the first instance of opening it.
+
+  - When the user opens the website there is an animation that shows what the website is about, which gives captions of the service provided.
+  - The video background also plays which relates to the site's overall theme and purpose.
+  
+<strong>b.</strong> I would greatly appreciate it if the website were easy to navigate.
+
+  - The navigation menu is at the top right of every page. The various pages are listed as options
+  - There are call to action buttons at the end of some pages.
+
+<strong>c.</strong> I expect the website to display relevant content and stay consistently relevant as I explore the site.
+
+  - The website aims to display the necessary forms that the user will expect to interact with which to submit their requests/orders.
+  - The website only portrays relevant content regarding how to use the website and its purpose.
+  
+<strong>d.</strong> I would appreciate it if my interactions with the site were acknowledged so that, instictively, I will know what I am doing and where I am going.
+
+  - There are hover animations and animations on scrolling throughout the website, these are used to help the users locate their position in the website and where their cursor is pointed.
+  - There are various alerts which will inform the user of status reports or of what the website is doing.
+
+<strong>e.</strong> I would like the content to be structured and easy to follow
+
+  - The content of the landing page and the about page involves a one page style which adds to the user's knowledge of the website and its purpose as they read. 
+
+<strong>f.</strong> I would like the website to be interactive and to respond according to my interactions
+
+  - The page will expand automatically once certain conditions revealing further information.
+  - The map widget reacts to the user's interaction when adding inputs to map.html e.g. It places markers on the origin point once the user inputs a value, it displays the route between 'A' and 'B'.
+
+### Returning Visitors: 
+
+<strong>a.</strong> I would like if the website assisted me by predicting my inputs
+
+  - The website has built in predictive address or autocompletion for the origin point or the destination point input fields.
+
+<strong>b.</strong> I would like to see my previous specifications/inputs to be remembered at any time when I explore the website
+
+  - The website sets the values inputted by the booking and specifications form and saves them into the local storage as a variable.
+  - These variables can be accessed and displayed on the website.
+
+<strong>c.</strong> I would like to receive an email summary of what I have ordered
+
+  - An email confirmation or summary is always provided to the user once they've booked a taxi and have assigned it's specifications.
+  - An email confirmation is also sent when the user wants to send a message through the customer service form.
+
+<strong>d.</strong> I would like to research the company further
+
+  - There are social icons at the bottom of the page which allows the user to research the business.
+
+### Frequent Visitor Goals:
+
+<strong>a.</strong> I would like if the website could tell me where I am during my trip
+
+  - Clicking on "Current Location" on the map will place a marker on the user's current location and display an infowindow communicating so.
+
+<strong>b.</strong> I want to be able to contact the business quickly should I encounter any issues during the journey
+
+  - There is a dedicated customer service page which can be accessed by the user at any point in time. 
+  - By pressing on the hamburger menu and clicking 'help' it will allow the user to send a message to the business.
+
+<strong>c.</strong> I want to be able to navigate to any section of the website at any point in time
+
+  - The navigation menu is always accessible at the top right position in every page. 
+  - The navigation menu will have a link to all the relevant pages of ther website.
