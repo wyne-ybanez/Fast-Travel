@@ -674,15 +674,19 @@ li {
 }
 
 /* Mobile Phones */
-@media (max-width: 414px) and (min-width: 414px) {
-  p {
+@media (max-width: 667px) and (min-width: 375px) {
+  .text p {
     visibility: hidden;
+  }
+
+  .page-heading {
+    font-size: 50px;
   }
 
   #map {
     height: 470px;
     width: 350px;
-    left: 20px;
+    left: -19px;
   }
 
   .toggle {
@@ -690,6 +694,7 @@ li {
   }
 
   .text h2 {
+    margin-top: 3rem;
     font-size: 1em;
   }
 
@@ -704,25 +709,98 @@ li {
   }
 
   .landing header {
-    top: -15px;
-    padding: 40px;
+    padding: 20px;
+  }
+
+  .about {
+    margin-left: 5.5rem;
   }
 
   .social {
     bottom: 0px;
-    transform: translateX(12%);
+    transform: translateX(0%);
+  }
+
+  .map-section header {
+    padding: 0 20px;
   }
 
   .menu-maps {
     visibility: hidden;
   }
 
+  .map-section, 
+  .menuMaps {
+    height: 195vh;
+  }
+
+  .map-section.height, 
+  .menuMaps.height {
+    height: 290vh;
+  }
+
+  .menuMaps ul,
+  .menuMaps.height ul { 
+    bottom: 15em;
+    position: fixed;
+  }
+
   .menu-maps.active {
     visibility: visible;
   }
+
+  .aboutMenu ul {
+    bottom: 15em;
+  }
+
+  .about-section {
+    height: 350vh;
+  }
+
+  .about-section header {
+    padding: 0 20px;
+  }
+
+  .about-section .toggle{
+    left: 33px;
+  }
+
+  .about-section, 
+  .specsForm {
+    padding: 0 10px 10px 10px;
+  }
+
+  .specsForm-social, 
+  .map-social, 
+  .about-social {
+    visibility: hidden;
+  }
+
+  .copyright {
+    visibility: hidden;
+  }
+
+  .specsForm {
+    height: 108vh;
+  }
+
+  .specsForm .logo {
+    right: 80px;
+  }
+
+  .specsForm .toggle {
+    left: -45px;
+  }
+
+  .helpForm .page-heading {
+    font-size: 40px;
+    left: 1px;
+    margin-top: 3.5rem;
+  }
+
 }
 
-@media (max-width: 375px) {
+@media (max-width: 320px) {
   html,
   body {
     font-family: 'Ubuntu', sans-serif;

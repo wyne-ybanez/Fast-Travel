@@ -122,7 +122,6 @@ function bookingSummary() {
       menu.classList.toggle('height')
     }
   }
-
   // Send Email a confirmation of order
   const confirm = document.getElementById('confirm')
   confirm.addEventListener('click', sendMail)
@@ -134,7 +133,7 @@ function ScrollFunc() {
 }
 
 // ========== Sending Email Confirmation
-function sendMail() {
+function sendMail(){
   // Generate order number - Code used: https://www.drzon.net/posts/generate-random-order-number/
   let now = Date.now().toString() // '1492341545873'
   // pad with extra random digit

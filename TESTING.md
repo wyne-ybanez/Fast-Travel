@@ -64,11 +64,12 @@
 
 ### Viewport Responsiveness
 
-- Website appears to be res
+- Website appears to be responsive on IPad and Desktop
 
-### Other Browswers
+### Other Browsers
 
-- 
+- Website was tested on Safari through a desktop, the date input in the booking.html had no calendar icon which differs when view with Google Chrome
+
 
 ## Bug encounters: 
 
