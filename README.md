@@ -168,7 +168,7 @@ The site focuses primarily on functionality rather than design. The design of th
   
 - There is no dedicated footer links for the website 
   
-- Rather, the site will focus primarily on functionality. Should the user wish to learn more about the business, theu can click on the social links at the bottom of the page 
+- Rather, the site will focus primarily on functionality. Should the user wish to learn more about the business, they can click on the social links at the bottom of the page 
 
 ## Features
 
@@ -209,7 +209,7 @@ The site focuses primarily on functionality rather than design. The design of th
 
 ## Testing 
   
-I have added the testing onto a separate .md file as its content has increased exponentially, here is the [link](test/TESTING.md)
+I have added the testing onto a separate .md file - here is the [link](test/TESTING.md)
 
 ## Technologies used:
 
@@ -256,9 +256,7 @@ I have added the testing onto a separate .md file as its content has increased e
     - Used to style the map and give it the light grey futuristic look.
 14. [Axios](https://github.com/axios/axios)
     - To get Data and display it on page from Google's Geocode API via promises.
-15. [Jasmine Testing](https://jasmine.github.io/)
-    - Used to test for code functionality.
-16. [EmailJS](https://www.emailjs.com/)
+15. [EmailJS](https://www.emailjs.com/)
     - Automated confirmation emails sent to user's once they've submitted their inputs.
 
 ## Deployment
@@ -368,6 +366,8 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 - I would like for the social links to lead to a dedicated social media accounts for the website.
   
 - I would like to implement a chat bot to assist the user's on any query during their travel.
+
+- I really wanted to test this website using a Javascript testing framework like Cypress or Jasmine but I feel unconfident with these frameworks, I would like to do this in the future.
 
 ## Acknowledgements
 

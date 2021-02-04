@@ -8,7 +8,7 @@ const inputs = [
   document.getElementById('timeInputMin'),
   document.getElementById('dateInput'),
 ]
-const Ireland = { lat: 53.2734, lng: -7.77832031 }
+const Ireland = { lat: 53.2734, lng: -7.77832031 };
 
 //========== Event Listeners for submission event
 const order = document.getElementById('submit')
@@ -329,8 +329,8 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
 // If successful, allow use to add specifications to order
 // CodeFLix code used and editted:  https://www.dropbox.com/s/8yq58seg4zp902q/test.html?dl=0
 function DisplayRoute(directionsService, directionsDisplay) {
-  const Origin = document.getElementById('origin').value
-  const Destination = document.getElementById('destination').value
+  const Origin = document.getElementById('origin').value;
+  const Destination = document.getElementById('destination').value;
   let request = {
     origin: Origin,
     destination: Destination,

@@ -335,13 +335,13 @@
 
 - Tested all HTML pages, results depicted minimal errors mainly with about.html 
   
-- Here are the [results]()
+- Here are the [results](https://validator.w3.org/nu/?doc=https%3A%2F%2Fwyne-ybanez.github.io%2Fself-driving-car-delivery%2F)
 
 ### W3CSchools CSS Validator
 
 - There are multiple CDN's that I use which is causing this validator to find errors and issue warnings.
 
-- Here are the [results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwyne-ybanez.github.io%2Fpersonal-portfolio-master%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- Here are the [results](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fwyne-ybanez.github.io%2Fself-driving-car-delivery%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 
 ### Google LightHouse 
 
