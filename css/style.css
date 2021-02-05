@@ -525,19 +525,30 @@ li {
   }
 }
 
-/* More modern Laptop */
+/* Laptop */
 @media (max-width: 1280px) and (min-width: 802px) {
+
+  .menu ul {
+    position: fixed;
+    top: 10em;
+  }
+
   #map {
     height: 500px;
   }
 
-  .map-section {
+  .map-section,
+  .menuMaps {
     min-height: 128vh;
   }
 
   .map-section.height,
   .menuMaps.height {
     height: 208vh;
+  }
+
+  .menuMaps.height ul {
+    bottom: 18em;
   }
 
   .map-social li {
