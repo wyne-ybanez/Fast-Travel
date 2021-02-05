@@ -357,7 +357,8 @@
 ## Jasmine Unit Testing
 
 - Tested the website's general booking confirmation functionality through a very minimal but effective test
-- Here is the link - [Jasmine Test](Jasmine.html)
+- Here is the link to the HTML page - [Jasmine HTML Code](Jasmine.html)
+- Here is the link to the Javascript page - [Jasmine JS Code](Jasmine/bookingSpec.js)
 
 ## Further Testing 
 
