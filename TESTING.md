@@ -10,6 +10,8 @@
 
 - [Validators](#validators)
 
+- [Jasmine Testing](#jasmine-unit-testing)
+
 - [Further Testing](#further-testing)
 
 ## Website Testing: 
@@ -27,6 +29,7 @@
 - Clicking on "Book" brings to the user to the appropriate page
 - Clicking on "About" brings the user to the apprpriate 'How It Works' page
 - The background video plays automatically plays once the user enters the landing page
+- The background video does not play if the user visit's the website through github pages
 
 ### Booking Page
 
@@ -351,10 +354,15 @@
 - About.html [results](assets/img/about-lighthouse.png)
 - Customer Service section [results](assets/img/help-lighthouse.png)
 
+## Jasmine Unit Testing
+
+- Tested the website's general booking confirmation functionality through a very minimal but effective test
+- Here is the link - [Jasmine Test](Jasmine.html)
+
 ## Further Testing 
 
 - The Website was tested on Google Chrome and Safari browsers.
-- The Website was viewed on the specified testing devices such as Desktop, Laptop, iPad, iPhone 5, SE 6, 7, 8 and iPhone X using Chrome Developer Tools.
+- The Website was viewed on the specified testing viewports such as Desktop, Laptop, iPad, iPhone 5, SE 6, 7, 8 and iPhone X using Chrome Developer Tools.
 - The Website was tested using the following physical devices: Macbook Pro Mid 2012, iPhone XR, 11, iPad, iPad pro.
 - Links were tested repeatedly.
 - Friends and family members were asked to review the website, its content and the user experience overall.

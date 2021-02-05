@@ -27,6 +27,7 @@ submit.addEventListener('click', () => {
 })
 
 //========== Menu toggle event listener
+// From Brad Traversy used and eddited: https://codepen.io/bradtraversy/pen/eYdMqvx
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('active')
   specsForm.classList.toggle('active')

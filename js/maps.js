@@ -27,7 +27,8 @@ order.addEventListener('click', localDataStorage)
 // Reset form event
 resetInputs.addEventListener('click', resetForm)
 
-//  Nav menu toggle event
+//========== Nav menu toggle event
+// From Brad Traversy used and eddited: https://codepen.io/bradtraversy/pen/eYdMqvx
 Toggle.addEventListener('click', () => {
   Toggle.classList.toggle('active')
   mapsSection.classList.toggle('active')
@@ -187,8 +188,9 @@ function initMap() {
     searchBox2.setBounds(map.getBounds())
   })
   let markers = []
-  // Listen for the event fired when the user selects a prediction and retrieve
-  // more details for that place.
+
+  // Listen for the event fired when the user selects a prediction and retrieve's details
+  // Search box for origin
   searchBox1.addListener('places_changed', () => {
     const places = searchBox1.getPlaces()
     if (places.length == 0) {
@@ -224,6 +226,7 @@ function initMap() {
     map.fitBounds(bounds)
   })
 
+  // Search box for destination  
   searchBox2.addListener('places_changed', () => {
     const places = searchBox2.getPlaces()
     if (places.length == 0) {
@@ -366,9 +369,10 @@ function DisplayRoute(directionsService, directionsDisplay) {
 //========== Get Geocode Data to display on web page
 // Brad Traversy code used and eddited: https://www.youtube.com/watch?v=pRiQeo17u6c&t=917s&ab_channel=TraversyMedia
 function geocodeData() {
-  // Geocode for origin location
   let originLocation = document.getElementById('origin').value
   let destinationLocation = document.getElementById('destination').value
+  
+  // Geocode for origin location
   axios
     .get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
@@ -400,6 +404,7 @@ function geocodeData() {
     .catch((error) => {
       console.log(error.response)
     })
+
   // Geocode Destination
   axios
     .get('https://maps.googleapis.com/maps/api/geocode/json', {

@@ -153,8 +153,8 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - Page height is reactive and will expand once the required inputs have been entered with an additional 'call to action' button for an email confirmation to be sent to the user
 
-[Screenshot of Specification Form](assets/readMe/specs.png)
-[Screenshot of Specifications Expanded](assets/readMe/specs2.png)
+[Screenshot of Specification Form](assets/readMe/form.png)
+[Screenshot of Specifications Expanded](assets/readMe/form2.png)
 
 ### Customer Service: 
 
@@ -209,7 +209,7 @@ The site focuses primarily on functionality rather than design. The design of th
 
 ## Testing 
   
-I have added the testing onto a separate .md file - here is the [link](test/TESTING.md)
+I have added the testing onto a separate .md file - here is the [link](TESTING.md)
 
 ## Technologies used:
 
@@ -258,7 +258,9 @@ I have added the testing onto a separate .md file - here is the [link](test/TEST
     - To get Data and display it on page from Google's Geocode API via promises.
 15. [EmailJS](https://www.emailjs.com/)
     - Automated confirmation emails sent to user's once they've submitted their inputs.
-
+16. [Jasmine Framework](https://jasmine.github.io/)
+    - Used to test for the general functionality of the Booking process
+  
 ## Deployment
 
 ### Github
@@ -286,7 +288,7 @@ This is used when you would like to make changes to the project code
 3. Type `git clone`, and then paste the URL you copied 
 
 ```
-$ git clone https://github.com/wyne-ybanez/personal-portfolio-master
+$ git clone https://github.com/wyne-ybanez/self-driving-car-delivery
 ```
 
  Here is a link that can explain this process further. [Click Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop)
@@ -321,9 +323,13 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 
 - Dcode Local storage tutorial used to access local storage data and display it for order summary in Specifications [page](https://www.youtube.com/watch?v=k8yJCeuP6I8&ab_channel=dcode)
 
+- Dcode Loading Gif image code used for all loading screen in all pages 
+
 - Generate random order code to provide bookings with unique order ID's - here is the [link](https://www.drzon.net/posts/generate-random-order-number/)
 
 - AMI responsive screen devices used for specifying max/min width of media [queries](http://ami.responsivedesign.is/)
+
+- Theodore Anderson's Jasmine tutorial which helped me understand how to use the framework effectively - [link](https://www.youtube.com/watch?v=dFz2h7o0vqs&ab_channel=TheodoreAnderson)
   
 ### Content
 
@@ -332,6 +338,8 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
 ### Media 
 
 - AVTR youtube video which was used for landing [page](https://www.youtube.com/watch?v=l5ZK0S8Q7JU&ab_channel=Mercedes-Benz)
+
+- Loading Gif obtained from [icons8](https://icons8.com/preloaders/)
   
 ## Known Bugs
 
@@ -367,7 +375,7 @@ $ git clone https://github.com/wyne-ybanez/personal-portfolio-master
   
 - I would like to implement a chat bot to assist the user's on any query during their travel.
 
-- I really wanted to test this website using a Javascript testing framework like Cypress or Jasmine but I feel unconfident with these frameworks, I would like to do this in the future.
+- Test the website programming more thoroughly.
 
 ## Acknowledgements
 
