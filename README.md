@@ -345,10 +345,12 @@ $ git clone https://github.com/wyne-ybanez/self-driving-car-delivery
 
 - After following Google Docs for the pan and zoom effect on the markers. Clicking on the markers did not cause the event to happen. ie. Pressing on 'A' or 'B' shows the address through an info window however, the map will not pan or zoom to the markers once the route has been established. It will only do so if the markers are out of sight
 
-- When viewed on the Macbook Pro Mid 2012 - 13", the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) is not applying the styling correctly to this device. Although when checked on the website, the intended styling is present
+- When viewed on the Macbook Pro Mid 2012 - 13", the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) were not applying the styling correctly when tested on a physical device. Although when checked on the website, the intended styling is present. This has now been changed but may still affect other devices.
   
 - Bug where a route will display even when it's not on the same country. Route display seems like it will not stay to the specified region:
   [Screenshot of bug](assets/img/country-bug.png)
+
+- Github pages may refrain index.html background video from playing and will show a dark background instead.
 
 ## Design Changes 
 

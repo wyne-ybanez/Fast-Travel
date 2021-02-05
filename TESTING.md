@@ -69,6 +69,7 @@
 
 - Website appears to be responsive on IPad, Desktop, Laptop and Iphones 5/SE/6/7/8
 - Viewport reponsiveness tested with [AMI Responsive](http://ami.responsivedesign.is/#)
+- Ami Responsive laptop media query produced perfect results on their website but displayed differently when tested on a physical laptop - hence, media queries for laptop styling were changed.
 
 ### Other Browsers
 
