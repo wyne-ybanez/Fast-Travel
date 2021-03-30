@@ -252,12 +252,12 @@ li {
 .social,
 .about-social {
   position: absolute;
-  z-index: 10;
   bottom: -25px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  left: 120px;
 }
 
 .specsForm-social,
@@ -265,6 +265,8 @@ li {
 .about-social {
   bottom: -40px;
   background-color: #000;
+  width: 100vw;
+  left: 0;
 }
 
 .copyright {
@@ -281,7 +283,7 @@ li {
 .specsForm-copyright,
 .map-copyright,
 .about-copyright {
-  left: 43.2em;
+  right: -150px;
 }
 
 .specsForm-social li,
