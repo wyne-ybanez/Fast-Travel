@@ -672,7 +672,7 @@ li {
   }
 
   .specsForm .page-heading {
-    right: 5rem;
+    right: 0rem;
   }
 
   .specsForm .toggle {
@@ -680,11 +680,11 @@ li {
   }
 
   .specsForm h2 {
-    right: 2rem;
+    right: 0;
   }
 
   .specsForm.height {
-    height: 221vh;
+    height: 335vh;
   }
 
   .helpForm .page-heading {
@@ -762,7 +762,7 @@ li {
 
   .social {
     bottom: 0px;
-    transform: translateX(0%);
+    transform: translateX(-29%);
   }
 
   .map-section header {
@@ -825,7 +825,7 @@ li {
   }
 
   .specsForm {
-    height: 108vh;
+    height: 136vh;
   }
 
   .specsForm .logo {
@@ -833,7 +833,7 @@ li {
   }
 
   .specsForm .toggle {
-    left: -45px;
+    left: 15px;
   }
 
   .helpForm .page-heading {
