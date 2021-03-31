@@ -592,12 +592,8 @@ li {
     transform: translate(-400px, -15px);
   }
 
-  .specsForm header {
-    padding: 0 187px;
-  }
-
   .specsForm .toggle {
-    left: 40em;
+    left: 48.7em;
   }
 }
 
