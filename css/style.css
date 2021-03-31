@@ -592,6 +592,10 @@ li {
     transform: translate(-400px, -15px);
   }
 
+  /* .specsForm header {
+    padding: 0 187px;
+  } */ 
+
   .specsForm .toggle {
     left: 48.7em;
   }
@@ -913,7 +917,7 @@ li {
   .social {
     bottom: -15px;
     right: 28px;
-    transform: translateX(-5%);
+    transform: translateX(-30%);
   }
 
   .map-social {
@@ -974,11 +978,11 @@ li {
   }
 
   .specsForm header{
-    padding: 0 50px;
+    padding: 0 57px;
   }
 
   .specsForm .toggle {
-    left: -45px;
+    left: 0;
   }
 
   .specsForm-social {
@@ -991,6 +995,10 @@ li {
 
   .specsForm .logo {
     right: 2rem;
+  }
+
+  .specsForm h2{
+    right: 0;
   }
 
   .helpForm .page-heading {
