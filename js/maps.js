@@ -1,5 +1,7 @@
 const labels = 'AB';
 
+var geoKey = config.GEO_KEY;
+
 //========== Input fields
 const inputs = [
   document.getElementById('origin'),
