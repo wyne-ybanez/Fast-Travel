@@ -381,7 +381,6 @@ function geocodeData() {
       },
     })
     .then((response) => {
-      console.log(response)
       // Formatted Origin address
       const formattedOrigin = response.data.results[0].formatted_address
       let formattedOrgOutput = `
@@ -414,7 +413,6 @@ function geocodeData() {
       },
     })
     .then((response) => {
-      console.log(response)
       // Formatted Destination address
       const formattedDestination = response.data.results[0].formatted_address
       let formattedDestOutput = `
