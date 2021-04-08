@@ -1,8 +1,5 @@
 const labels = 'AB';
 
-var mapsKey = config.MAPS_API_KEY;
-var geoKey = config.GEO_API_KEY;
-
 //========== Input fields
 const inputs = [
   document.getElementById('origin'),
