@@ -597,7 +597,7 @@ li {
 }
 
 /* Ipad */
-@media (max-width: 768px) {
+@media (max-width: 1024px) and (min-width: 768px){
   html,
   body {
     font-family: 'Ubuntu', sans-serif;
@@ -827,6 +827,10 @@ li {
 
   .specsForm {
     height: 136vh;
+  }
+
+  .specsForm.height {
+    height: 300vh;
   }
 
   .specsForm .logo {
