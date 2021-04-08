@@ -591,10 +591,6 @@ li {
     transform: translate(-400px, -15px);
   }
 
-  /* .specsForm header {
-    padding: 0 187px;
-  } */ 
-
   .specsForm .toggle {
     left: 48.7em;
   }
@@ -683,7 +679,7 @@ li {
   }
 
   .specsForm.height {
-    height: 300vh;
+    height: 230vh;
   }
 
   .helpForm .page-heading {
@@ -781,7 +777,7 @@ li {
 
   .map-section.height, 
   .menuMaps.height {
-    height: 265vh;
+    height: 240vh;
   }
 
   .menuMaps ul,
