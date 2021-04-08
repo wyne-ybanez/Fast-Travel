@@ -1,7 +1,5 @@
 const labels = 'AB';
 
-var geoKey = config.GEO_KEY;
-
 //========== Input fields
 const inputs = [
   document.getElementById('origin'),
@@ -379,7 +377,7 @@ function geocodeData() {
     .get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: originLocation,
-        key: geoKey,
+        key: 'AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY',
       },
     })
     .then((response) => {
