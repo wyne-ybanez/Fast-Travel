@@ -849,6 +849,10 @@ li {
     margin-top: 3.5rem;
   }
 
+  .about-body {
+      padding: 0;
+  }
+
 }
 
 /* Iphone 5/SE */
