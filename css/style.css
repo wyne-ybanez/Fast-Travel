@@ -779,7 +779,7 @@ li {
 
   .map-section.height, 
   .menuMaps.height {
-    height: 290vh;
+    height: 282vh;
   }
 
   .menuMaps ul,
@@ -824,7 +824,7 @@ li {
   }
 
   .specsForm {
-    height: 136vh;
+    height: 130vh;
   }
   
   .specsForm h2{
@@ -832,7 +832,7 @@ li {
   }
 
   .specsForm.height {
-    height: 330vh;
+    height: 328vh;
   }
 
   .specsForm .logo {
