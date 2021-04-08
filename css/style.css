@@ -728,8 +728,8 @@ li {
 
   #map {
     height: 470px;
-    width: 350px;
-    left: -19px;
+    width: 325px;
+    left: -9px;
   }
 
   .toggle {
@@ -781,7 +781,7 @@ li {
 
   .map-section.height, 
   .menuMaps.height {
-    height: 300vh;
+    height: 294vh;
   }
 
   .menuMaps ul,
