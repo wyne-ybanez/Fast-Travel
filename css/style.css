@@ -718,6 +718,10 @@ li {
 
 /* Modern Mobile Phones */
 @media (max-width: 667px) and (min-width: 375px) {
+  .about-body {
+    padding: 0;
+  }
+
   .text p {
     visibility: hidden;
   }
@@ -848,15 +852,14 @@ li {
     left: 1px;
     margin-top: 3.5rem;
   }
-
-  .about-body {
-      padding: 0;
-  }
-
 }
 
 /* Iphone 5/SE */
 @media (max-width: 320px) and (min-width: 320px) {
+  .about-body {
+    padding: 0;
+  }
+
   .landing header {
     padding: 20px 20px 0 20px;
   }
@@ -869,7 +872,7 @@ li {
   #map {
     height: 400px;
     width: 250px;
-    left: 4px;
+    right: -20px;
   }
 
   .logo h2 {
