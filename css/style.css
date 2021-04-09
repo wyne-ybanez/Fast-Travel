@@ -283,7 +283,7 @@ li {
 .map-copyright,
 .about-copyright {
   right: -150px;
-}
+} 
 
 .specsForm-social li,
 .map-social li,
@@ -478,7 +478,7 @@ li {
 
 /*====== Media Queries ====== */
 /* Desktop */
-@media (max-width: 1600px) and (min-width: 992px) {
+@media (min-width: 992px) {
   .toggle{
     left: 63em;
   }
@@ -513,10 +513,13 @@ li {
     height: 148vh;
   }
 
-  .specsForm-copyright, 
-  .map-copyright, 
+  .specsForm-copyright,  
   .about-copyright {
-    left: 33em;
+    right: -450px;
+  }
+
+  .map-copyright {
+    right: 200px;
   }
 
   .specsForm-social li, 
