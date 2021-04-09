@@ -478,11 +478,7 @@ li {
 
 /*====== Media Queries ====== */
 /* Desktop */
-@media (min-width: 992px) {
-  .toggle{
-    left: 63em;
-  }
-
+@media (max-width: 2500px) and (min-width: 992px) {
   .specsForm {
     padding: 0 370px 370px 370px;
   }
@@ -505,7 +501,7 @@ li {
 
   .about-section, 
   .aboutMenu {
-    height: 125vh;
+    height: 135vh;
   }
 
   .map-section.height,
@@ -515,17 +511,11 @@ li {
 
   .specsForm-copyright,  
   .about-copyright {
-    right: -450px;
+    right: -640px;
   }
 
   .map-copyright {
     right: 200px;
-  }
-
-  .specsForm-social li, 
-  .map-social li, 
-  .about-social li {
-    transform: translate(-550px, -15px);
   }
 }
 
