@@ -22,26 +22,34 @@ let inputs = [
 
 //========== Event Listeners
 submit.addEventListener('click', bookingSummary)
+submit.addEventListener('click', ValidateEmail)
 submit.addEventListener('click', () => {
   setTimeout(ScrollFunc, 300)
 })
 
 //========== Menu toggle event listener
-// From Brad Traversy used and eddited: https://codepen.io/bradtraversy/pen/eYdMqvx
 menuToggle.addEventListener('click', () => {
   menuToggle.classList.toggle('active')
   specsForm.classList.toggle('active')
 })
 
+//========== Validate User's emai address
+function ValidateEmail(email) {
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(specifications.email.value)) {
+    window.alert("You have entered a valid email address!"); 
+    return true;
+  } else {
+    alert("You have entered an invalid email address!"); 
+    return false;
+  }
+}
+
 //========== Show local storage data of booking details and display them on page
-// Dcode Local storage code used and eddited: https://www.youtube.com/watch?v=k8yJCeuP6I8&ab_channel=dcode
 function bookingSummary() {
-  // Set Local Storage for accessing Specifications data
   localStorage.setItem('name', document.getElementById('name').value)
   localStorage.setItem('email', document.getElementById('email').value)
   localStorage.setItem('vehicle', document.getElementById('Vehicle').value)
   localStorage.setItem('music', document.getElementById('Music').value)
-  console.log(localStorage)
 
   // Get radio btn value if checked
   for (i = 0; i < payment_method.length; i++) {
@@ -63,7 +71,6 @@ function bookingSummary() {
   let time = localStorage.getItem('time')
 
   // Output to HTML on submit
-  // Re-arrange info on the basis of importance
   let orderSummary = `
           <h1 class="page-heading" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">
               Order Summary
@@ -105,28 +112,26 @@ function bookingSummary() {
             </div>
           `
   // Reactive Page height
-  for (i = 0; i < inputs.length; i++) {
-    if (
-      inputs[i].value === '' ||
+    if(ValidateEmail == false || 
       inputs[0].value === '' ||
       inputs[1].value === '' ||
       inputs[2].value === '' ||
-      inputs[3].value === '' ||
-      inputs[4].value === ''
+      inputs[4].value === '' 
     ) {
-      document.getElementById('summary').innerHTML = null
-      specsForm.classList.remove('height')
-      menu.classList.remove('height')
+        document.getElementById('summary').innerHTML = null
+        specsForm.classList.remove('height')
+        menu.classList.remove('height')
+        window.alert('You must have a valid answer for all input fields')
     } else {
       document.getElementById('summary').innerHTML = orderSummary
       specsForm.classList.toggle('height')
       menu.classList.toggle('height')
     }
-  }
   // Send Email a confirmation of order
   const confirm = document.getElementById('confirm')
   confirm.addEventListener('click', sendMail)
-}
+  }
+
 
 //========== Scroll to summary section
 function ScrollFunc() {
@@ -135,14 +140,10 @@ function ScrollFunc() {
 
 // ========== Sending Email Confirmation
 function sendMail(){
-  // Generate order number - Code used: https://www.drzon.net/posts/generate-random-order-number/
+  // Generate order number 
   let now = Date.now().toString() // '1492341545873'
-  // pad with extra random digit
   now += now + Math.floor(Math.random() * 10)
-  // format
   let orderNo = [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
-
-  // Let user know it takes time
   window.alert('Your confirmation email will arrive shortly')
 
   //Get Local Storage of all Data
