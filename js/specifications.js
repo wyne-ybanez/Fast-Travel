@@ -1,74 +1,77 @@
 //========== Variables
-const specsForm = document.querySelector('.specsForm')
+const specsForm = document.querySelector(".specsForm");
 
-const name = document.getElementById('name')
-const email = document.getElementById('email')
-const vehicle = document.getElementById('Vehicle')
-const music = document.getElementById('Music')
-const payment_method = document.getElementsByName('radio')
-const submit = document.getElementById('submit')
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const vehicle = document.getElementById("Vehicle");
+const music = document.getElementById("Music");
+const payment_method = document.getElementsByName("radio");
+const submit = document.getElementById("submit");
 
-const menu = document.querySelector('.menu')
-const menuToggle = document.querySelector('.toggle')
+const menu = document.querySelector(".menu");
+const menuToggle = document.querySelector(".toggle");
 
 //========== Input fields
 let inputs = [
-  document.getElementById('name'),
-  document.getElementById('email'),
-  document.getElementById('Vehicle'),
-  document.getElementById('Music'),
-  document.getElementsByName('radioBtn'),
-]
+  document.getElementById("name"),
+  document.getElementById("email"),
+  document.getElementById("Vehicle"),
+  document.getElementById("Music"),
+  document.getElementsByName("radioBtn"),
+];
 
 //========== Event Listeners
-submit.addEventListener('click', bookingSummary)
-submit.addEventListener('click', ValidateEmail)
-submit.addEventListener('click', () => {
-  setTimeout(ScrollFunc, 300)
-})
+submit.addEventListener("click", bookingSummary);
+submit.addEventListener("click", ValidateEmail);
+submit.addEventListener("click", () => {
+  setTimeout(ScrollFunc, 300);
+});
 
 //========== Menu toggle event listener
-menuToggle.addEventListener('click', () => {
-  menuToggle.classList.toggle('active')
-  specsForm.classList.toggle('active')
-})
+menuToggle.addEventListener("click", () => {
+  menuToggle.classList.toggle("active");
+  specsForm.classList.toggle("active");
+});
 
 //========== Validate User's emai address
 function ValidateEmail(email) {
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(specifications.email.value)) {
-    window.alert("You have entered a valid email address!"); 
+  email = document.getElementById("email");
+  if (
+    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+      specifications.email.value
+    )
+  ) {
     return true;
   } else {
-    alert("You have entered an invalid email address!"); 
     return false;
   }
 }
 
 //========== Show local storage data of booking details and display them on page
 function bookingSummary() {
-  localStorage.setItem('name', document.getElementById('name').value)
-  localStorage.setItem('email', document.getElementById('email').value)
-  localStorage.setItem('vehicle', document.getElementById('Vehicle').value)
-  localStorage.setItem('music', document.getElementById('Music').value)
+  localStorage.setItem("name", document.getElementById("name").value);
+  localStorage.setItem("email", document.getElementById("email").value);
+  localStorage.setItem("vehicle", document.getElementById("Vehicle").value);
+  localStorage.setItem("music", document.getElementById("Music").value);
 
   // Get radio btn value if checked
   for (i = 0; i < payment_method.length; i++) {
     if (payment_method[i].checked) {
-      document.getElementsByName('radio') === payment_method[i].value
-      localStorage.setItem('payment', payment_method[i].value)
+      document.getElementsByName("radio") === payment_method[i].value;
+      localStorage.setItem("payment", payment_method[i].value);
     }
   }
 
   // Get Local Storage of all Data
-  let name = localStorage.getItem('name')
-  let email = localStorage.getItem('email')
-  let vehicle = localStorage.getItem('vehicle')
-  let music = localStorage.getItem('music')
-  let payment = localStorage.getItem('payment')
-  let origin = localStorage.getItem('origin')
-  let destination = localStorage.getItem('destination')
-  let date = localStorage.getItem('date')
-  let time = localStorage.getItem('time')
+  let name = localStorage.getItem("name");
+  let email = localStorage.getItem("email");
+  let vehicle = localStorage.getItem("vehicle");
+  let music = localStorage.getItem("music");
+  let payment = localStorage.getItem("payment");
+  let origin = localStorage.getItem("origin");
+  let destination = localStorage.getItem("destination");
+  let date = localStorage.getItem("date");
+  let time = localStorage.getItem("time");
 
   // Output to HTML on submit
   let orderSummary = `
@@ -110,77 +113,85 @@ function bookingSummary() {
                 <a id="confirm" class="btn btn-dark" onsubmit="return sendMail(this);">EMAIL CONFRIMATION</a>
               </div>
             </div>
-          `
+          `;
   // Reactive Page height
-    if(ValidateEmail == false || 
-      inputs[0].value === '' ||
-      inputs[1].value === '' ||
-      inputs[2].value === '' ||
-      inputs[4].value === '' 
-    ) {
-        document.getElementById('summary').innerHTML = null
-        specsForm.classList.remove('height')
-        menu.classList.remove('height')
-        window.alert('You must have a valid answer for all input fields')
-    } else {
-      document.getElementById('summary').innerHTML = orderSummary
-      specsForm.classList.toggle('height')
-      menu.classList.toggle('height')
-    }
-  // Send Email a confirmation of order
-  const confirm = document.getElementById('confirm')
-  confirm.addEventListener('click', sendMail)
+  if (
+    ValidateEmail(email) == false ||
+    inputs[0].value === "" ||
+    inputs[1].value === "" ||
+    inputs[2].value === "" ||
+    inputs[4].value === ""
+  ) {
+    document.getElementById("summary").innerHTML = null;
+    specsForm.classList.remove("height");
+    menu.classList.remove("height");
+    window.alert("You must have a valid answer for all input fields");
+  } else {
+    document.getElementById("summary").innerHTML = orderSummary;
+    specsForm.classList.toggle("height");
+    menu.classList.toggle("height");
   }
-
+  // Send Email a confirmation of order
+  const confirm = document.getElementById("confirm");
+  confirm.addEventListener("click", sendMail);
+}
 
 //========== Scroll to summary section
 function ScrollFunc() {
-  window.scrollTo(0, 800)
+  window.scrollTo(0, 800);
 }
 
 // ========== Sending Email Confirmation
-function sendMail(){
-  // Generate order number 
-  let now = Date.now().toString() // '1492341545873'
-  now += now + Math.floor(Math.random() * 10)
-  let orderNo = [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join('-')
-  window.alert('Your confirmation email will arrive shortly')
+function sendMail() {
+  // Generate order number
+  if (ValidateEmail(email) == true) {
+    let now = Date.now().toString();
+    now += now + Math.floor(Math.random() * 10);
+    let orderNo = [now.slice(0, 4), now.slice(4, 10), now.slice(10, 14)].join(
+      "-"
+    );
+    window.alert("Your confirmation email will arrive shortly");
 
-  //Get Local Storage of all Data
-  let name = localStorage.getItem('name')
-  let email = localStorage.getItem('email')
-  let vehicle = localStorage.getItem('vehicle')
-  let music = localStorage.getItem('music')
-  let payment = localStorage.getItem('payment')
-  let origin = localStorage.getItem('origin')
-  let destination = localStorage.getItem('destination')
-  let date = localStorage.getItem('date')
-  let time = localStorage.getItem('time')
+    //Get Local Storage of all Data
+    let name = localStorage.getItem("name");
+    let email = localStorage.getItem("email");
+    let vehicle = localStorage.getItem("vehicle");
+    let music = localStorage.getItem("music");
+    let payment = localStorage.getItem("payment");
+    let origin = localStorage.getItem("origin");
+    let destination = localStorage.getItem("destination");
+    let date = localStorage.getItem("date");
+    let time = localStorage.getItem("time");
 
-  // Booking form info
-  emailjs
-    .send('gmail', 'wyne', {
-      order_number: orderNo,
-      from_name: name,
-      from_email: email,
-      from_location: origin,
-      to_location: destination,
-      time: time,
-      date: date,
-      vehicle: vehicle,
-      music: music,
-      payment_method: payment,
-    })
-    // emailjs.send.then promise
-    .then(
-      function (response) {
-        window.alert('Order Summary Sent 👍')
-        console.log('SUCCESS', response)
-      },
-      function (error) {
-        window.alert('Order Summary failed to send 😔')
-        console.log('FAILED', error)
-      }
-    )
-  return false
+    // Booking form info
+    emailjs
+      .send("gmail", "wyne", {
+        order_number: orderNo,
+        from_name: name,
+        from_email: email,
+        from_location: origin,
+        to_location: destination,
+        time: time,
+        date: date,
+        vehicle: vehicle,
+        music: music,
+        payment_method: payment,
+      })
+      // emailjs.send.then promise
+      .then(
+        function (response) {
+          window.alert("Order Summary Sent 👍");
+          console.log("SUCCESS", response);
+        },
+        function (error) {
+          window.alert("Order Summary failed to send 😔");
+          console.log("FAILED", error);
+        }
+      );
+    return false;
+  } else {
+    alert(
+      "User Email Address not valid, confirmation order summary will not send "
+    );
+  }
 }
