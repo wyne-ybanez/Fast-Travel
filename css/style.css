@@ -492,10 +492,6 @@ li {
     right: 0;
   }
 
-  .specsForm.height {
-    height: 234vh;
-  }
-
   .map-section, .menuMaps {
     height: 105vh;
   }
@@ -596,6 +592,10 @@ li {
     scroll-behavior: smooth;
   }
 
+  .ipad-hidden {
+    visibility: hidden;
+  }
+
   #map {
     height: 400px;
     width: 700px;
@@ -644,8 +644,19 @@ li {
     padding-left: 0;
   }
 
-  .specsForm-copyright,.map-copyright,.about-copyright{
+  .specsForm-social .icons-start,
+  .about-social .icons-start
+   {
+    padding-left: 20px;
+  }
+
+  .map-copyright {
     right: 40px;
+  }
+
+  .specsForm-copyright, 
+  .about-copyright {
+    left: 220px;
   }
 
   .about-section,
@@ -670,7 +681,7 @@ li {
   }
 
   .specsForm.height {
-    height: 230vh;
+    height: 225vh;
   }
 
   .helpForm .page-heading {
