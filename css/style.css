@@ -226,6 +226,11 @@ li {
   max-width: 700px;
 }
 
+.buttons {
+  text-align: center;
+  justify-content: center;
+}
+
 .text .buttons a {
   display: inline-block;
   font-size: 1em;
@@ -731,8 +736,8 @@ li {
 
   #map {
     height: 470px;
-    width: 325px;
-    right: -10px;
+    width: 80vw;
+    right: -30px;
   }
 
   .toggle {
@@ -750,7 +755,12 @@ li {
   .text h3 {
     display: flex;
     flex-direction: row;
-    font-size: 2.5em;
+    font-size: 2em;
+    margin-top: 20px;
+  }
+
+  .buttons {
+    transform: translate(0%, -80%);
   }
 
   .landing header {
@@ -763,7 +773,7 @@ li {
 
   .social {
     bottom: 0px;
-    transform: translateX(-29%);
+    visibility: hidden;
   }
 
   .map-section header {
