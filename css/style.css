@@ -266,6 +266,8 @@ li {
   background-color: #000;
   width: 100vw;
   left: 0;
+  position: absolute;
+  justify-content: left;
 }
 
 .copyright {
@@ -296,8 +298,11 @@ li {
 .specsForm-social li,
 .map-social li,
 .about-social li {
-  bottom: 500px;
-  transform: translate(-715px, -15px);
+  transform: translate(0px, -15px);
+}
+
+.icons-start {
+  padding-left: 128px;
 }
 
 .specsForm-social li a,
@@ -504,11 +509,6 @@ li {
     height: 135vh;
   }
 
-  .map-section.height,
-  .menuMaps.height {
-    height: 148vh;
-  }
-
   .specsForm-copyright,  
   .about-copyright {
     right: -640px;
@@ -543,10 +543,6 @@ li {
 
   .menuMaps.height ul {
     bottom: 18em;
-  }
-
-  .map-social li {
-    transform: translate(-390px, -15px);
   }
 
   .specsForm-copyright,
@@ -635,22 +631,21 @@ li {
     height: 111vh;
   }
 
+  .map-section.height,
+  .menuMaps.height {
+    height: 150vh;
+  }
+
   .menuMaps ul {
     bottom: 3em;
   }
 
-  .specsForm-social li, 
-  .map-social li, 
-  .about-social li {
-    visibility: hidden;
-  }
-
-  .copyright {
-    right: 267px;
+  .icons-start {
+    padding-left: 0;
   }
 
   .specsForm-copyright,.map-copyright,.about-copyright{
-    right: 0px;
+    right: 40px;
   }
 
   .about-section,
