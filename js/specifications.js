@@ -190,7 +190,7 @@ function sendMail() {
       );
     return false;
   } else {
-    alert(
+    window.alert(
       "User Email Address not valid, confirmation order summary will not send "
     );
   }

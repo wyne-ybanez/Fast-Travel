@@ -379,21 +379,9 @@ function geocodeData() {
       document.getElementById(
         "formatted-address-origins"
       ).innerHTML = formattedOrgOutput;
-      // Request Denied due to restrictions
-      if (response.data.status === "REQUEST_DENIED") {
-        window.alert(
-          "You do not have permission to use this API key - Booking location details will not be shown" +
-            "error: " +
-            response.data.status
-        );
-      }
     })
     .catch((error) => {
-      window.alert(
-        "You do not have permission to use this API key - Booking location details will not be shown" +
-          "error: " +
-          error.response
-      );
+        console.log(error.response);
     });
 
   // Geocode Destination
@@ -418,11 +406,7 @@ function geocodeData() {
       ).innerHTML = formattedDestOutput;
     })
     .catch((error) => {
-      window.alert(
-        "You do not have permission to use this API key - Booking location details will not be shown" +
-          "error status: " +
-          error.response
-      );
+      console.log(error.response);
     });
 }
 
@@ -434,7 +418,7 @@ function timeDate() {
   // Date
   if (document.querySelector("#dateInput").value === "") {
     date = null;
-    console.log("User must choose a date");
+    window.alert("You must choose a date");
   } else {
     date = `
         <h4>Date:</h4>
@@ -446,10 +430,10 @@ function timeDate() {
   // Time
   if (document.querySelector("#timeInputHr").value === "") {
     time = null;
-    console.log("User must choose an hourly time");
+    window.alert("You must choose an hourly time");
   } else if (document.getElementById("timeInputMin").value === "") {
     time = null;
-    console.log("User must choose at what minute they would like to depart at");
+    window.alert("You must choose at what minute they would like to depart at");
   } else {
     time = `  
         <h4>Time:</h4>

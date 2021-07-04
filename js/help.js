@@ -16,10 +16,16 @@ function sendMail() {
   const order = document.getElementById('order').value
   const message = document.getElementById('textarea').value
 
-  // Let user know it takes time
-  window.alert(
-    'Your message will process shortly. This may just take a minute or two...'
-  )
+  // Form validation
+  if (name || email || order || message == "" || null ){
+    window.alert('All form fields must be answered')
+    console.log('All form fields must be answered')
+  } 
+  else {
+    window.alert(
+      'Your message will process shortly. This may just take a minute or two...'
+    )
+  }
 
   // Booking form info
   emailjs
