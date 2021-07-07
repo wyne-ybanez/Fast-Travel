@@ -397,7 +397,6 @@ function geocodeData() {
     })
     .catch((error) => {
         console.log(error.response);
-        window.alert("Missing pick-up location or destination.")
     });
 
   // Geocode Destination
