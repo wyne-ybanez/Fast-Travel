@@ -187,8 +187,8 @@ function initMap() {
   // Search box for origin
   searchBox1.addListener("places_changed", () => {
     const places = searchBox1.getPlaces();
-    if (places.length == 0) {
-      return;
+    if (places === "") {
+      return null;
     }
     markers.forEach((marker) => {
       marker.setMap(null);
@@ -222,8 +222,8 @@ function initMap() {
   // Search box for destination
   searchBox2.addListener("places_changed", () => {
     const places = searchBox2.getPlaces();
-    if (places.length == 0) {
-      return;
+    if (places === "") {
+      return null;
     }
     markers.forEach((marker) => {
       marker.setMap(null);
@@ -355,75 +355,65 @@ function DisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
-//========== Ensure Geocode request is valid
-function validate(){
-  if (document.getElementById("origin").value == null || '' || undefined ){
-    return false;
-  } 
-  else if (document.getElementById("destination").value == null || '' || undefined ){
-    return false;
-  } 
-  else {
-    return true;
-  }
-}
-
 //========== Get Geocode Data to display on web page
 function geocodeData() {
   let originLocation = document.getElementById("origin").value;
   let destinationLocation = document.getElementById("destination").value;
-  validate()
-  // Geocode for origin location
-  if (validate()){
-  axios
-    .get("https://maps.googleapis.com/maps/api/geocode/json", {
-      params: {
-        address: originLocation,
-        key: "AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY",
-      },
-    })
-    .then((response) => {
-      // Formatted Origin address
-      const formattedOrigin = response.data.results[0].formatted_address;
-      let formattedOrgOutput = `
-                <h4>Origin:</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
-                    </ul>
-                    `;
-      document.getElementById(
-        "formatted-address-origins"
-      ).innerHTML = formattedOrgOutput;
-    })
-    .catch((error) => {
-        console.log(error.response);
-    });
 
-  // Geocode Destination
-  axios
-    .get("https://maps.googleapis.com/maps/api/geocode/json", {
-      params: {
-        address: destinationLocation,
-        key: "AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY",
-      },
-    })
-    .then((response) => {
-      // Formatted Destination address
-      const formattedDestination = response.data.results[0].formatted_address;
-      let formattedDestOutput = `
-            <h4>Destination:</h4>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedDestination}</li>
-                </ul>
-                `;
-      document.getElementById(
-        "formatted-address-destination"
-      ).innerHTML = formattedDestOutput;
-    })
-    .catch((error) => {
-      console.log(error.response);
-    });
+  // Geocode for origin location with validation
+  if (originLocation === "" || destinationLocation === ""){
+    return false;
   }
+  else {
+    axios
+      .get("https://maps.googleapis.com/maps/api/geocode/json", {
+        params: {
+          address: originLocation,
+          key: "AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY",
+        },
+      })
+      .then((response) => {
+        // Formatted Origin address
+        const formattedOrigin = response.data.results[0].formatted_address;
+        let formattedOrgOutput = `
+                  <h4>Origin:</h4>
+                      <ul class="list-group">
+                          <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedOrigin}</li>
+                      </ul>
+                      `;
+        document.getElementById(
+          "formatted-address-origins"
+        ).innerHTML = formattedOrgOutput;
+      })
+      .catch((error) => {
+          console.log(error.response);
+      });
+
+    // Geocode Destination
+    axios
+      .get("https://maps.googleapis.com/maps/api/geocode/json", {
+        params: {
+          address: destinationLocation,
+          key: "AIzaSyA5r2j07Re55oPPzjJczUaC_R5O8gLtvkY",
+        },
+      })
+      .then((response) => {
+        // Formatted Destination address
+        const formattedDestination = response.data.results[0].formatted_address;
+        let formattedDestOutput = `
+              <h4>Destination:</h4>
+                  <ul class="list-group">
+                      <li class="list-group-item list-group-item-secondary text-dark text-center">${formattedDestination}</li>
+                  </ul>
+                  `;
+        document.getElementById(
+          "formatted-address-destination"
+        ).innerHTML = formattedDestOutput;
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+    }
 }
 
 //========== Display Time and Date preferences on the HTML page
