@@ -357,10 +357,10 @@ function DisplayRoute(directionsService, directionsDisplay) {
 
 //========== Ensure Geocode request is valid
 function validate(){
-  if (document.getElementById("origin").value !== null || '' || undefined ){
+  if (document.getElementById("origin").value == null || '' || undefined ){
     return false;
   } 
-  else if (document.getElementById("destination").value !== null || '' || undefined ){
+  else if (document.getElementById("destination").value == null || '' || undefined ){
     return false;
   } 
   else {
@@ -465,26 +465,7 @@ function timeDate() {
 
 //========== Reset Map and delivery preferences
 function resetForm() {
-  let resetHtmlVal = [
-    document.querySelector("#time"),
-    document.querySelector("#date"),
-    document.getElementById("formatted-address-origins"),
-    document.getElementById("formatted-address-destination"),
-    document.getElementById("options"),
-  ];
-
   location.reload();
-  // Empty all inputs fields
-  // for (i = 0; i < inputs.length; i++) {
-  //   inputs[i].value = "";
-  // }
-
-  // // Remove all preferences details
-  // for (i = 0; i < resetHtmlVal.length; i++) {
-  //   resetHtmlVal[i].innerHTML = null;
-  // }
-  // let visible = "";
-  // document.getElementById("order-details").innerHTML = visible;
 
   // Reset height
   mapsSection.classList.remove("height");
