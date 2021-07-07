@@ -18,7 +18,6 @@ function sendMail() {
 
   // Form validation
   if (name || email || order || message == "" || null ){
-    window.alert('All form fields must be answered')
     console.log('All form fields must be answered')
   } 
   else {

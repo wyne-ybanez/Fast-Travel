@@ -320,8 +320,8 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
 
 //========== Display the route between origin and destination
 function DisplayRoute(directionsService, directionsDisplay) {
-  const Origin = document.getElementById("origin").value;
-  const Destination = document.getElementById("destination").value;
+  let Origin = document.getElementById("origin").value;
+  let Destination = document.getElementById("destination").value;
   let request = {
     origin: Origin,
     destination: Destination,
@@ -339,9 +339,9 @@ function DisplayRoute(directionsService, directionsDisplay) {
         `;
       document.getElementById("order-details").innerHTML = visible;
     } else if (status === "NOT_FOUND" && Origin === "") {
-      window.alert("Missing Pick-Up location");
+      window.alert("Missing pick-up location.");
     } else if (status === "NOT_FOUND" && Destination === "") {
-      window.alert("Missing Destination");
+      window.alert("Missing destination location.");
     }
     // If request is failed for any reason - user cannot move forward with booking
     else {
@@ -355,11 +355,26 @@ function DisplayRoute(directionsService, directionsDisplay) {
   });
 }
 
+//========== Ensure Geocode request is valid
+function validate(){
+  if (document.getElementById("origin").value !== null || '' || undefined ){
+    return false;
+  } 
+  else if (document.getElementById("destination").value !== null || '' || undefined ){
+    return false;
+  } 
+  else {
+    return true;
+  }
+}
+
 //========== Get Geocode Data to display on web page
 function geocodeData() {
   let originLocation = document.getElementById("origin").value;
   let destinationLocation = document.getElementById("destination").value;
+  validate()
   // Geocode for origin location
+  if (validate()){
   axios
     .get("https://maps.googleapis.com/maps/api/geocode/json", {
       params: {
@@ -382,6 +397,7 @@ function geocodeData() {
     })
     .catch((error) => {
         console.log(error.response);
+        window.alert("Missing pick-up location or destination.")
     });
 
   // Geocode Destination
@@ -408,6 +424,7 @@ function geocodeData() {
     .catch((error) => {
       console.log(error.response);
     });
+  }
 }
 
 //========== Display Time and Date preferences on the HTML page
@@ -456,17 +473,18 @@ function resetForm() {
     document.getElementById("options"),
   ];
 
+  location.reload();
   // Empty all inputs fields
-  for (i = 0; i < inputs.length; i++) {
-    inputs[i].value = "";
-  }
+  // for (i = 0; i < inputs.length; i++) {
+  //   inputs[i].value = "";
+  // }
 
-  // Remove all preferences details
-  for (i = 0; i < resetHtmlVal.length; i++) {
-    resetHtmlVal[i].innerHTML = null;
-  }
-  let visible = "";
-  document.getElementById("order-details").innerHTML = visible;
+  // // Remove all preferences details
+  // for (i = 0; i < resetHtmlVal.length; i++) {
+  //   resetHtmlVal[i].innerHTML = null;
+  // }
+  // let visible = "";
+  // document.getElementById("order-details").innerHTML = visible;
 
   // Reset height
   mapsSection.classList.remove("height");
