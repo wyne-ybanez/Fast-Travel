@@ -4,39 +4,27 @@
 
 Project Link: https://wyne-ybanez.github.io/self-driving-car-delivery/
 
+This project aims to create an interactive front end layout for ordering a self driving car taxi booking service called 'Fast-Travel'. 
+
+The project incorporates a few of Google's API particularly Directions API, Geocoding API, Geolocation API, Maps JavaScript API, Places API. The project also utilises a customer service functionality which will send a summary of the user's order through EmailJS. 
+
+The target audience for this project are its customers/users. It will allow them to order/book a self driving taxi which they can customise via a specification form. Through the numerous forms on the website, they can also choose where their starting point and destination is via the Google Maps API feature on the project. 
+
 ## Table of contents
 
  - [Project Goal](#Project-Goal)
-
  - [UX](#UX)
-
  - [User Stories](#User-Stories)
-
  - [Design](#Design-In-depth)
- 
  - [Features](#Features)
-
  - [Testing](#Testing)
-
  - [Technologies](#technologies-used)
-
  - [Deployment](#deployment)
-
  - [Credits](#credits)
-
  - [Known Bugs](#known-bugs)
-
  - [Design Changes](#design-changes)
-
  - [Future Implementations](#future-implementations)
-
  - [Acknowledgements](#acknowledgements)
-
-## Project Goal
-
-This project aims to create an interactive front end layout for ordering a self driving car taxi service called 'Fast-Travel'.
-
-The target audience for this project are its customers/users. It will allow them to order a self driving cab which they can customise via a specification form. They can also choose where their starting point and destination is via the Google Maps API feature on the project. 
 
 ## UX 
 
@@ -46,7 +34,7 @@ My strategy for the website is to allow the users to order a self driving taxi v
 
 ### Scope 
 
-The website will allow the user to decide the starting point and the destination(s) of his journey where their route is shown on the map. The map is also interactive and will show markers to relevant locations. It will then provide the user with more options via a form so that the customer can personally customize their experience. A summary of the user's order should be provided to them. 
+The website will allow the user to decide the starting point and the destination of their journey where their route is shown on the map. The map is also interactive and will show markers to relevant locations. It will then provide the user with more options via a form so that the customer can personally customize their experience. A summary of the user's order should be provided to them as an email. They will also have the chance to contact customer service through a form.
 
 ### Structure 
 
@@ -56,13 +44,13 @@ The website incorporates a multi-page design. The landing page, the Google Maps 
 
 These wireframes are the blueprints to the project. These were made to help plan the project and see how the features could be implemented. Design decisions were made during the production of the website that may stray from what the wireframes initially conveyed.
 
-  [Loading Image](assets/wireframes/Landing-Page.png)
+  ![Loading Image](assets/wireframes/Landing-Page.png)
 
-  [Maps Form](assets/wireframes/Map.png)
+  ![Maps Form](assets/wireframes/Map.png)
 
-  [Specifications Form](assets/wireframes/Specifications.png) 
+  ![Specifications Form](assets/wireframes/Specifications.png) 
 
-  [About Page](assets/wireframes/about.png)
+  ![About Page](assets/wireframes/about.png)
 
 ### Surface
 
@@ -118,7 +106,7 @@ The site focuses primarily on functionality rather than design. The design of th
   
 - There will be two 'call to action' buttons where the user can book a journey straight away or explore more on what the website is supposed to do/how to use it.
 
-[Screenshot of landing Page](assets/readMe/landing-page.png)
+![Screenshot of landing Page](assets/readMe/landing-page.png)
 
 ### Navigation 
 
@@ -126,7 +114,7 @@ The site focuses primarily on functionality rather than design. The design of th
   
 - It will be there to assist the user in traversing to certain parts of the site at any point in time
 
-[Screenshot of Navigation Menu](assets/readMe/menu.png)
+![Screenshot of Navigation Menu](assets/readMe/menu.png)
 
 ### Booking:
 
@@ -138,8 +126,8 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - Unlike the map wireframes as well, this section of the website will expand to show the Geocode and the booking summary of the user's journey. Additional 'call to action' buttons have also been implemented
   
-[Screenshot of Map](assets/readMe/map.png)
-[Screenshot of Map - Booking Summary](assets/readMe/map2.png)
+![Screenshot of Map](assets/readMe/map.png)
+![Screenshot of Map - Booking Summary](assets/readMe/map2.png)
 
 ### Specifications form:
 
@@ -153,8 +141,8 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - Page height is reactive and will expand once the required inputs have been entered with an additional 'call to action' button for an email confirmation to be sent to the user
 
-[Screenshot of Specification Form](assets/readMe/form.png)
-[Screenshot of Specifications Expanded](assets/readMe/form2.png)
+![Screenshot of Specification Form](assets/readMe/form.png)
+![Screenshot of Specifications Expanded](assets/readMe/form2.png)
 
 ### Customer Service: 
 
@@ -162,7 +150,7 @@ The site focuses primarily on functionality rather than design. The design of th
 
 - This feature will require the user to input their contact details and order ID via a contact form 
 
-[Screenshot of Customer Service Page](assets/readMe/help.png)
+![Screenshot of Customer Service Page](assets/readMe/help.png)
 
 ### Footer:
   
@@ -348,7 +336,7 @@ $ git clone https://github.com/wyne-ybanez/self-driving-car-delivery
 - When viewed on the Macbook Pro Mid 2012 - 13", the laptop media queries as specifed on [ami responsive](http://ami.responsivedesign.is/#) were not applying the styling correctly when tested on a physical device. Although when checked on the website, the intended styling is present. This has now been changed but may still affect other devices.
   
 - Bug where a route will display even when it's not on the same country. Route display seems like it will not stay to the specified region:
-  [Screenshot of bug](assets/img/country-bug.png)
+  ![Screenshot of bug](assets/img/country-bug.png)
 
 - Github pages may refrain index.html background video from playing and will show a dark background instead.
 
@@ -384,7 +372,7 @@ $ git clone https://github.com/wyne-ybanez/self-driving-car-delivery
 - I received Inspiration for the Maps section and the predicitve input fields from Ben Hasselgren's Holiday Planner [Project](https://benhasselgren.github.io/ifd-milestone-project-pages/#)
 
 - My Mentor Dick Vlaanderen for his continuous feedback
-  
+
 - Tutors at Code Institute for their on-going support
   
 - Code Institute's EmailJS lesson which inspired me to send confirmation emails after user form sumbissions
