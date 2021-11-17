@@ -421,7 +421,7 @@ li {
 
 .specsForm {
   padding: 0 500px 500px 500px;
-  height: 100vh;
+  height: auto;
 }
 
 .specsForm .list-group-item {
@@ -831,7 +831,7 @@ li {
   }
 
   .specsForm {
-    height: 130vh;
+    height: auto;
   }
   
   .specsForm h2{

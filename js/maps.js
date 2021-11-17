@@ -302,7 +302,6 @@ function initMap() {
     } else {
       // When Browser doesn't support Geolocation
       handleLocationResponse(false, infoWindow, map.getCenter());
-      console.log("Browser does not support Geolocation");
     }
   });
 }
@@ -322,6 +321,9 @@ function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
 function DisplayRoute(directionsService, directionsDisplay) {
   let Origin = document.getElementById("origin").value;
   let Destination = document.getElementById("destination").value;
+  let TimeInputHr = document.getElementById("timeInputHr").value;
+  let TimeInputMin = document.getElementById("timeInputMin").value;
+  let DateInput = document.getElementById("dateInput").value
   let request = {
     origin: Origin,
     destination: Destination,
@@ -330,11 +332,11 @@ function DisplayRoute(directionsService, directionsDisplay) {
   };
   directionsService.route(request, (response, status) => {
     // Make order details summary
-    if (status === "OK") {
+    if (status === "OK" && TimeInputHr && TimeInputMin && DateInput) {
       directionsDisplay.setDirections(response);
       let visible = `
         <div class="col-12" data-aos="fade-right" data-aos-anchor-placement="right-left" data-aos-duration="1500">
-            <h1 class="page-heading mt-5 active" id="order-details">Booking Information</h1>
+            <h1 class="page-heading mt-5 active d-block" id="order-details">Booking Information</h1>
         </div>
         `;
       document.getElementById("order-details").innerHTML = visible;
@@ -359,9 +361,12 @@ function DisplayRoute(directionsService, directionsDisplay) {
 function geocodeData() {
   let originLocation = document.getElementById("origin").value;
   let destinationLocation = document.getElementById("destination").value;
+  let TimeInputHr = document.getElementById("timeInputHr").value;
+  let TimeInputMin = document.getElementById("timeInputMin").value;
+  let DateInput = document.getElementById("dateInput").value
 
   // Geocode for origin location with validation
-  if (originLocation === "" || destinationLocation === ""){
+  if (originLocation === "" || destinationLocation === "" || TimeInputMin === "" || TimeInputHr === "" || DateInput === ""){
     return false;
   }
   else {
