@@ -66,6 +66,10 @@ li {
   font-size: 75px;
 }
 
+.btn-margin {
+  margin-bottom: 7rem;
+}
+
 /* Underlining the Heading with adjustable border: https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
 .page-heading:after {
   content: '';
@@ -420,7 +424,7 @@ li {
 /*====== Specifications Form ====== */
 
 .specsForm {
-  padding: 0 500px 500px 500px;
+  /* padding: 0 500px 500px 500px; */
   height: auto;
 }
 
@@ -551,11 +555,11 @@ li {
 
   .specsForm {
     padding: 0 300px 300px 300px;
-    height: 137vh;
+    height: auto;
   }
 
   .specsForm.height {
-    height: 367vh;
+    height: auto;
   }
 
   .about-body {
@@ -626,7 +630,8 @@ li {
 
   .map-section, 
   .menuMaps {
-    height: 111vh;
+    height: auto;
+    padding-bottom: 6rem;
   }
 
   .map-section.height,
@@ -781,7 +786,9 @@ li {
 
   .map-section, 
   .menuMaps {
-    height: 195vh;
+    /* height: 195vh; */
+    height: auto;
+    padding-bottom: 3rem;
   }
 
   .map-section.height, 
@@ -804,7 +811,7 @@ li {
   }
 
   .about-section {
-    height: 350vh;
+    height: auto;
   }
 
   .about-section header {
@@ -817,7 +824,7 @@ li {
 
   .about-section, 
   .specsForm {
-    padding: 0 10px 10px 10px;
+    padding: 0 10px 2.5rem 10px;
   }
 
   .specsForm-social, 
@@ -839,7 +846,7 @@ li {
   }
 
   .specsForm.height {
-    height: 328vh;
+    height: auto;
   }
 
   .specsForm .logo {
@@ -869,7 +876,8 @@ li {
 
   .map-section,
   .menuMaps {
-    height: 215vh;
+    height: auto;
+    padding-bottom: 3rem;
   }
 
   #map {

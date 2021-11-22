@@ -109,7 +109,7 @@ function bookingSummary() {
             </ul>    
 
             <div class="row">
-              <div class="col-12 text-center justify-content-center submit-btn mt-3">
+              <div class="col-12 text-center justify-content-center submit-btn mt-3 btn-margin">
                 <a id="confirm" class="btn btn-dark" onsubmit="return sendMail(this);">EMAIL CONFRIMATION</a>
               </div>
             </div>

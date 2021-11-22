@@ -17,7 +17,7 @@ function sendMail() {
   const message = document.getElementById('textarea').value
 
   // Form validation
-  if (name || email || order || message == "" || null ){
+  if (name || email || order || message == "" || null){
     console.log('All form fields must be answered')
   } 
   else {
@@ -25,27 +25,26 @@ function sendMail() {
       'Your message will process shortly. This may just take a minute or two...'
     )
   }
-
   // Booking form info
   emailjs
-    .send('service_kj5u5qt', 'template_l2zzplc', {
-      order_number: order,
-      from_name: name,
-      from_email: email,
-      message: message,
-    })
-    // emailjs.send.then promise
-    .then(
-      function (response) {
-        window.alert('Message was successfully sent 👍')
-        reset();
-        console.log('SUCCESS', response)
-      },
-      function (error) {
-        window.alert('Message Failed 😔')
-        console.log('FAILED', error)
-      }
-    )
+  .send('service_kj5u5qt', 'template_l2zzplc', {
+    order_number: order,
+    from_name: name,
+    from_email: email,
+    message: message,
+  })
+  // emailjs.send.then promise
+  .then(
+    function (response) {
+      window.alert('Message was successfully sent 👍')
+      reset();
+      console.log('SUCCESS', response)
+    },
+    function (error) {
+      window.alert('Message Failed 😔')
+      console.log('FAILED', error)
+    }
+  )
   return false
 }
 
