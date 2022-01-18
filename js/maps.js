@@ -310,7 +310,7 @@ function initMap() {
 function handleLocationResponse(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(
-    browserHasGeolocation
+    browserHasGeolocation 
       ? "Error: The Geolocation service failed."
       : "Error: Your browser doesn't support geolocation."
   );
@@ -358,7 +358,7 @@ function DisplayRoute(directionsService, directionsDisplay) {
 }
 
 //========== Get Geocode Data to display on web page
-function geocodeData() {
+async function geocodeData() {
   let originLocation = document.getElementById("origin").value;
   let destinationLocation = document.getElementById("destination").value;
   let TimeInputHr = document.getElementById("timeInputHr").value;
@@ -370,7 +370,7 @@ function geocodeData() {
     return false;
   }
   else {
-    axios
+    await axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: originLocation,
@@ -395,7 +395,7 @@ function geocodeData() {
       });
 
     // Geocode Destination
-    axios
+    await axios
       .get("https://maps.googleapis.com/maps/api/geocode/json", {
         params: {
           address: destinationLocation,

@@ -328,7 +328,7 @@ li {
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 300px;
@@ -402,11 +402,6 @@ li {
   overflow: hidden;
 }
 
-.map-section,
-.menuMaps {
-  height: 105vh;
-}
-
 .map-section header {
   padding: 0 100px;
 }
@@ -424,17 +419,11 @@ li {
 /*====== Specifications Form ====== */
 
 .specsForm {
-  /* padding: 0 500px 500px 500px; */
   height: auto;
 }
 
 .specsForm .list-group-item {
   font-size: 25px;
-}
-
-.specsMenu {
-  height: 100vh;
-  position: fixed;
 }
 
 .specsForm.height {
@@ -786,8 +775,8 @@ li {
 
   .map-section, 
   .menuMaps {
-    /* height: 195vh; */
-    height: auto;
+    /* height: 195vh;
+    height: auto; */
     padding-bottom: 3rem;
   }
 
@@ -798,7 +787,6 @@ li {
 
   .menuMaps ul,
   .menuMaps.height ul { 
-    bottom: 15em;
     position: fixed;
   }
 
