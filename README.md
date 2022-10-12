@@ -2,7 +2,7 @@
 
 ![Website-Opening](assets/readMe/banner.png)
 
-Project Link: https://wyne-ybanez.github.io/self-driving-car-delivery/
+Project Link: https://fast-travel-self-driving.netlify.app/
 
 This project aims to create an interactive front end layout for ordering a self driving car taxi booking service called 'Fast-Travel'. 
 
