@@ -529,11 +529,6 @@ li {
     height: 500px;
   }
 
-  .map-section,
-  .menuMaps {
-    min-height: 128vh;
-  }
-
   .map-section.height,
   .menuMaps.height {
     height: 208vh;
@@ -559,11 +554,6 @@ li {
 
   .about-body {
     padding: 0 200px 200px 200px;
-  }
-
-  .about-section,
-  .about-menu {
-    height: 232vh;
   }
 
   .specsForm-social li,
