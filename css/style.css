@@ -181,6 +181,7 @@ li {
   transition: 0.5s;
   z-index: 2;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .specsForm.active,
@@ -460,7 +461,7 @@ li {
 
 .about-section,
 .aboutMenu {
-  height: 140vh;
+  min-height: 100vh;
 }
 
 .aboutMenu {
@@ -492,17 +493,13 @@ li {
     right: 0;
   }
 
-  .map-section, .menuMaps {
-    height: 105vh;
-  }
-
   .about-body {
     padding: 0 200px 200px 200px;
   }
 
   .about-section, 
   .aboutMenu {
-    height: 135vh;
+    min-height: 100vh
   }
 
   .specsForm-copyright,  
