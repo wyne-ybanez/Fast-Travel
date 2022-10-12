@@ -299,12 +299,6 @@ li {
   overflow: hidden;
 }
 
-.specsForm-copyright,
-.map-copyright,
-.about-copyright {
-  right: -150px;
-} 
-
 .specsForm-social li,
 .map-social li,
 .about-social li,
