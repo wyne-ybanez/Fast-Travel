@@ -182,6 +182,8 @@ li {
   z-index: 2;
   overflow: hidden;
   min-height: 100vh;
+  padding-left: 30rem;
+  padding-right: 30rem;
 }
 
 .specsForm.active,
@@ -565,10 +567,6 @@ li {
   .about-social li {
     bottom: 500px;
   }
-
-  .specsForm .toggle {
-    left: 48.7em;
-  }
 }
 
 /* Ipad */
@@ -664,10 +662,6 @@ li {
     right: 0rem;
   }
 
-  .specsForm .toggle {
-    left: 270px;
-  }
-
   .specsForm h2 {
     right: 0;
   }
@@ -697,10 +691,6 @@ li {
     bottom: 22em;
   }
 
-  .about-section .toggle {
-    left: 290px;
-  }
-
   .about-social {
     left: 0;
   }
@@ -725,10 +715,6 @@ li {
     height: 470px;
     width: 80vw;
     right: -30px;
-  }
-
-  .toggle {
-    left: 35px;
   }
 
   .text {
@@ -810,10 +796,6 @@ li {
     padding: 0 20px;
   }
 
-  .about-section .toggle{
-    left: 33px;
-  }
-
   .about-section, 
   .specsForm {
     padding: 0 10px 2.5rem 10px;
@@ -843,10 +825,6 @@ li {
 
   .specsForm .logo {
     right: 80px;
-  }
-
-  .specsForm .toggle {
-    left: 15px;
   }
 
   .helpForm .page-heading {
@@ -898,10 +876,6 @@ li {
 
   .page-heading {
     font-size: 40px;
-  }
-
-  .toggle {
-    left: -15px;
   }
 
   .text {
@@ -967,10 +941,6 @@ li {
     padding: 0 20px;
   }
 
-  .about-section .toggle {
-    left: -15px;
-  }
-
   .about-section, 
   .aboutMenu {
     height: 535vh;
@@ -996,10 +966,6 @@ li {
 
   .specsForm header{
     padding: 0 57px;
-  }
-
-  .specsForm .toggle {
-    left: 0;
   }
 
   .specsForm-social {
