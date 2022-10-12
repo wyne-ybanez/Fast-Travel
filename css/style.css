@@ -99,7 +99,7 @@ li {
 
 /* Brad Traversy styling code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx  */
 .toggle {
-  position: fixed;
+  position: absolute;
   background: url(https://i.ibb.co/HrfVRcx/menu.png);
   background-position-x: 0%;
   background-position-y: 0%;
@@ -109,7 +109,7 @@ li {
   background-size: 30px;
   background-position: center;
   cursor: pointer;
-  right: 7rem;
+  right: 4rem;
   top: 0.7rem;
   width: 30px;
   height: 40px;
@@ -545,10 +545,6 @@ li {
     left: 23.5em;
   }
 
-  .toggle {
-    left: 45em;
-  }
-
   .specsForm {
     padding: 0 300px 300px 300px;
     height: auto;
@@ -612,7 +608,7 @@ li {
   }
 
   .toggle {
-    left: 290px;
+    top: auto;
   }
 
   .social {
@@ -757,6 +753,10 @@ li {
     text-align: center;
     justify-content: center;
     transform: translate(0%, -80%);
+  }
+
+  .toggle {
+    top: auto;
   }
   
   .landing header {
