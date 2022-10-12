@@ -99,13 +99,20 @@ li {
 
 /* Brad Traversy styling code used and editted: https://codepen.io/bradtraversy/pen/eYdMqvx  */
 .toggle {
-  position: relative;
-  left: 85em;
+  position: fixed;
   background: url(https://i.ibb.co/HrfVRcx/menu.png);
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: center;
   cursor: pointer;
+  right: 7rem;
+  top: 0.7rem;
+  width: 30px;
+  height: 40px;
 }
 
 .toggle.active {
