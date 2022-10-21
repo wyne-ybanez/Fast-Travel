@@ -416,7 +416,7 @@ li {
 
 .map-section.height,
 .menuMaps.height {
-  height: 162vh;
+  padding-bottom: 10rem;
 }
 
 .menuMaps.height ul {
@@ -523,11 +523,6 @@ li {
     height: 500px;
   }
 
-  .map-section.height,
-  .menuMaps.height {
-    height: 208vh;
-  }
-
   .menuMaps.height ul {
     bottom: 18em;
   }
@@ -608,11 +603,6 @@ li {
     padding-bottom: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
-  }
-
-  .map-section.height,
-  .menuMaps.height {
-    height: 150vh;
   }
 
   .menuMaps ul {
