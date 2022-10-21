@@ -183,6 +183,8 @@ li {
   overflow: hidden;
   min-height: 100vh;
   padding-bottom: 7rem;
+  padding-right: 4rem;
+  padding-left: 4rem;
 }
 
 .specsForm {
@@ -294,9 +296,7 @@ li {
   bottom: 0;
   right: 150px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  justify-content: end;
 }
 
 .specsForm-social li,
@@ -605,7 +605,6 @@ li {
 
   .map-section, 
   .menuMaps {
-    height: auto;
     padding-bottom: 6rem;
     padding-left: 1rem;
     padding-right: 1rem;
