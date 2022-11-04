@@ -187,11 +187,6 @@ li {
   padding-left: 4rem;
 }
 
-.specsForm {
-  padding-left: 30rem;
-  padding-right: 30rem;
-}
-
 .specsForm.active,
 .map-section.active,
 .landing.active,
@@ -428,14 +423,17 @@ li {
 
 .specsForm {
   height: auto;
+  padding-left: 30rem;
+  padding-right: 30rem;
 }
 
 .specsForm .list-group-item {
   font-size: 25px;
+  margin-bottom: 3.5rem;
 }
 
 .specsForm.height {
-  height: 255vh;
+  height: auto;
 }
 
 .specsForm .page-heading {
@@ -486,11 +484,7 @@ li {
 /* Desktop */
 @media (max-width: 2500px) and (min-width: 992px) {
   .specsForm {
-    padding: 0 370px 370px 370px;
-  }
-
-  .specsForm h2 {
-    right: 0;
+    padding: 0 16rem 16rem;
   }
 
   .about-body {
@@ -527,18 +521,8 @@ li {
     bottom: 18em;
   }
 
-  .specsForm-copyright,
-  .about-copyright {
-    left: 23.5em;
-  }
-
   .specsForm {
     padding: 0 300px 300px 300px;
-    height: auto;
-  }
-
-  .specsForm.height {
-    height: auto;
   }
 
   .about-body {
@@ -623,11 +607,6 @@ li {
     right: 40px;
   }
 
-  .specsForm-copyright, 
-  .about-copyright {
-    left: 220px;
-  }
-
   .about-section,
   .specsForm {
     padding: 0 100px 100px 100px;
@@ -645,10 +624,6 @@ li {
     right: 0;
   }
 
-  .specsForm.height {
-    height: 225vh;
-  }
-
   .helpForm .page-heading {
     font-size: 71px;
   }
@@ -661,7 +636,7 @@ li {
     padding: 0 70px;
   }
 
-  .about-section, 
+  .about-section,
   .aboutMenu {
     height: 170vh;
   }
